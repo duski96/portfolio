@@ -1,0 +1,10 @@
+.List .func_area{padding-bottom:var(--space-xsm); border-bottom:2px solid #333;}
+.List .func_area .order{position:relative; display:flex; gap:var(--space-xsm); flex-shrink:0; align-items:center; line-height:1;}
+.List .func_area .order > li{cursor:pointer; color:#aaa;}
+.List .func_area .order > li:first-child{border-right:2px solid #333; padding-right:var(--space-xsm);}
+.List .func_area .order > li.active{color:#000;}
+.List .func_area .search{width:100%; max-width:480px; border:0; font-size:var(--font-md);}
+
+@media screen and (max-width:768px){
+    .List .func_area .search{max-width:150px;}
+}

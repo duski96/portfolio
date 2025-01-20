@@ -1,0 +1,63 @@
+:root{
+  --font-xlg:3rem;
+  --font-lg:1.5rem;
+  --font-md:1rem;
+  --font-sm:0.7rem;
+  --font-xsm:0.5rem;
+
+  --space-xlg:3rem;
+  --space-lg:2rem;
+  --space-md:1.5rem;
+  --space-sm:1rem;
+  --space-xsm:0.5rem;
+}
+
+html, body, input, textarea{
+  font-family: "Noto Sans KR", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.title {
+  font-family: "Jua", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inner_1280{
+  width:100%; max-width:1280px; margin:0 auto;
+}
+
+.mbr{display:none;}
+.pbr{display:block;}
+
+.fs_xlg{font-size:var(--font-xlg);}
+.fs_lg{font-size:var(--font-lg);}
+.fs_md{font-size:var(--font-md);}
+.fs_sm{font-size:var(--font-sm);}
+.fs_xsm{font-size:var(--font-xsm);}
+
+.mb_xlg{margin-bottom:var(--space-xlg);}
+.mb_lg{margin-bottom:var(--space-lg);}
+.mb_md{margin-bottom:var(--space-md);}
+.mb_sm{margin-bottom:var(--space-sm);}
+.mb_xsm{margin-bottom:var(--space-xsm);}
+
+.flex{display:flex; flex-wrap:wrap;}
+.flex.j-fs{justify-content:flex-start;}
+.flex.j-ct{justify-content:center;}
+.flex.j-fe{justify-content:flex-end;}
+.flex.j-sb{justify-content:space-between;}
+.flex.a-fs{align-items:flex-start;}
+.flex.a-ct{align-items:center;}
+.flex.a-fe{align-items:flex-end;}
+
+@media screen and (max-width:1280px){
+  .inner_1280{padding:0 16px;}
+}
+
+@media screen and (max-width:768px){
+  .mbr{display:block;}
+  .pbr{display:none;}
+}

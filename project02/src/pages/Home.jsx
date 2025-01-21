@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Main from '../components/main/Main';
 import Warranty from '../components/main/Warranty';
+import ForSale from '../components/main/ForSale';
 
 const Home=()=>{
 
@@ -29,6 +30,7 @@ const Home=()=>{
             <Header isActive={isActive}/>
             <Main />
             <Warranty />
+            <ForSale />
         </>
     );
 }

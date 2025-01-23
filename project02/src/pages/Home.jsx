@@ -23,6 +23,7 @@ const Home=()=>{
     useEffect(()=>{
         headerActive();
     }, []);
+
     
     
     return (

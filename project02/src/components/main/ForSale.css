@@ -1,11 +1,13 @@
 .ForSale{padding:var(--space-xlg) 0; background:#fff;}
 
-.ForSale .search{border:2px solid #333; padding:var(--space-lg) var(--space-sm);}
+.ForSale .search{padding:var(--space-lg) var(--space-sm); border:2px solid #333; border-radius:5px;}
 .ForSale .search .swiper{max-width:1000px;}
 .ForSale .search .swiper .swiper-button-prev{left:-32px; z-index:100; background:url(../../assets/main/forsale_arrow_left.png) no-repeat center center/contain;}
 .ForSale .search .swiper .swiper-button-prev::after{display:none;}
 .ForSale .search .swiper .swiper-button-next{background:url(../../assets/main/forsale_arrow_right.png) no-repeat center center/contain;}
 .ForSale .search .swiper .swiper-button-next::after{display:none;}
+.ForSale .search .swiper .swiper-slide img{cursor:pointer;}
+.ForSale .search .swiper .swiper-slide img.selected{border-radius:5px; background:#eaeaea;}
 
 .ForSale .search .swiper_area{position:relative;}
 .ForSale .search .navigation_btn button{position:absolute; top:50%; width:30px; height:53px; border:0; background:none; cursor:pointer;}

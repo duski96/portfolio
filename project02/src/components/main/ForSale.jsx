@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useContext } from 'react'
 import './ForSale.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -13,6 +13,8 @@ import forSaleImg05 from '../../assets/main/forsale_img05.png';
 import forSaleImg06 from '../../assets/main/forsale_img06.png';
 import forSaleImg07 from '../../assets/main/forsale_img07.png';
 import forSaleImg08 from '../../assets/main/forsale_img08.png';
+
+import {MockDataContext} from '../../App';
 
 const ForSale=()=>{
     const prevRef = useRef(null);
@@ -113,8 +115,34 @@ const ForSale=()=>{
         });
     }
 
+    const mockData=useContext(MockDataContext);
+    let filteredData=[...mockData];
+
     const onClickSubmit=()=>{
-        console.log(condition);
+        let filteredCondition=Object.entries(condition).filter((item)=>item[1]!==null).map((item)=>['year','price','mileage'].includes(item[0]) ? [item[0], Number(item[1])] : [item[0], item[1]]);
+        
+        filteredCondition.forEach((v,i)=>{
+            switch(v[0]){
+                case 'series' :
+                case 'fuel' :
+                case 'spot' :
+                case 'nextPlus' :
+                    filteredData=[...filteredData].filter((item)=>item[v[0]]===v[1]);
+                    break;
+                case 'year' :
+                    v[1]===new Date().getFullYear()-9 ? filteredData=[...filteredData].filter((item)=>item[v[0]]<=v[1]) : filteredData=[...filteredData].filter((item)=>item[v[0]]===v[1]);
+                    break;
+                case 'price' :
+                case 'mileage' :
+                    filteredData=[...filteredData].filter((item)=>item[v[0]]<=v[1]);
+                    break;
+                default :
+                    return filteredData;
+            }
+            
+        });
+
+        console.log(filteredData);
     }
 
     return (
@@ -139,31 +167,31 @@ const ForSale=()=>{
                     <ul className='select_area'>
                         <li>
                             <select name={'year'} onChange={onChange}>
-                                <option disabled defaultValue>연식</option>
+                                <option defaultValue>연식</option>
                                 {yearSelect.map((item)=>(<option key={item.id} value={item.value}>{item.content}</option>))}
                             </select>
                         </li>
                         <li>
                             <select name={'price'} onChange={onChange}>
-                                <option disabled defaultValue>가격</option>
+                                <option defaultValue>가격</option>
                                 {priceSelect.map((item)=>(<option key={item.id} value={item.value}>{item.content}</option>))}
                             </select>
                         </li>
                         <li>
                             <select name={'mileage'} onChange={onChange}>
-                                <option disabled defaultValue>주행거리</option>
+                                <option defaultValue>주행거리</option>
                                 {mileageSelect.map((item)=>(<option key={item.id} value={item.value}>{item.content}</option>))}
                             </select>
                         </li>
                         <li>
                             <select name='fuel' onChange={onChange}>
-                                <option disabled defaultValue>연료</option>
+                                <option defaultValue>연료</option>
                                 {fuelSelect.map((item)=>(<option key={item.id} value={item.value}>{item.content}</option>))}
                             </select>
                         </li>                        
                         <li>
                             <select name={'spot'} onChange={onChange}>
-                                <option disabled defaultValue>지역</option>
+                                <option defaultValue>지역</option>
                                 {spotSelect.map((item)=>(<option key={item.id} value={item.value}>{item.content}</option>))}
                             </select>
                         </li>

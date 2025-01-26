@@ -1,3 +1,4 @@
+import { createContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 
@@ -25,12 +26,16 @@ const mockData=[
   {id:20, series:'5door', year:2011, price:1700, mileage:90900, fuel:'disel', spot:'spot01', nextPlus:false},
 ];
 
+export const MockDataContext=createContext();
+
 function App() {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <MockDataContext.Provider value={mockData}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </MockDataContext.Provider>
     </>
   )
 }

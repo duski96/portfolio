@@ -1,12 +1,9 @@
 import './ForSale.css';
-import { useState, useContext, createContext } from 'react';
+import { useState, useContext } from 'react';
 import { MockDataContext } from '../../App';
 
 import ForSaleSearch from './ForSaleSearch';
 import ForSaleList from './ForSaleList';
-
-export const ForSaleStateContext=createContext();
-export const ForSaleDispatchContext=createContext();
 
 const ForSale=()=>{
     // 검색 조건을 저장할 state 생성
@@ -93,6 +90,8 @@ const ForSale=()=>{
             nextPlus:null
         });
 
+        console.log(filteredData);
+
         setFilteredList(filteredData);
     }
 
@@ -100,13 +99,8 @@ const ForSale=()=>{
         <section className='ForSale'>
             <div className='inner_1280'>
                 <h3 className='fs_lg mb_lg'>나에게 꼭 맞는 MINI를 찾아보세요.</h3>
-                <ForSaleStateContext.Provider value={filteredList}>
-                    <ForSaleDispatchContext.Provider value={{onClickSeries, onChangeSelect, onChangeChk, onClickSubmit}}>
-                        <ForSaleSearch />
-                        <ForSaleList />
-                    </ForSaleDispatchContext.Provider>
-                </ForSaleStateContext.Provider>
-                
+                <ForSaleSearch onClickSeries={onClickSeries} onChangeSelect={onChangeSelect} onChangeChk={onChangeChk} onClickSubmit={onClickSubmit} />
+                <ForSaleList filteredList={filteredList}/>
             </div>
         </section>
     );

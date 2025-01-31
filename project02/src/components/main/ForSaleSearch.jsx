@@ -1,4 +1,4 @@
-import { useState, useRef, useContext } from 'react'
+import { useState, useRef } from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -14,14 +14,10 @@ import forSaleSearchImg06 from '../../assets/main/forsale_search_img06.png';
 import forSaleSearchImg07 from '../../assets/main/forsale_search_img07.png';
 import forSaleSearchImg08 from '../../assets/main/forsale_search_img08.png';
 
-import { ForSaleDispatchContext } from './ForSale';
-
-const ForSaleSearch=()=>{
+const ForSaleSearch=({onClickSeries, onChangeSelect, onChangeChk, onClickSubmit})=>{
     // 커스텀할 swiper 네비게이션 초기 선언
     const prevRef = useRef(null);
     const nextRef = useRef(null);
-
-    const {onClickSeries, onChangeSelect, onChangeChk, onClickSubmit}=useContext(ForSaleDispatchContext);
 
     // 시리즈(모델) 선택은 swiper-slide 클릭 시 별도의 함수 실행
     const seriesSelect=[

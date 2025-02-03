@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './Spot.css';
 import mapImg from '../../assets/main/spot_img01.png';
-import pinImg from '../../assets/main/spot_img02.png';
 
 const spotList=[
     {id:0, spot:'spot01', content:'서울', shop:['양재', '가양', '성동']},
@@ -15,8 +14,7 @@ const Spot=()=>{
     const [clickedSpotList, setClickedSpotList]=useState(spotList[0]);
 
     const onClickPin=(e)=>{
-        console.log(e.target);
-        console.log(e.target.key);
+        setClickedSpotList(spotList[e.target.value]);
     }
 
     return (
@@ -27,14 +25,17 @@ const Spot=()=>{
                     <div className='map'>
                         <img src={mapImg} alt="지도 이미지"/>
                         <ul className='pins'>
-                            {spotList.map((item)=>(<li key={item.id} className='pin' onClick={onClickPin}></li>))}
+                            {spotList.map((item, idx)=>(<li key={idx} value={idx} className='pin' onClick={onClickPin}></li>))}
                         </ul>
                     </div>
                     <div className='list'>
-                        <p className='fs_md'>
-                            {/* {clickedSpotList.content} 지역 내 <br/>
-                            {clickedSpotList.shop.length}개의 전시장이 있습니다. */}
+                        <p className='fs_md mb_lg'>
+                            {clickedSpotList.content} 지역 내 <br/>
+                            {clickedSpotList.shop.length}개의 전시장이 있습니다.
                         </p>
+                        <ul className='shop_list fs_sm'>
+                            {clickedSpotList.shop.map((item, idx)=>(<li key={idx}>MINI NEXT {item} 전시장</li>))}
+                        </ul>
                     </div>
                 </div>
             </div>

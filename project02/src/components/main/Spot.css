@@ -1,11 +1,19 @@
 .Spot{padding:var(--space-xlg) 0; text-align:center; background:#fff;}
-.Spot .info{display:flex; justify-content:space-between;}
-.Spot .info .map{position:relative;}
+.Spot .info{display:flex; justify-content:center;}
+
+.Spot .info .map{position:relative; margin-right:var(--space-xlg);}
 .Spot .info .map img{display:block;}
 .Spot .info .map ul.pins{position:absolute; top:0; width:100%; height:100%;}
-.Spot .info .map ul.pins li.pin{position:absolute; width:30px; height:45px; background:url(../../assets/main/spot_img02.png) no-repeat center center/contain;}
+.Spot .info .map ul.pins li.pin{position:absolute; width:30px; height:45px; background:url(../../assets/main/spot_img02.png) no-repeat center center/contain; transform:scale(0.9); transition:0.3s; cursor:pointer;}
+.Spot .info .map ul.pins li.pin:hover{transform:scale(1);}
 .Spot .info .map ul.pins li.pin:first-child{top: 11%;left: 27%;}
 .Spot .info .map ul.pins li.pin:nth-child(2){top:15%; left:36%;}
 .Spot .info .map ul.pins li.pin:nth-child(3){top:35%; left:36%;}
 .Spot .info .map ul.pins li.pin:nth-child(4){top:46%; left:67%;}
 .Spot .info .map ul.pins li.pin:nth-child(5){top:61%; left:21%;}
+
+.Spot .info .list{text-align:left; width:100%; max-width:420px;}
+.Spot .info .list ul li{position:relative; border-bottom:1px solid #333; margin-bottom:var(--space-sm); padding-bottom:var(--space-xsm); cursor:default;}
+.Spot .info .list ul li::after{content:""; position:absolute; top:calc(50% - var(--space-xsm)); right:var(--space-sm); display:block; width:10px; height:10px; border-top:2px solid #333; border-right:2px solid #333; transform:translateY(calc(-50% + var(--space-xsm)/2)) rotate(45deg); transition:0.3s;}
+.Spot .info .list ul li:hover::after{right:0;}
+.Spot .info .list ul li:last-child{margin-bottom:0;}

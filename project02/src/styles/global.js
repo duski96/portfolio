@@ -35,6 +35,7 @@ const GlobalStyle=createGlobalStyle`
     }
 
     .inner_1280{width:100%; max-width:1280px; margin:0 auto;}
+    .inner_1000{width:100%; max-width:1000px; margin:0 auto;}
 
     .mbr{display:none;}
     .pbr{display:block;}
@@ -63,7 +64,7 @@ const GlobalStyle=createGlobalStyle`
     .flex.a-fe{align-items:flex-end;}
 
     @media screen and (max-width:1280px){
-        .inner_1280{padding:0 16px;}
+        .inner_1280, .inner_1000{padding:0 16px;}
     }
 
     @media screen and (max-width:768px){

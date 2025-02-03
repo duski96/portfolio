@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import Main from '../components/main/Main';
 import Warranty from '../components/main/Warranty';
 import ForSale from '../components/main/ForSale';
+import TradeIn from '../components/main/TradeIn';
+import Spot from '../components/main/spot';
 
 const Home=()=>{
 
@@ -23,8 +25,6 @@ const Home=()=>{
     useEffect(()=>{
         headerActive();
     }, []);
-
-    
     
     return (
         <>
@@ -32,6 +32,8 @@ const Home=()=>{
             <Main />
             <Warranty />
             <ForSale />
+            <TradeIn />
+            <Spot />
         </>
     );
 }

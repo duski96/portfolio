@@ -90,8 +90,6 @@ const ForSale=()=>{
             nextPlus:null
         });
 
-        console.log(filteredData);
-
         setFilteredList(filteredData);
     }
 

@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import Header from '../components/Header';
 import Main from '../components/main/Main';
 import Warranty from '../components/main/Warranty';
@@ -26,6 +28,8 @@ const Home=()=>{
     useEffect(()=>{
         headerActive();
     }, []);
+
+    const nav=useNavigate();
     
     return (
         <>
@@ -33,6 +37,7 @@ const Home=()=>{
             <Main />
             <Warranty />
             <ForSale />
+            <div className='inner_1280' onClick={()=>{nav('/interest')}}>관심목록 가기</div>
             <TradeIn />
             <Spot />
             <Footer />

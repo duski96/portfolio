@@ -1,3 +1,3 @@
-.Main{width:100%; height:100vh; background:url(../../assets/main/main_img01.jpg) no-repeat center center/cover; color:#fff;}
-.Main .inner_1280{position:relative; height:100%;}
-.Main .txt_area{position:absolute; left:0; top:50%; transform:translateY(-50%);}
+.Main.main{width:100%; height:100vh; background:url(../../assets/main/main_img01.jpg) no-repeat center center/cover; color:#fff;}
+.Main.main .inner_1280{position:relative; height:100%;}
+.Main.main .txt_area{position:absolute; left:0; top:50%; transform:translateY(-50%);}

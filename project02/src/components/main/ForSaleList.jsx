@@ -2,7 +2,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import heart from './../../assets/main/forsale_heart.png';
 
+import { useContext } from 'react';
+import { MockDataContext, MockDataDispatchContext } from '../../App';
+
 const ForSaleList = ({ filteredList }) => {
+    const {interestId}=useContext(MockDataContext);
+    const {getInterestId}=useContext(MockDataDispatchContext);
+
     return (
         <>
             <div className='filtered_list'>
@@ -15,7 +21,7 @@ const ForSaleList = ({ filteredList }) => {
                             {filteredList.map((item) => (<SwiperSlide key={item.id}>
                                 <div className='info fs_sm NotoSansKR'>
                                     <div className='function'>
-                                        <button type="button"><img src={heart} alt='관심 매물 등록 아이콘' /></button>
+                                        <button type="button" onClick={()=>{getInterestId(item.id)}} className={interestId.includes(item.id) ? 'active' : ''}><img src={heart} alt='관심 매물 등록 아이콘' /></button>
                                     </div>
                                     <div className='picture'>
                                         <img src={item.img} alt={item.series} className='model' />

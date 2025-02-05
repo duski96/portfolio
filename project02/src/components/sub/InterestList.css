@@ -1,0 +1,18 @@
+.InterestList{padding:var(--space-xlg) 0;}
+.InterestList ul.interest_list > li{display:flex; justify-content:space-between; align-items:center; gap:var(--space-md); margin-bottom:var(--space-md); padding-bottom:var(--space-md); border-bottom:1px solid #333;}
+.InterestList ul.interest_list > li:last-child{margin-bottom:0; padding-bottom:0; border-bottom:0;}
+
+.InterestList .info{display:flex;}
+.InterestList .info img{display:block; max-width:300px; margin-right:var(--space-md); border-radius:5px;}
+.InterestList .info ul{display:flex; flex-wrap:wrap; align-items:center; align-self:center; width:100%;}
+.InterestList .info ul > li{margin-right:var(--space-sm); line-height:1.6;}
+.InterestList .info ul > li:first-child{width:100%; font-family:"Cormorant";}
+.InterestList .info ul > li:not(first-child){color:#444;}
+.InterestList .info ul > li:last-child{width:100%;}
+
+.InterestList .price{flex-shrink:0;}
+
+.InterestList .func{display:flex; flex-direction:column; gap:var(--space-xsm)}
+.InterestList .func button{width:150px; height:50px; font-size:var(--font-sm); font-weight:600; color:#fff; border:0; border-radius:5px;}
+.InterestList .func button:first-child{background:#00540D;}
+.InterestList .func button:last-child{background:#FF5555;}

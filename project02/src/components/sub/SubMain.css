@@ -1,0 +1,3 @@
+.Main.sub{position:relative; height:400px; margin-top:100px;}
+.Main.sub > img{position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); z-index:-1; object-fit:cover;}
+.Main.sub .inner_1280{display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; color:#fff;}

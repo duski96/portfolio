@@ -1,7 +1,8 @@
-import { createContext } from 'react';
+import { useState, createContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import { getMiniImage } from './util/get-mini-image';
+import Interest from './pages/Interest';
+import { getMiniImage } from './util/get-mini-image.js';
 
 const mockData=[
   {id:0, series:'3door', year:2017, price:3000, mileage:17000, fuel:'disel', spot:'spot01', nextPlus:false, img:null},
@@ -33,14 +34,25 @@ mockData.forEach((v)=>{
 
 
 export const MockDataContext=createContext();
+export const MockDataDispatchContext=createContext();
 
 function App() {
+  const [interestId, setInterestId]=useState([]);
+
+  const getInterestId=(id)=>{
+    interestId.includes(id) ? setInterestId(interestId.filter((item)=>item!==id)) : setInterestId([...interestId, id]);
+    console.log(interestId);
+  }
+
   return (
     <>
-      <MockDataContext.Provider value={mockData}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
+      <MockDataContext.Provider value={{mockData, interestId}}>
+        <MockDataDispatchContext.Provider value={{getInterestId}}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/interest" element={<Interest />} />
+          </Routes>
+        </MockDataDispatchContext.Provider>
       </MockDataContext.Provider>
     </>
   )

@@ -46,7 +46,7 @@ const ForSale=()=>{
 
 
     // App.jsx에서 전체 매물 목록을 불러옴
-    const mockData=useContext(MockDataContext); // 전체 매물 목록
+    const {mockData}=useContext(MockDataContext); // 전체 매물 목록
     let filteredData=[...mockData]; // 매물 목록에서 검색 조건에 맞는 것들을 담을 배열
 
     const [filteredList, setFilteredList]=useState(filteredData);

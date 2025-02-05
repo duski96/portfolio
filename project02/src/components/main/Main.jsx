@@ -2,7 +2,7 @@ import './Main.css';
 
 const Main=()=>{
     return (
-        <section className='Main'>
+        <section className='Main main'>
             <div className='inner_1280'>
                 <div className='txt_area'>
                     <h2 className='fs_xlg mb_md'>MINI USED CAR NEXT.</h2>

@@ -25,6 +25,7 @@ const GlobalStyle=createGlobalStyle`
         font-style: normal;
         font-size:18px;
         line-height:1.3;
+        color:#333;
     }
 
     .NotoSansKR {

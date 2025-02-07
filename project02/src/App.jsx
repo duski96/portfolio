@@ -41,13 +41,16 @@ function App() {
 
   const getInterestId=(id)=>{
     interestId.includes(id) ? setInterestId(interestId.filter((item)=>item!==id)) : setInterestId([...interestId, id]);
-    console.log(interestId);
+  }
+
+  const deleteInterestId=(targetId)=>{
+    setInterestId(interestId.filter((item)=>item!==targetId));
   }
 
   return (
     <>
       <MockDataContext.Provider value={{mockData, interestId}}>
-        <MockDataDispatchContext.Provider value={{getInterestId}}>
+        <MockDataDispatchContext.Provider value={{getInterestId, deleteInterestId}}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/interest" element={<Interest />} />

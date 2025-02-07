@@ -2,12 +2,14 @@ import { useState } from 'react';
 import './Spot.css';
 import mapImg from '../../assets/main/spot_img01.png';
 
+import {replaceSpotTxt} from '../../util/replace-spot-txt.js';
+
 const spotList=[
-    {id:0, spot:'spot01', content:'서울', shop:['양재', '가양', '성동']},
-    {id:1, spot:'spot02', content:'경기/인천', shop:['김포', '송도', '일산', '부천', '수원']},
-    {id:2, spot:'spot03', content:'충청/대전', shop:['대전']},
-    {id:3, spot:'spot04', content:'경상/대구/부산/울산', shop:['사직', '대구', '남구', '창원']},
-    {id:4, spot:'spot05', content:'전라/광주', shop:['광주']}
+    {id:0, spot:'spot01', shop:['양재', '가양', '성동']},
+    {id:1, spot:'spot02', shop:['김포', '송도', '일산', '부천', '수원']},
+    {id:2, spot:'spot03', shop:['대전']},
+    {id:3, spot:'spot04', shop:['사직', '대구', '남구', '창원']},
+    {id:4, spot:'spot05', shop:['광주']}
 ];
 
 const Spot=()=>{
@@ -30,7 +32,7 @@ const Spot=()=>{
                     </div>
                     <div className='list'>
                         <p className='fs_md mb_lg'>
-                            {clickedSpotList.content} 지역 내 <br/>
+                            {replaceSpotTxt(clickedSpotList.spot)} 지역 내 <br/>
                             {clickedSpotList.shop.length}개의 전시장이 있습니다.
                         </p>
                         <ul className='shop_list fs_sm'>

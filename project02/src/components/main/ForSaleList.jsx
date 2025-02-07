@@ -5,6 +5,9 @@ import heart from './../../assets/main/forsale_heart.png';
 import { useContext } from 'react';
 import { MockDataContext, MockDataDispatchContext } from '../../App';
 
+import {replaceFuelTxt} from '../../util/replace-fuel-txt.js';
+import {replaceSpotTxt} from '../../util/replace-spot-txt.js';
+
 const ForSaleList = ({ filteredList }) => {
     const {interestId}=useContext(MockDataContext);
     const {getInterestId}=useContext(MockDataDispatchContext);
@@ -12,7 +15,7 @@ const ForSaleList = ({ filteredList }) => {
     return (
         <>
             <div className='filtered_list'>
-                {filteredList.length > 0 ?
+                {filteredList.length ?
                     (
                         <Swiper
                             spaceBetween={32}
@@ -39,10 +42,10 @@ const ForSaleList = ({ filteredList }) => {
                                         </div>
                                         <div className='flex j-sb mb_sm'>
                                             <p>연료</p>
-                                            <p>{item.fuel.toUpperCase()}</p>
+                                            <p>{replaceFuelTxt(item.fuel)}</p>
                                         </div>
                                         <hr className='mb_xsm' />
-                                        <p>{item.spot === 'spot01' ? '서울' : item.spot === 'spot02' ? '경기/인천' : item.spot === 'spot03' ? '충청/대전' : item.spot === 'spot04' ? '경상/대구/부산/울산' : item.spot === 'spot05' ? '전라/광주' : '판매지 미정'}</p>
+                                        <p>{replaceSpotTxt(item.spot)}</p>
                                     </div>
                                 </div>
                             </SwiperSlide>))}

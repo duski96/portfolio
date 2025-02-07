@@ -1,6 +1,7 @@
 import './Header.css';
 import logo from '../assets/logo.svg';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Header=({isActive})=>{
     
@@ -14,10 +15,16 @@ const Header=({isActive})=>{
         setIsHover(false);
     }
 
+    const nav=useNavigate();
+
+    const goHome=()=>{
+        nav('/', {replace:true});
+    }
+
     return (
         <header className={`Header ${isHover ? 'isHover' : ''} ${isActive ? 'isActive' : ''}`}>
             <div className="inner_1280">
-                <h1 className='logo'><img src={logo}/></h1>
+                <h1 className='logo' onClick={goHome}><img src={logo}/></h1>
                 <nav onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
                     <ul className='depth01'>
                         <li>

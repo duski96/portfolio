@@ -5,18 +5,20 @@ import { MockDataContext } from '../../App';
 import ForSaleSearch from './ForSaleSearch';
 import ForSaleList from './ForSaleList';
 
+const initCondition={
+    series:null,
+    year:null,
+    price:null,
+    mileage:null,
+    fuel:null,
+    spot:null,
+    nextPlus:null
+}
+
 const ForSale=()=>{
     // 검색 조건을 저장할 state 생성
     // onClickSeries 실행 및 select 태그, input 태그 클릭 시 onChange 이벤트 발생
-    const [condition, setCondition]=useState({
-        series:null,
-        year:null,
-        price:null,
-        mileage:null,
-        fuel:null,
-        spot:null,
-        nextPlus:null
-    });
+    const [condition, setCondition]=useState(initCondition);
 
     const {series, year, price, mileage, fuel, spot, nextPlus}=condition;
 
@@ -64,7 +66,6 @@ const ForSale=()=>{
                     filteredData=[...filteredData].filter((item)=>item[v[0]]===v[1]);
                     break;
                 }
-                    
                 case 'year' : {
                     v[1]===new Date().getFullYear()-10 ? filteredData=[...filteredData].filter((item)=>item[v[0]]<=v[1]) : filteredData=[...filteredData].filter((item)=>item[v[0]]===v[1]);
                     break;
@@ -80,15 +81,7 @@ const ForSale=()=>{
         });
 
         // 검색 조건 초기화
-        setCondition({
-            series:null,
-            year:null,
-            price:null,
-            mileage:null,
-            fuel:null,
-            spot:null,
-            nextPlus:null
-        });
+        setCondition(initCondition);
 
         setFilteredList(filteredData);
     }

@@ -1,12 +1,14 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+
 import heart from './../../assets/main/forsale_heart.png';
 
 import { useContext } from 'react';
 import { MockDataContext, MockDataDispatchContext } from '../../App';
 
-import {replaceFuelTxt} from '../../util/replace-fuel-txt.js';
-import {replaceSpotTxt} from '../../util/replace-spot-txt.js';
+import { getMiniImage } from '../../util/get-mini-image.js';
+import { replaceFuelTxt } from '../../util/replace-fuel-txt.js';
+import { replaceSpotTxt } from '../../util/replace-spot-txt.js';
 
 const ForSaleList = ({ filteredList }) => {
     const {interestId}=useContext(MockDataContext);
@@ -27,7 +29,7 @@ const ForSaleList = ({ filteredList }) => {
                                         <button type="button" onClick={()=>{getInterestId(item.id)}} className={interestId.includes(item.id) ? 'active' : ''}><img src={heart} alt='관심 매물 등록 아이콘' /></button>
                                     </div>
                                     <div className='picture'>
-                                        <img src={item.img} alt={item.series} className='model' />
+                                        <img src={getMiniImage(item.id)} alt={item.series} className='model' />
                                     </div>
                                     <div className='txt'>
                                         <h4 className='fs_md'><b>{item.series.toUpperCase()}</b></h4>

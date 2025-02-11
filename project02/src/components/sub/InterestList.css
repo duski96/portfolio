@@ -15,7 +15,7 @@
 
 .InterestList .func{display:flex; flex-direction:column; gap:var(--space-xsm)}
 .InterestList .func button{width:150px; height:50px; font-size:var(--font-sm); font-weight:600; color:#fff; border:0; border-radius:5px;}
-.InterestList .func button:first-child{background:#00540D;}
+.InterestList .func button:first-child{/*background:#00540D;*/ background:#ccc;}
 .InterestList .func button:last-child{background:#FF5555; cursor:pointer;}
 
 .InterestList .no_result{display:flex; justify-content:center; align-items:center; min-height:500px;}

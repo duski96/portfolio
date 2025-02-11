@@ -2,19 +2,19 @@ import { useState, useContext } from 'react';
 import { MockDataContext, MockDataDispatchContext } from '../../App';
 import './InterestList.css';
 
-import {replaceFuelTxt} from '../../util/replace-fuel-txt.js';
-import {replaceSpotTxt} from '../../util/replace-spot-txt.js';
+import { getMiniImage } from '../../util/get-mini-image.js';
+import { replaceFuelTxt } from '../../util/replace-fuel-txt.js';
+import { replaceSpotTxt } from '../../util/replace-spot-txt.js';
 
 const InterestList=()=>{
-    const {mockData}=useContext(MockDataContext);
-    const {interestId}=useContext(MockDataContext);
+    const {mockData, interestId}=useContext(MockDataContext);
     const {deleteInterestId}=useContext(MockDataDispatchContext);
 
-    const [interestList, setInterestList]=useState(mockData.filter((item)=>interestId.includes(item.id)))
+    const [interestList, setInterestList]=useState(mockData.filter((item)=>interestId.includes(item.id))) // 관심 매물 리스트
 
     const onClickDelete=(targetId)=>{
-        deleteInterestId(targetId);
-        setInterestList(interestList.filter((item)=>item.id!==targetId));
+        deleteInterestId(targetId); // interestId 배열에서 해당하는 id 삭제
+        setInterestList(interestList.filter((item)=>item.id!==targetId)); // 과심 매물 리스트 재설정
     }
 
     return (
@@ -25,7 +25,7 @@ const InterestList=()=>{
                     {interestList.map((item)=>(
                         <li key={item.id}>
                             <div className='info'>
-                                <img src={item.img} alt='매물' />
+                                <img src={getMiniImage(item.id)} alt='매물' />
                                 <ul className='fs_sm NotoSansKR'>
                                     <li className='mb_md'><h4 className='fs_lg'><b>{item.series.toUpperCase()}</b></h4></li>
                                     <li>연식 : {item.year}</li>

@@ -1,0 +1,5 @@
+.ModelContent{padding:var(--space-xlg) 0;}
+.ModelContent h4{font-family:'cormorant'; font-size:calc(var(--font-lg) * 1.5); font-weight:600; text-align:center; line-height:1;}
+.ModelContent h5{font-family:'cormorant'; text-align:center;}
+.ModelContent img{display:block; border-radius:5px;}
+.ModelContent p{font-family:"Noto Sans KR"; line-height:1.8;}

@@ -1,7 +1,8 @@
-import { useState, createContext, useEffect } from 'react';
+import { useState, createContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Interest from './pages/Interest';
+import Model from './pages/Model';
 
 const mockData=[
   {id:0, series:'3door', year:2017, price:3000, mileage:17000, fuel:'disel', spot:'spot01', nextPlus:false},
@@ -32,18 +33,21 @@ export const MockDataDispatchContext=createContext();
 
 function App() {
   const storedInterestId=JSON.parse(localStorage.getItem('interestId'));
+  // 찜한 목록의 id를 localStorage에서 불러옴
   
   const [interestId, setInterestId]=useState(storedInterestId ? storedInterestId : []);
+  // localStorage가 비어있을 경우 빈 배열을 초기값으로, 그렇지 않으면 저장된 데이터를 초기값으로 지정
 
-  const getInterestId=(targetId)=>{
+  const getInterestId=(targetId)=>{ // 관심 매물 id 저장
     interestId.includes(targetId) ? setInterestId(interestId.filter((item)=>item!==targetId)) : setInterestId([...interestId, targetId]);
   }
 
-  const deleteInterestId=(targetId)=>{
+  const deleteInterestId=(targetId)=>{ // 관심 매물 id 삭제
     setInterestId(interestId.filter((item)=>item!==targetId));
   }
 
   localStorage.setItem('interestId',JSON.stringify(interestId));
+  // interestId의 상태가 변하면 localStorage에 저장
 
   return (
     <>
@@ -52,6 +56,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/interest" element={<Interest />} />
+            <Route path="/model/:name" element={<Model />} />
           </Routes>
         </MockDataDispatchContext.Provider>
       </MockDataContext.Provider>

@@ -8,7 +8,7 @@
 .Header nav ul.depth01{display:flex; justify-content:space-between; align-items:center; width:calc(100% - 280px); max-width:768px; height:100%;}
 .Header nav ul.depth01 > li{position:relative; width:25%; text-align:center;}
 .Header nav ul.depth02{position:absolute; top:59px; left:50%; transform:translateX(-50%); display:none; width:100%; padding:41px 0; color:#333; text-align:center; font-size:var(--font-sm);}
-.Header nav ul.depth02 > li{margin-bottom:var(--space-sm); padding:0 var(--space-xsm); color:#fff;}
+.Header nav ul.depth02 > li{margin-bottom:var(--space-sm); padding:0 var(--space-xsm); color:#fff; cursor:pointer;}
 .Header nav ul.depth02 > li:last-child{margin-bottom:0;}
 
 .Header.isHover{background:#000;}

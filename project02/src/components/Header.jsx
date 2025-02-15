@@ -17,24 +17,20 @@ const Header=({isActive})=>{
 
     const nav=useNavigate();
 
-    const goHome=()=>{
-        nav('/', {replace:true});
-    }
-
     return (
         <header className={`Header ${isHover ? 'isHover' : ''} ${isActive ? 'isActive' : ''}`}>
             <div className="inner_1280">
-                <h1 className='logo' onClick={goHome}><img src={logo}/></h1>
+                <h1 className='logo' onClick={()=>{nav('/', {replace:true})}}><img src={logo} alt="logo" /></h1>
                 <nav onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
                     <ul className='depth01'>
                         <li>
                             <b>MODEL</b>
                             <ul className='depth02'>
-                                <li>HATCH</li>
-                                <li>5-DOOR</li>
-                                <li>CONVERTIBLE</li>
-                                <li>CLUBMAN</li>
-                                <li>COUNTRYMAN</li>
+                                <li onClick={()=>{nav('/model/hatch')}}>HATCH</li>
+                                <li onClick={()=>{nav('/model/5door')}}>5-DOOR</li>
+                                <li onClick={()=>{nav('/model/convertible')}}>CONVERTIBLE</li>
+                                <li onClick={()=>{nav('/model/clubman')}}>CLUBMAN</li>
+                                <li onClick={()=>{nav('/model/countryman')}}>COUNTRYMAN</li>
                             </ul>
                         </li>
                         <li>

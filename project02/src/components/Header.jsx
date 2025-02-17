@@ -36,27 +36,27 @@ const Header=({isActive})=>{
                         <li>
                             <b>USED CAR</b>
                             <ul className='depth02'>
-                                <li>인증중고차</li>
-                                <li>LOYALTY PROGRAM</li>
-                                <li>내차 판매 문의</li>
-                                <li>희망차량 등록 알림</li>
+                                <li onClick={()=>{nav('/used-car/certified')}}>인증중고차</li>
+                                <li onClick={()=>{nav('/used-car/loyalty')}}>LOYALTY PROGRAM</li>
+                                <li onClick={()=>{nav('/used-car/sales')}}>내차 판매 문의</li>
+                                <li onClick={()=>{nav('/used-car/desired')}}>희망차량 등록 알림</li>
                             </ul>
                         </li>
                         <li>
                             <b>SERVICE</b>
                             <ul className='depth02'>
-                                <li>MINI CONNECTED</li>
-                                <li>MINI APP</li>
-                                <li>PARTS</li>
-                                <li>ACCESSORIES</li>
+                                <li onClick={()=>{nav('/service/connected')}}>MINI CONNECTED</li>
+                                <li onClick={()=>{nav('/service/app')}}>MINI APP</li>
+                                <li onClick={()=>{nav('/service/parts')}}>PARTS</li>
+                                <li onClick={()=>{nav('/service/accessories')}}>ACCESSORIES</li>
                             </ul>
                         </li>
                         <li>
-                            <b>BRAND & NEWS</b>
+                            <b>BRAND</b>
                             <ul className='depth02'>
-                                <li>NEWS</li>
-                                <li>INSIDE MINI</li>
-                                <li>MINI LIFESTYLE</li>
+                                <li onClick={()=>{nav('/brand/news')}}>NEWS</li>
+                                <li onClick={()=>{nav('/brand/inside')}}>INSIDE MINI</li>
+                                <li onClick={()=>{nav('/brand/lifestyle')}}>MINI LIFESTYLE</li>
                             </ul>
                         </li>
                     </ul>

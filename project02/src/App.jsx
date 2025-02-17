@@ -56,7 +56,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/interest" element={<Interest />} />
-            <Route path="/model/:name" element={<Model />} />
+            <Route path="/model/:subPageName" element={<Model />} />
           </Routes>
         </MockDataDispatchContext.Provider>
       </MockDataContext.Provider>

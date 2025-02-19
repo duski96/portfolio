@@ -1,0 +1,35 @@
+.DetailContent{padding:var(--space-xlg) 0;}
+.DetailContent img{display:block;}
+.DetailContent ul.info_txt{display:flex; gap:var(--space-sm);}
+.DetailContent ul.info_txt li{line-height:1.6;}
+
+.DetailContent .div_area{display:flex;}
+.DetailContent .div_area .left{width:calc((100% - 32px)*0.6);}
+
+.DetailContent .photo_area{display:flex; gap:var(--space-sm); width:100%; max-height:300px;}
+.DetailContent .photo_area .swiper_area{width:100%; max-width:400px;}
+
+/************************** 플러그인 CSS *******************************/
+
+.DetailContent .swiper{border-radius:5px;}
+.DetailContent .swiper-slide{height:auto; background:#eee;}
+
+.DetailContent .swiper-button-prev{top:auto; right:var(--space-lg); bottom:var(--space-sm); left:auto;}
+.DetailContent .swiper-button-prev::after{font-size:24px; color:#333;}
+.DetailContent .swiper-button-next{top:auto; bottom:var(--space-sm);}
+.DetailContent .swiper-button-next::after{font-size:24px; color:#333;}
+
+/**********************************************************************/
+
+.DetailContent .photo_area .swiper_area .tmp_img{display:flex; justify-content:center; align-items:center; width:100%; height:100%; background:#eee;}
+.DetailContent .photo_area .swiper_area .tmp_img img{width:70%;}
+
+.DetailContent .photo_area .add_area{width:100%;}
+.DetailContent .photo_area .add_area{display:flex; flex-wrap:wrap; gap:var(--space-sm); width:100%;}
+.DetailContent .photo_area .add_area .add_img{display:flex; justify-content:center; align-items:center; width:100%; height:calc(50% - var(--space-sm)/2); border-radius:5px; overflow:hidden;}
+.DetailContent .photo_area .add_area .add_img a{display:block; width:100%; height:100%;}
+.DetailContent .photo_area .add_area .add_img img{display:block; width:100%; height:100%; object-fit:cover;}
+
+
+
+

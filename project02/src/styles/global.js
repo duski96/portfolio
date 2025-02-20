@@ -64,6 +64,9 @@ const GlobalStyle=createGlobalStyle`
     .flex.a-ct{align-items:center;}
     .flex.a-fe{align-items:flex-end;}
 
+    .img_arrange{display:flex; gap:var(--space-sm);}
+    .img_arrange img{display:block; width:100%; height:100%;}
+
     @media screen and (max-width:1280px){
         .inner_1280, .inner_1000{padding:0 16px;}
     }

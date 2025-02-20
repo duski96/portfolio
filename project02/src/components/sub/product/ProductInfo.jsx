@@ -4,10 +4,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 import Fancybox from './Fancybox.jsx';
-//import Carousel from './Carousel.jsx';
 
 import { useContext } from 'react';
-import { MockDataContext } from '../../../App';
+import { MockDataContext } from '../../../App.jsx';
+import { useNavigate } from 'react-router-dom';
 
 import { getMiniImage } from '../../../util/get-mini-image.js';
 import { replaceFuelTxt } from '../../../util/replace-fuel-txt.js';
@@ -20,14 +20,16 @@ import tmpImg04 from '../../../assets/sub/detail_tmp04.jpg';
 import tmpImg05 from '../../../assets/sub/detail_tmp05.jpg';
 import tmpImg06 from '../../../assets/sub/detail_tmp06.jpg';
 
-const Info=()=>{
+const ProductInfo=()=>{
 
     const {mockData}=useContext(MockDataContext);
     const currentData=mockData[0];
 
+    const nav=useNavigate();
+
     return (
-        <>
-            <h3 className='fs_lg mb_xsm'><b>{currentData.series.toUpperCase()}</b></h3>
+        <article className='Info mb_xlg'>
+            <h4 className='fs_lg mb_xsm'><b>{currentData.series.toUpperCase()}</b></h4>
             <ul className='fs_sm NotoSansKR info_txt'>
                 <li>연식 : {currentData.year}</li>
                 <li>주행거리 : {currentData.mileage}</li>
@@ -44,7 +46,7 @@ const Info=()=>{
                     },
                 }}
             >
-            <div className='photo_area'>
+            <div className='photo_area mb_md'>
                 <div className='swiper_area'>
                     <Swiper
                         modules={[Navigation]}
@@ -85,9 +87,10 @@ const Info=()=>{
                     <div className='add_img'><a data-fancybox="gallery" href={tmpImg02}><img src={tmpImg02} alt="매물 사진 3" /></a></div> 
                 </div>
             </div>
-            </Fancybox>   
-        </>
+            </Fancybox>
+            <p className='go_to fs_md NotoSansKR' onClick={()=>{nav(`/model/${currentData.series}`)}}>{currentData.series.toUpperCase()} 모델 알아보기</p>
+        </article>
     );
 }
 
-export default Info;
+export default ProductInfo;

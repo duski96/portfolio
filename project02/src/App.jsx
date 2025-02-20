@@ -6,7 +6,7 @@ import Model from './pages/Model';
 import UsedCar from './pages/UsedCar';
 import Service from './pages/Service';
 import Brand from './pages/Brand';
-import Detail from './pages/Detail';
+import Product from './pages/Product';
 
 const mockData=[
   {id:0, series:'3door', year:2017, price:3000, mileage:17000, fuel:'disel', spot:'spot01', nextPlus:false},
@@ -64,7 +64,7 @@ function App() {
             <Route path="/used-car/:subPageName" element={<UsedCar />} />
             <Route path="/service/:subPageName" element={<Service />} />
             <Route path="/brand/:subPageName" element={<Brand />} />
-            <Route path="/detail" element={<Detail />} />
+            <Route path="/product" element={<Product />} />
           </Routes>
         </MockDataDispatchContext.Provider>
       </MockDataContext.Provider>

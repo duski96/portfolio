@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import Header from "../components/Header";
 import SubMain from "../components/sub/SubMain";
@@ -12,15 +11,6 @@ import subMainBg from './../assets/sub/model_main_img01.jpg';
 const Model=()=>{
     const params=useParams();
     const paramsName=params.subPageName;
-
-    const nav=useNavigate();
-
-    useEffect(()=>{
-        if(!['hatch', '5door', 'convertible', 'clubman', 'countryman'].includes(paramsName)){
-            alert('존재하지 않는 모델입니다.');
-            nav(-1);
-        }
-    });
 
     return (
         <>

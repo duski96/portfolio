@@ -26,7 +26,7 @@ const Header=({isActive})=>{
                         <li>
                             <b>MODEL</b>
                             <ul className='depth02'>
-                                <li onClick={()=>{nav('/model/hatch')}}>HATCH</li>
+                                <li onClick={()=>{nav('/model/3door')}}>3-DOOR</li>
                                 <li onClick={()=>{nav('/model/5door')}}>5-DOOR</li>
                                 <li onClick={()=>{nav('/model/convertible')}}>CONVERTIBLE</li>
                                 <li onClick={()=>{nav('/model/clubman')}}>CLUBMAN</li>

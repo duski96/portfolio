@@ -42,6 +42,7 @@ const GlobalStyle=createGlobalStyle`
     .pbr{display:block;}
 
     b{font-weight:600;}
+    a{color:#333; text-decoration:none;}
 
     .fs_xlg{font-size:var(--font-xlg);}
     .fs_lg{font-size:var(--font-lg);}

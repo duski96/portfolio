@@ -1,7 +1,7 @@
 import './Header.css';
 import logo from '../assets/logo.svg';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Header=({isActive})=>{
     
@@ -15,48 +15,49 @@ const Header=({isActive})=>{
         setIsHover(false);
     }
 
-    const nav=useNavigate();
-
     return (
         <header className={`Header ${isHover ? 'isHover' : ''} ${isActive ? 'isActive' : ''}`}>
             <div className="inner_1280">
-                <h1 className='logo' onClick={()=>{nav('/', {replace:true})}}><img src={logo} alt="logo" /></h1>
+                <h1 className='logo'><Link to='/'><img src={logo} alt="logo" /></Link></h1>
                 <nav onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
                     <ul className='depth01'>
                         <li>
                             <b>MODEL</b>
                             <ul className='depth02'>
-                                <li onClick={()=>{nav('/model/3door')}}>3-DOOR</li>
-                                <li onClick={()=>{nav('/model/5door')}}>5-DOOR</li>
-                                <li onClick={()=>{nav('/model/convertible')}}>CONVERTIBLE</li>
-                                <li onClick={()=>{nav('/model/clubman')}}>CLUBMAN</li>
-                                <li onClick={()=>{nav('/model/countryman')}}>COUNTRYMAN</li>
+                                <li><Link to='/model/3door'>3-DOOR</Link></li>
+                                <li><Link to='/model/5door'>5-DOOR</Link></li>
+                                <li><Link to='/model/convertible'>CONVERTIBLE</Link></li>
+                                <li><Link to='/model/clubman'>CLUBMAN</Link></li>
+                                <li><Link to='/model/countryman'>COUNTRYMAN</Link></li>
+                                <li><Link to='/model/coupe'>COUPE</Link></li>
+                                <li><Link to='/model/paceman'>PACEMAN</Link></li>
+                                <li><Link to='/model/roadster'>ROADSTER</Link></li>
                             </ul>
                         </li>
                         <li>
                             <b>USED CAR</b>
                             <ul className='depth02'>
-                                <li onClick={()=>{nav('/used-car/certified')}}>인증중고차</li>
-                                <li onClick={()=>{nav('/used-car/loyalty')}}>LOYALTY PROGRAM</li>
-                                <li onClick={()=>{nav('/used-car/sales')}}>내차 판매 문의</li>
-                                <li onClick={()=>{nav('/used-car/desired')}}>희망차량 등록 알림</li>
+                                <li><Link to='/used-car/certified'>인증중고차</Link></li>
+                                <li><Link to='/used-car/loyalty'>LOYALTY PROGRAM</Link></li>
+                                <li><Link to='/used-car/sales'>내차 판매 문의</Link></li>
+                                <li><Link to='/used-car/desired'>희망차량 등록 알림</Link></li>
                             </ul>
                         </li>
                         <li>
                             <b>SERVICE</b>
                             <ul className='depth02'>
-                                <li onClick={()=>{nav('/service/connected')}}>MINI CONNECTED</li>
-                                <li onClick={()=>{nav('/service/app')}}>MINI APP</li>
-                                <li onClick={()=>{nav('/service/parts')}}>PARTS</li>
-                                <li onClick={()=>{nav('/service/accessories')}}>ACCESSORIES</li>
+                                <li><Link to='/service/connected'>MINI CONNECTED</Link></li>
+                                <li><Link to='/service/app'>MINI APP</Link></li>
+                                <li><Link to='/service/parts'>PARTS</Link></li>
+                                <li><Link to='/service/accessories'>ACCESSORIES</Link></li>
                             </ul>
                         </li>
                         <li>
                             <b>BRAND</b>
                             <ul className='depth02'>
-                                <li onClick={()=>{nav('/brand/news')}}>NEWS</li>
-                                <li onClick={()=>{nav('/brand/inside')}}>INSIDE MINI</li>
-                                <li onClick={()=>{nav('/brand/lifestyle')}}>MINI LIFESTYLE</li>
+                                <li><Link to='/brand/news'>NEWS</Link></li>
+                                <li><Link to='/brand/inside'>INSIDE MINI</Link></li>
+                                <li><Link to='/brand/lifestyle'>MINI LIFESTYLE</Link></li>
                             </ul>
                         </li>
                     </ul>

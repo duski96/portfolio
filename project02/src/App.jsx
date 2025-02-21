@@ -64,7 +64,7 @@ function App() {
             <Route path="/used-car/:subPageName" element={<UsedCar />} />
             <Route path="/service/:subPageName" element={<Service />} />
             <Route path="/brand/:subPageName" element={<Brand />} />
-            <Route path="/product" element={<Product />} />
+            <Route path="/product/:id" element={<Product />} />
           </Routes>
         </MockDataDispatchContext.Provider>
       </MockDataContext.Provider>

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import productImg03 from '../../../assets/sub/product_img03.jpg';
 import productImg04 from '../../../assets/sub/product_img04.jpg';
@@ -11,8 +11,6 @@ const LifestyleInfo=()=>{
     useEffect(()=>{
         imgArrange();
     });
-
-    const nav=useNavigate();
 
     return (
         <article className="LifestyleInfo NotoSansKR">
@@ -28,7 +26,7 @@ const LifestyleInfo=()=>{
                 드라이빙 코스 추천, 커스텀 팁, 정비 노하우 등 다양한 정보를 나누며, 미니와 함께하는 라이프스타일을 공유하죠. <br />
                 <b>정기적인 오프라인 모임 & 시승 이벤트</b>도 진행되니, 미니를 더 즐기고 싶다면 지금 합류하세요!
             </p>
-            <p className='go_to fs_md' onClick={()=>{nav('/brand/lifestyle')}}>Mini Lifestyle 바로가기 </p>
+            <p className='go_to fs_sm'><Link to='/brand/lifestyle'>Mini Lifestyle 바로가기</Link></p>
         </article>
     );
 }

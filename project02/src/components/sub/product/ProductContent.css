@@ -7,8 +7,8 @@
 .ProductContent .content_area .articles_area{width:calc((100% - 32px)*0.6);}
 .ProductContent .content_area .estimate_area{width:100%; flex:1;}
 
-.ProductContent .go_to{position:relative; width:fit-content; padding-right:var(--space-sm); cursor:pointer;}
-.ProductContent .go_to::after {content: ""; position:absolute; left:calc(100% - var(--space-sm)); top:50%; transform:rotate(45deg) translateY(-50%); display:block; width:12px; height:12px; border-top:2px solid #333; border-right:2px solid #333; transition:0.3s;}
+.ProductContent .go_to{position:relative; width:fit-content; padding-right:var(--space-sm); font-weight:bold; line-height:1; cursor:pointer;}
+.ProductContent .go_to::after {content: ""; position:absolute; left:calc(100% - var(--space-sm)); top:50%; transform:rotate(45deg) translateY(-50%); display:block; width:10px; height:10px; border-top:2px solid #333; border-right:2px solid #333; transition:0.3s;}
 .ProductContent .go_to:hover::after{left:100%;}
 
 .ProductContent .photo_area{display:flex; gap:var(--space-sm); width:100%; max-height:300px;}
@@ -35,12 +35,12 @@
 .ProductContent .photo_area .add_area .add_img a{display:block; width:100%; height:100%;}
 .ProductContent .photo_area .add_area .add_img img{display:block; width:100%; height:100%; object-fit:cover;}
 
-.ProductContent .Estimate{width:100%; padding:var(--space-md) var(--space-sm); border-radius:5px; filter:drop-shadow(2px 2px 5px rgba(0,0,0,0.2)); background:#fff;}
+.ProductContent .Estimate{position:sticky; top:calc(100px + var(--space-xlg)); width:100%; padding:var(--space-md) var(--space-sm); border-radius:5px; filter:drop-shadow(2px 2px 5px rgba(0,0,0,0.2)); background:#fff;}
 .ProductContent .Estimate a{display:block; color:#333; text-decoration:none; text-align:center;}
 .ProductContent .Estimate .bill{padding:var(--space-sm); border-radius:5px; background:#eee;}
-.ProductContent .Estimate .bill li{margin-bottom:var(--space-xsm);}
+.ProductContent .Estimate .bill li{display:flex; justify-content:space-between; width:100%; margin-bottom:var(--space-xsm);}
 .ProductContent .Estimate .bill li:last-child{margin-bottom:0;}
 .ProductContent .Estimate button{width:100%; padding:var(--space-sm); border:0; border-radius:5px; color:#fff; text-align:center; /*background:#00540D;*/ background:#ccc;}
+.ProductContent .Estimate .total{display:flex; justify-content:space-between; align-items:center;}
 
 .ProductContent .Warranty p{line-height:1.8;}
-

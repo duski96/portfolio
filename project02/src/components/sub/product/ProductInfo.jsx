@@ -5,9 +5,7 @@ import 'swiper/css/navigation';
 
 import Fancybox from './Fancybox.jsx';
 
-import { useContext } from 'react';
-import { MockDataContext } from '../../../App.jsx';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { getMiniImage } from '../../../util/get-mini-image.js';
 import { replaceFuelTxt } from '../../../util/replace-fuel-txt.js';
@@ -20,13 +18,7 @@ import tmpImg04 from '../../../assets/sub/detail_tmp04.jpg';
 import tmpImg05 from '../../../assets/sub/detail_tmp05.jpg';
 import tmpImg06 from '../../../assets/sub/detail_tmp06.jpg';
 
-const ProductInfo=()=>{
-
-    const {mockData}=useContext(MockDataContext);
-    const currentData=mockData[0];
-
-    const nav=useNavigate();
-
+const ProductInfo=({currentData})=>{
     return (
         <article className='Info mb_xlg'>
             <h4 className='fs_lg mb_xsm'><b>{currentData.series.toUpperCase()}</b></h4>
@@ -42,7 +34,7 @@ const ProductInfo=()=>{
             <Fancybox
                 options={{
                     Carousel: {
-                    infinite: false,
+                    infinite: true,
                     },
                 }}
             >
@@ -88,7 +80,11 @@ const ProductInfo=()=>{
                 </div>
             </div>
             </Fancybox>
-            <p className='go_to fs_md NotoSansKR' onClick={()=>{nav(`/model/${currentData.series}`)}}>{currentData.series.toUpperCase()} 모델 알아보기</p>
+            <p className='go_to fs_sm NotoSansKR'>
+                <Link to={`/model/${currentData.series}`}> 
+                    {currentData.series.toUpperCase()} 모델 알아보기
+                </Link>    
+            </p>
         </article>
     );
 }

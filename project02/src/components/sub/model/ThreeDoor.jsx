@@ -1,4 +1,4 @@
-import ThreeDoorImg from '../../../assets/sub/model_3door.jpg';
+import threeDoorImg from '../../../assets/sub/model_3door.jpg';
 
 const ThreeDoor=()=>{
     return (
@@ -6,7 +6,7 @@ const ThreeDoor=()=>{
             <div className="inner_1280">
                 <h4 className='mb_sm'>MINI 3DOOR</h4>
                 <h5 className='fs_lg mb_lg'>A compact hatchback with go-kart handling and a stylish, iconic design.</h5>
-                <img src={ThreeDoorImg} alt="미니 3도어" className='mb_lg' />
+                <img src={threeDoorImg} alt="미니 3도어" className='mb_lg' />
                 <p className='mb_md'>
                     미니쿠퍼 3도어는 미니 브랜드의 대표적인 소형 해치백 모델로, 클래식한 디자인과 현대적인 감각이 조화를 이룬다. 작은 차체에도 불구하고 실내 공간이 효율적으로 설계되어 있으며, 운전의 재미를 극대화한 컴팩트한 구조가 특징이다. 특히 <b>고카트 필링</b>이라 불리는 경쾌한 핸들링과 민첩한 주행 성능을 제공하여 도심 주행에 최적화되어 있다. <br />
                     기본적으로 가솔린 엔진이 장착되며, 쿠퍼, 쿠퍼 S, JCW(존 쿠퍼 웍스) 등 다양한 트림이 존재한다. 이 중 쿠퍼 S와 JCW 모델은 터보 엔진을 탑재해 더 강력한 성능과 스포티한 주행감을 제공한다.

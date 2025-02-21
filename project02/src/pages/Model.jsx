@@ -9,8 +9,7 @@ import Footer from "../components/Footer";
 import subMainBg from './../assets/sub/model_main_img01.jpg';
 
 const Model=()=>{
-    const params=useParams();
-    const paramsName=params.subPageName;
+    const paramsName=useParams().subPageName;
 
     return (
         <>
@@ -21,8 +20,6 @@ const Model=()=>{
             <Footer />
         </>
     );
-
-    
 }
 
 export default Model;

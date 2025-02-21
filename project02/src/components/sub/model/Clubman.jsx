@@ -1,4 +1,4 @@
-import ClubmanImg from '../../../assets/sub/model_clubman.jpg';
+import clubmanImg from '../../../assets/sub/model_clubman.jpg';
 
 const Clubman=()=>{
     return (
@@ -6,7 +6,7 @@ const Clubman=()=>{
             <div className="inner_1280">
                 <h4 className='mb_sm'>MINI CLUBMAN</h4>
                 <h5 className='fs_lg mb_lg'>A spacious Mini with a unique split rear door and a refined, premium interior.</h5>
-                <img src={ClubmanImg} alt="미니 클럽맨" className='mb_lg' />
+                <img src={clubmanImg} alt="미니 클럽맨" className='mb_lg' />
                 <p className='mb_md'>
                     미니 클럽맨은 미니의 개성을 유지하면서도 보다 넉넉한 공간과 실용성을 강조한 모델이다. 기존 5도어 모델보다 차체가 길고 휠베이스가 확장되어 <b>더욱 여유로운 2열 공간과 넓은 트렁크 용량</b>을 제공한다. <br />
                     주행 성능은 미니 특유의 <b>고카트 필링</b>을 유지하면서도, 보다 안정적이고 편안한 승차감을 갖춘 것이 특징이다. <br />

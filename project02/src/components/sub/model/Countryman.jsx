@@ -1,4 +1,4 @@
-import CountrymanImg from '../../../assets/sub/model_countryman.jpg';
+import countrymanImg from '../../../assets/sub/model_countryman.jpg';
 
 const Countryman=()=>{
     return (
@@ -6,7 +6,7 @@ const Countryman=()=>{
             <div className="inner_1280">
                 <h4 className='mb_sm'>MINI COUNTRYMAN</h4>
                 <h5 className='fs_lg mb_lg'>The largest Mini, offering SUV-like practicality with available ALL4 all-wheel drive.</h5>
-                <img src={CountrymanImg} alt="미니 컨트리맨" className='mb_lg' />
+                <img src={countrymanImg} alt="미니 컨트리맨" className='mb_lg' />
                 <p className='mb_md'>
                     미니 컨트리맨은 미니 라인업 중 가장 크고 실용성이 뛰어난 모델로, <b>소형 SUV</b> 콘셉트로 설계된 것이 특징이다. 기존 미니 모델들보다 차체가 크고 휠베이스가 길어 <b>넉넉한 2열 공간과 더욱 넓은 트렁크 용량</b>을 제공한다. <br />
                     주행 성능은 미니 특유의 <b>고카트 필링</b>을 유지하면서도 SUV다운 안정감과 승차감을 갖췄다. 기본적으로 가솔린 엔진이 탑재되며, 쿠퍼, 쿠퍼 S, JCW(존 쿠퍼 웍스) 등의 다양한 트림이 존재한다. 특히 <b>ALL4 사륜구동 옵션</b>이 제공되어 다양한 도로 환경에서도 뛰어난 주행 성능을 발휘한다.

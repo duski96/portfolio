@@ -1,4 +1,4 @@
-import ConvertibleImg from '../../../assets/sub/model_convertible.jpg';
+import convertibleImg from '../../../assets/sub/model_convertible.jpg';
 
 const Convertible=()=>{
     return (
@@ -6,7 +6,7 @@ const Convertible=()=>{
             <div className="inner_1280">
                 <h4 className='mb_sm'>MINI CONVERTIBLE</h4>
                 <h5 className='fs_lg mb_lg'>A fun, open-top Mini with an electric soft-top roof for an exciting driving experience.</h5>
-                <img src={ConvertibleImg} alt="미니 컨버터블" className='mb_lg' />
+                <img src={convertibleImg} alt="미니 컨버터블" className='mb_lg' />
                 <p className='mb_md'>
                     미니 컨버터블은 미니 고유의 디자인과 개성을 유지하면서도 오픈탑의 자유로움을 즐길 수 있는 모델이다. 전동식 소프트톱을 탑재해 버튼 하나로 손쉽게 지붕을 열고 닫을 수 있으며, <b>약 18초 만에 완전 개폐</b>가 가능하다. 기본적인 주행 성능은 미니 특유의 <b>고카트 필링</b>을 유지하면서도, 컨버터블 특유의 개방감 덕분에 더욱 특별한 드라이빙 경험을 선사한다. <br />
                     가솔린 엔진이 기본이며, 쿠퍼, 쿠퍼 S, JCW(존 쿠퍼 웍스) 등 다양한 트림이 제공된다. 특히 JCW 모델은 고성능 터보 엔진을 장착해 더욱 강력한 퍼포먼스를 발휘한다.

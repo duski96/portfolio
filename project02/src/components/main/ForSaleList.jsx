@@ -1,9 +1,11 @@
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import heart from './../../assets/main/forsale_heart.png';
 
-import { useContext } from 'react';
 import { MockDataContext, MockDataDispatchContext } from '../../App';
 
 import { getMiniImage } from '../../util/get-mini-image.js';
@@ -28,27 +30,29 @@ const ForSaleList = ({ filteredList }) => {
                                     <div className='function'>
                                         <button type="button" onClick={()=>{getInterestId(item.id)}} className={interestId.includes(item.id) ? 'active' : ''}><img src={heart} alt='관심 매물 등록 아이콘' /></button>
                                     </div>
-                                    <div className='picture'>
-                                        <img src={getMiniImage(item.id)} alt={item.series} className='model' />
-                                    </div>
-                                    <div className='txt'>
-                                        <h4 className='fs_md'><b>{item.series.toUpperCase()}</b></h4>
-                                        <p className='fs_md mb_sm'><b>{item.price} 만원</b></p>
-                                        <div className='flex j-sb mb_xsm'>
-                                            <p>주행거리</p>
-                                            <p>{item.mileage}km</p>
+                                    <Link to={`/product/${item.id}`}>
+                                        <div className='picture'>
+                                            <img src={getMiniImage(item.id)} alt={item.series} className='model' />
                                         </div>
-                                        <div className='flex j-sb mb_xsm'>
-                                            <p>연식</p>
-                                            <p>{item.year}</p>
+                                        <div className='txt'>
+                                            <h4 className='fs_md'><b>{item.series.toUpperCase()}</b></h4>
+                                            <p className='fs_md mb_sm'><b>{item.price} 만원</b></p>
+                                            <div className='flex j-sb mb_xsm'>
+                                                <p>주행거리</p>
+                                                <p>{item.mileage}km</p>
+                                            </div>
+                                            <div className='flex j-sb mb_xsm'>
+                                                <p>연식</p>
+                                                <p>{item.year}</p>
+                                            </div>
+                                            <div className='flex j-sb mb_sm'>
+                                                <p>연료</p>
+                                                <p>{replaceFuelTxt(item.fuel)}</p>
+                                            </div>
+                                            <hr className='mb_xsm' />
+                                            <p>{replaceSpotTxt(item.spot)}</p>
                                         </div>
-                                        <div className='flex j-sb mb_sm'>
-                                            <p>연료</p>
-                                            <p>{replaceFuelTxt(item.fuel)}</p>
-                                        </div>
-                                        <hr className='mb_xsm' />
-                                        <p>{replaceSpotTxt(item.spot)}</p>
-                                    </div>
+                                    </Link>
                                 </div>
                             </SwiperSlide>))}
                         </Swiper>

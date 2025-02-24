@@ -4,7 +4,7 @@ import ProductContent from '../components/sub/product/ProductContent';
 import QuickMenu from '../components/QuickMenu';
 import Footer from '../components/Footer';
 
-import subMainBg from './../assets/sub/interest_main.jpg';
+import subMainBg from './../assets/sub/product_main.jpg';
 
 const Product=()=>{
     return (

@@ -4,7 +4,7 @@ import InterestList from '../components/sub/InterestList';
 import QuickMenu from '../components/QuickMenu';
 import Footer from '../components/Footer';
 
-import subMainBg from './../assets/sub/interest_main_img01.jpg';
+import subMainBg from './../assets/sub/interest_main.jpg';
 
 const Interest=()=>{    
     return (

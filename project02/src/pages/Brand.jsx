@@ -6,7 +6,7 @@ import TempPage from "../components/sub/TempPage"
 import QuickMenu from "../components/QuickMenu";
 import Footer from "../components/Footer";
 
-import subMainBg from '../assets/sub/brand_main_img01.jpg';
+import subMainBg from '../assets/sub/brand_main.jpg';
 
 const Brand=()=>{
     const params=useParams();

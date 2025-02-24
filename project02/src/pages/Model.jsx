@@ -6,7 +6,7 @@ import ModelContent from "../components/sub/model/ModelContent";
 import QuickMenu from "../components/QuickMenu";
 import Footer from "../components/Footer";
 
-import subMainBg from './../assets/sub/model_main_img01.jpg';
+import subMainBg from './../assets/sub/model_main.jpg';
 
 const Model=()=>{
     const paramsName=useParams().subPageName;

@@ -7,9 +7,10 @@
 .ProductContent .content_area .articles_area{width:calc((100% - 32px)*0.6);}
 .ProductContent .content_area .estimate_area{width:100%; flex:1;}
 
-.ProductContent .go_to{position:relative; width:fit-content; padding-right:var(--space-sm); font-weight:bold; line-height:1; cursor:pointer;}
-.ProductContent .go_to::after {content: ""; position:absolute; left:calc(100% - var(--space-sm)); top:50%; transform:rotate(45deg) translateY(-50%); display:block; width:10px; height:10px; border-top:2px solid #333; border-right:2px solid #333; transition:0.3s;}
-.ProductContent .go_to:hover::after{left:100%;}
+.ProductContent .go_to{width:fit-content;}
+.ProductContent .go_to a{position:relative; display:block; padding-right:var(--space-sm); font-weight:bold; line-height:1;}
+.ProductContent .go_to a::after {content: ""; position:absolute; left:calc(100% - var(--space-sm)); top:50%; transform:rotate(45deg) translateY(-50%); display:block; width:10px; height:10px; border-top:2px solid #333; border-right:2px solid #333; transition:0.3s;}
+.ProductContent .go_to a:hover::after{left:100%;}
 
 .ProductContent .photo_area{display:flex; gap:var(--space-sm); width:100%; max-height:300px;}
 .ProductContent .photo_area .swiper_area{width:100%; max-width:400px;}

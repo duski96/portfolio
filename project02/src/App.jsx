@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react';
+import { useState, createContext, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
@@ -8,6 +8,7 @@ import UsedCar from './pages/UsedCar';
 import Service from './pages/Service';
 import Brand from './pages/Brand';
 import Product from './pages/Product';
+import Login from './pages/Login';
 
 import { mockDataArray } from './util/mock-data';
 
@@ -15,6 +16,8 @@ const mockData=mockDataArray; // 전체 매물
 
 export const MockDataContext=createContext();
 export const MockDataDispatchContext=createContext();
+
+import axios from 'axios';
 
 function App() {
   const storedInterestId=JSON.parse(localStorage.getItem('interestId'));
@@ -34,6 +37,10 @@ function App() {
   localStorage.setItem('interestId',JSON.stringify(interestId));
   // interestId의 상태가 변하면 localStorage에 저장
 
+  useEffect(()=>{
+    axios.get('/api/users').then((res)=>console.log(res)).catch();
+  });
+
   return (
     <>
       <MockDataContext.Provider value={{mockData, interestId}}>
@@ -46,6 +53,7 @@ function App() {
             <Route path="/service/:subPageName" element={<Service />} />
             <Route path="/brand/:subPageName" element={<Brand />} />
             <Route path="/product/:id" element={<Product />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </MockDataDispatchContext.Provider>
       </MockDataContext.Provider>

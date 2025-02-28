@@ -12,6 +12,13 @@
 .Header nav ul.depth02 > li:last-child{margin-bottom:0;}
 .Header nav a{color:#fff;}
 
+.Header ul.user{position:absolute; right:0; top:50%; transform:translateY(-50%); display:flex; gap:var(--space-sm);}
+.Header ul.user li a{color:#fff;}
+.Header ul.user li:nth-child(odd){position:relative;}
+.Header ul.user li:nth-child(odd)::after{content:""; position:absolute; left:calc(100% + var(--space-sm)/2); top:50%; transform:translateY(-50%); display:block; width:1px; height:14px; background:#fff;}
+.Header ul.user.login li:nth-child(n+3):nth-child(-n+4){display:none;}
+.Header ul.user.not_login li:nth-child(n+1):nth-child(-n+2){display:none;}
+
 .Header.isHover{background:#000;}
 .Header.isHover::after{visibility:visible; opacity:1;}
 .Header.isHover nav ul.depth02{display:block;}

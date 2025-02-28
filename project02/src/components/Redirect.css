@@ -1,0 +1,6 @@
+.Redirect{display:flex; flex-direction:column; justify-content:center; align-items:center; width:100vw; height:100vh; gap:var(--space-lg);}
+
+.Redirect .button_area{display:flex; gap:var(--space-sm);}
+.Redirect .button_area button{width:150px; height:50px; font-size:var(--font-sm); border:0; border-radius:5px; background:#005f56;}
+.Redirect .button_area button:last-child{background:#666;}
+.Redirect .button_area button a{display:flex; justify-content:center; align-items:center; width:100%; height:100%; color:#fff;}

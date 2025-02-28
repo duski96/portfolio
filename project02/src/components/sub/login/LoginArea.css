@@ -1,0 +1,13 @@
+.LoginArea{margin-top:100px; height:calc(100vh - 100px); background:url(../../../assets/sub/login_bg.jpg) no-repeat center center/cover;}
+
+.LoginArea .inner_1280{display:flex; justify-content:flex-end; align-items:center; height:100%;}
+
+.LoginArea .login_box{position:relative; z-index:1; width:480px; padding:var(--space-lg) var(--space-sm); border:2px solid #ddd; border-radius:5px; background:rgba(255, 255, 255, 0.6);}
+.LoginArea .login_box::after{content:""; position:absolute; left:0; top:0; z-index:-1; display:block; width:100%; height:100%; backdrop-filter: blur(5px);}
+.LoginArea .login_box *{display:block; box-sizing:border-box;}
+.LoginArea .login_box h2{line-height:1; text-align:center; font-family:"cormorant";}
+.LoginArea .login_box input{width:100%; height:32px; margin-bottom:var(--space-sm); padding:0 var(--space-sm); border:0; border-radius:5px;}
+.LoginArea .login_box button{width:100%; height:60px; margin-top:var(--space-lg); color:#fff; border:0; border-radius:5px; background:#004299; cursor:pointer;}
+.LoginArea .login_box ul.service{display:flex; justify-content:center; gap:var(--space-sm); line-height:1;}
+.LoginArea .login_box ul.service li{position:relative;}
+.LoginArea .login_box ul.service li:not(:last-child)::after{content:""; position:absolute; left:calc(100% + (var(--space-sm)/2)); top:50%; transform:translateY(-50%); display:block; width:1px; height:16px; background:#333;}

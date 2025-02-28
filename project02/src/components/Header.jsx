@@ -1,7 +1,9 @@
 import './Header.css';
 import logo from '../assets/logo.svg';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import { LoginUserInfoContext } from '../App';
 
 const Header=({isActive})=>{
     
@@ -13,6 +15,14 @@ const Header=({isActive})=>{
 
     const onMouseOut=()=>{
         setIsHover(false);
+    }
+
+    const {loginUserInit, loginUserInfo, setLoginUserInfo}=useContext(LoginUserInfoContext);
+
+    // 로그아웃 버튼 클릭 시 세션에서 유저 정보 삭제, 로그인 유저 상태 초기화
+    const onClickLogout=()=>{
+        sessionStorage.removeItem('loginUserInfo'); 
+        setLoginUserInfo(loginUserInit);
     }
 
     return (
@@ -62,6 +72,12 @@ const Header=({isActive})=>{
                         </li>
                     </ul>
                 </nav>
+                <ul className={`user fs_xsm NotoSansKR ${loginUserInfo.isLogin ? 'not_login' : 'login'}`}>
+                    <li><Link to='/login'>로그인</Link></li>
+                    <li><Link to='/login'>회원가입</Link></li>
+                    <li><Link to={`/mypage/${loginUserInfo.userId}`}>내 정보</Link></li>
+                    <li><Link to={'/login'} onClick={onClickLogout}>로그아웃</Link></li>
+                </ul>
             </div>
         </header>
     );

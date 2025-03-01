@@ -32,7 +32,7 @@ router.post('/login', (req, res)=>{
             const userInfo=data[0];
 
             // jwt 토큰 생성
-            const token=jwt.sign({userId:userInfo.user_id, nickname:userInfo.nickname, email:userInfo.email, car:userInfo.car}, process.env.JWT_SECRET, {expiresIn:'1h'});
+            const token=jwt.sign({userId:userInfo.user_id, nickName:userInfo.nickname, eMail:userInfo.email, car:userInfo.car}, process.env.JWT_SECRET, {expiresIn:'1h'});
             // httpOnly 쿠키에 저장 후 클라이언트에 토큰 전달
             res.cookie('token', token, {httpOnly:true, secure:true, sameSite:'Strict'});
             res.send(token);
@@ -60,58 +60,6 @@ const verifyToken=(req, res, next)=>{
 router.get('/verify', verifyToken, (req, res)=>{
     // 클라이언트에게 요청했던 데이터 중 유저의 정보를 다시 전달
     res.send(req.user);
-});
-
-router.post('/register', (req, res)=>{
-    const {regId, regNickname, regEmail}=req.query.registerValue;
-
-    // db.query를 여러번 사용할 경우 각 DB 쿼리가 완료될 때 마다 응답을 보냄
-    // Express 서버는 한 요청 당 한 번의 응답만 보낼 수 있으므로 모든 쿼리가 완료된 다음 응답을 보내도록 Promise 사용
-    const regIdChk=()=>{
-        return new Promise((resolve, reject)=>{
-            const sqlId='select user_id from users where user_id=?';
-            db.query(sqlId, [regId], (err, data)=>{
-                if(err)
-                    reject(err);
-                else
-                    resolve(!!data.length); // 0, 1을 bool 타입으로 변환, 중복이 있으면 true
-            });
-        });
-    }
-
-    const regNicknameChk=()=>{
-        return new Promise((resolve, reject)=>{
-            const sqlNickname='select nickname from users where nickname=?';
-            db.query(sqlNickname, [regNickname], (err, data)=>{
-                if(err)
-                    reject(err);
-                else
-                    resolve(!!data.length);
-            });
-        });
-    }
-
-    const regEmailChk=()=>{
-        return new Promise((resolve, reject)=>{
-            const sqlEmail='select email from users where email=?';
-            db.query(sqlEmail, [regEmail], (err, data)=>{
-                if(err)
-                    reject(err);
-                else
-                    resolve(!!data.length);
-            });
-        });
-    }
-
-    //각 함수의 리턴 값을 담은 배열을 클라이언트에 전달
-    Promise.all([regIdChk(), regNicknameChk(), regEmailChk()])
-    .then(([boolId, boolNickname, boolEmail])=>{
-        res.send({
-            existId:boolId,
-            existNickname:boolNickname,
-            existEmail:boolEmail
-        });
-    }).catch();
 });
 
 export default router;

@@ -11,9 +11,9 @@ const app=express();
 import cookieParser from 'cookie-parser';
 app.use(cookieParser());
 
-// authRouter.js에서 api 처리
-import api from './routes/authRouter.js';
-app.use('/api', api);
+// /라우터 파일에서 api 처리
+import authRouter from './routes/authRouter.js';
+app.use('/api/auth', authRouter);
 
 const PORT=process.env.VITE_PORT || 4000;
 

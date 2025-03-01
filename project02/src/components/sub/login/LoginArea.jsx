@@ -1,6 +1,6 @@
 import './LoginArea.css';
 import { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { LoginUserInfoContext } from '../../../App';
 
@@ -22,7 +22,7 @@ const LoginArea=()=>{
     const onClickLogin=()=>{
         // login api 요청
         // axios는 post 요청 시 data를 쿼리로 반환하지 않기 때문에 두 번째 인자에 null값을 주고 세 번째 인자에 필요한 매개변수를 씀
-        axios.post('/api/login', null, {params:{'userId':inputId, 'userPw':inputPw}})
+        axios.post('/api/auth/login', null, {params:{'userId':inputId, 'userPw':inputPw}})
         .then(res=>{
             let fail=res.data.Fail; // server로부터 Fail 값을 받아와 저장
             if(fail){
@@ -35,11 +35,11 @@ const LoginArea=()=>{
             }
             else{
                 // 로그인 성공 시 권한 api를 거쳐 로그인 유저 상태를 업데이트함
-                axios.get('/api/auth',{withCredentials:true}).then((res)=>{
+                axios.get('/api/auth/verify',{withCredentials:true}).then((res)=>{
                     setLoginUserInfo({
                         userId:res.data.userId,
-                        nickName:res.data.nickName,
-                        eMail:res.data.eMail,
+                        nickName:res.data.nickname,
+                        eMail:res.data.email,
                         car:res.data.car,
                         isLogin:true
                     })
@@ -58,7 +58,7 @@ const LoginArea=()=>{
                     <input type="password" placeholder='PW' value={inputPw} onChange={onChangePw}/>
                     <button type="button" className='fs_md mb_sm' onClick={onClickLogin}>로그인</button>
                     <ul className='service'>
-                        <li><b>회원가입</b></li>
+                        <li><b><Link to='/register'>회원가입</Link></b></li>
                         <li>아이디 찾기</li>
                         <li>비밀번호 찾기</li>
                     </ul>

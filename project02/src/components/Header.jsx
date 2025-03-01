@@ -74,7 +74,7 @@ const Header=({isActive})=>{
                 </nav>
                 <ul className={`user fs_xsm NotoSansKR ${loginUserInfo.isLogin ? 'not_login' : 'login'}`}>
                     <li><Link to='/login'>로그인</Link></li>
-                    <li><Link to='/login'>회원가입</Link></li>
+                    <li><Link to='/register'>회원가입</Link></li>
                     <li><Link to={`/mypage/${loginUserInfo.userId}`}>내 정보</Link></li>
                     <li><Link to={'/login'} onClick={onClickLogout}>로그아웃</Link></li>
                 </ul>

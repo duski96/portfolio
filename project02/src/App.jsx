@@ -10,6 +10,7 @@ import Brand from './pages/Brand';
 import Product from './pages/Product';
 import Login from './pages/Login';
 import MyPage from './pages/MyPage';
+import Register from './pages/Register';
 
 import { mockDataArray } from './util/mock-data';
 
@@ -71,6 +72,7 @@ function App() {
               <Route path="/product/:id" element={<Product />} />
               <Route path="/login" element={<Login />} />
               <Route path="/mypage/:userId" element={<MyPage />} />
+              <Route path="/register" element={<Register />} />
             </Routes>
           </LoginUserInfoContext.Provider>
         </MockDataDispatchContext.Provider>

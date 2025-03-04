@@ -21,32 +21,28 @@ const LoginArea=()=>{
 
     const onClickLogin=()=>{
         // login api 요청
-        // axios는 post 요청 시 data를 쿼리로 반환하지 않기 때문에 두 번째 인자에 null값을 주고 세 번째 인자에 필요한 매개변수를 씀
-        axios.post('/api/auth/login', null, {params:{'userId':inputId, 'userPw':inputPw}})
-        .then(res=>{
-            let fail=res.data.Fail; // server로부터 Fail 값을 받아와 저장
-            if(fail){
-                // 로그인 실패 시 fail 값에 따라 알림창 출력
-                switch(fail){
-                    case 'wrongId' : alert('아이디를 확인하세요!'); break;
-                    case 'wrongPw' : alert('패스워드를 확인하세요!'); break;
-                    default : break;
-                }
+        // 전송할 데이터가 쿼리스트링이 아니기 때문에 두 번째 인자에 null값을 주지 않음
+        axios.post('/api/auth/login', {'userId':inputId, 'userPw':inputPw})
+        .then(()=>{
+            // 로그인 성공 시 권한 api를 거쳐 로그인 유저 상태를 업데이트함
+            axios.get('/api/auth/verify',{withCredentials:true}).then((res)=>{
+                setLoginUserInfo({
+                    userId:res.data.userId,
+                    nickname:res.data.nickname,
+                    email:res.data.email,
+                    car:res.data.car,
+                    isLogin:true
+                })
+                nav('/', {replace:true});
+            }).catch();
+        }).catch((res)=>{
+            // 로그인 실패 시 fail 값에 따라 알림창 출력
+            switch(res.response.data.message){
+                case 'wrongId' : alert('아이디를 확인하세요!'); break;
+                case 'wrongPw' : alert('패스워드를 확인하세요!'); break;
+                default : break;
             }
-            else{
-                // 로그인 성공 시 권한 api를 거쳐 로그인 유저 상태를 업데이트함
-                axios.get('/api/auth/verify',{withCredentials:true}).then((res)=>{
-                    setLoginUserInfo({
-                        userId:res.data.userId,
-                        nickName:res.data.nickname,
-                        eMail:res.data.email,
-                        car:res.data.car,
-                        isLogin:true
-                    })
-                    nav('/', {replace:true});
-                }).catch();
-            }
-        }).catch();
+        });
     }
 
     return (

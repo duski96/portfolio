@@ -5,8 +5,8 @@ import jwt from 'jsonwebtoken';
 
 router.post('/login', (req, res)=>{ 
     // 사용자가 input 태그에 입력한 Id와 Pw
-    const userId=req.query.userId;
-    const userPw=req.query.userPw;
+    const userId=req.body.userId;
+    const userPw=req.body.userPw;
 
     // 클라이언트에서 유저의 상태를 관리할 수 있도록 token에 저장할 데이터 지정
     const sql='select user_id, nickname, email, car from users where user_id=? and user_pw=?';
@@ -20,11 +20,11 @@ router.post('/login', (req, res)=>{
             db.query(idSql, [userId], (err, data)=>{
                 if(data.length){
                     // idSql 실행 결과 data가 있는 경우 -> 입력한 id는 DB에 존재함 -> pw 오류
-                    res.send({Fail:'wrongPw'});
+                    res.status(401).send({message:'wrongPw'});
                 }
                 else{
                     // idSql 실행 결과 data가 없는 경우 -> DB에 id가 없음 -> id 오류
-                    res.send({Fail:'wrongId'});
+                    res.status(401).send({message:'wrongId'});
                 }
             });
         }
@@ -44,7 +44,7 @@ const verifyToken=(req, res, next)=>{
     // HTTPOnly cookie에 저장된 토큰 값
     const verifyToken=req.cookies.token;
 
-    if(!verifyToken) return res.status(403).json({message:'인증 토큰이 필요합니다.'});
+    if(!verifyToken) return res.status(401).send({message:'인증 토큰이 필요합니다.'});
 
     try{
         // jwt로 암호화된 user 정보를 복호화
@@ -53,7 +53,7 @@ const verifyToken=(req, res, next)=>{
         next(); // 다음 미들웨어 실행
     }
     catch(error){
-        return res.status(403).json({message:'토큰이 유효하지 않습니다.'});
+        return res.status(401).send({message:'토큰이 유효하지 않습니다.'});
     }
 }
 

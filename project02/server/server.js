@@ -11,7 +11,10 @@ const app=express();
 import cookieParser from 'cookie-parser';
 app.use(cookieParser());
 
-// /라우터 파일에서 api 처리
+// POST 방식으로 받은 데이터를 읽기 위한 미들웨어 추가
+app.use(express.json());
+
+// 라우터 파일에서 api 처리
 import authRouter from './routes/authRouter.js';
 app.use('/api/auth', authRouter);
 

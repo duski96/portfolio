@@ -41,8 +41,8 @@ function App() {
   // 로그인 할 유저의 초기 상태
   const loginUserInit={
     userId:'',
-    nickName:'',
-    eMail:'',
+    nickname:'',
+    email:'',
     car:'',
     isLogin:false
   }

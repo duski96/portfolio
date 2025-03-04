@@ -21,7 +21,7 @@ const Header=({isActive})=>{
 
     // 로그아웃 버튼 클릭 시 세션에서 유저 정보 삭제, 로그인 유저 상태 초기화
     const onClickLogout=()=>{
-        sessionStorage.removeItem('loginUserInfo'); 
+        sessionStorage.removeItem('loginUserInfo');
         setLoginUserInfo(loginUserInit);
     }
 

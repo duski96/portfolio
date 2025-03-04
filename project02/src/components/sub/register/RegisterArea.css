@@ -3,15 +3,16 @@
 .RegisterArea h2{text-align:center;}
 .RegisterArea .welcome{text-align:center; line-height:1.6;}
 
-.RegisterArea .register_box{position:relative; z-index:1; padding:var(--space-xlg) var(--space-sm); background:rgba(255,255,255,0.9); border-radius:5px;}
+.RegisterArea .register_box{position:relative; z-index:1; padding:var(--space-xlg) var(--space-sm); background:rgba(255,255,255,0.9); border-radius:5px; overflow:hidden;}
 .RegisterArea .register_box::after{content:""; position:absolute; left:0; top:0; z-index:-1; display:block; width:100%; height:100%; backdrop-filter: blur(5px);}
 .RegisterArea .register_box .box_inner{max-width:480px; margin:0 auto;}
 .RegisterArea .register_box ul li{position:relative; display:flex; justify-content:space-between; align-items:center; gap:var(--space-xsm); margin-bottom:var(--space-md);}
 .RegisterArea .register_box ul li:last-child{margin-bottom:0;}
 .RegisterArea .register_box ul li :not(label){flex-shrink:2; width:100%; height:32px; padding:0 var(--space-xsm); border:0; border-radius:5px;}
 .RegisterArea .register_box ul li label{width:68px; flex-shrink:0; text-align:justify;}
-.RegisterArea .register_box ul li .dup{position:absolute; left:0; top:calc(100% + 4px); padding-left:92px; color:red; visibility:hidden;}
-.RegisterArea .register_box ul li .dup.true{visibility:visible;}
+.RegisterArea .register_box ul li .message{position:absolute; left:0; top:calc(100% + 4px); padding-left:92px; color:red; visibility:hidden;}
+.RegisterArea .register_box ul li .message.true{visibility:visible;}
+.RegisterArea .register_box ul li .message.true.pw_chk{color:blue;}
 
 .RegisterArea .button_area{display:flex; gap:var(--space-sm); width:100%; height:48px;}
 .RegisterArea .button_area button{width:50%; font-size:var(--font-sm); border:0; border-radius:5px; background:#333; color:#fff; cursor:pointer;}

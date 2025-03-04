@@ -13,7 +13,7 @@ router.post('/login', (req, res)=>{
 
     db.query(sql, [userId, userPw], (err, data)=>{
         if(err){ // DB 에러
-            res.send(err);
+            res.status(500).send(err);
         }
         else if(!data.length){ // sql 실행 결과 data가 없는 경우 -> 로그인 실패
             const idSql='select user_id from users where user_id=?';
@@ -63,7 +63,7 @@ router.get('/verify', verifyToken, (req, res)=>{
 });
 
 router.post('/register', (req, res)=>{
-    const {regId, regNickname, regEmail}=req.query.registerValue;
+    const {regId, regNickname, regEmail}=req.body.registerValue;
 
     // db.query를 여러번 사용할 경우 각 DB 쿼리가 완료될 때 마다 응답을 보냄
     // Express 서버는 한 요청 당 한 번의 응답만 보낼 수 있으므로 모든 쿼리가 완료된 다음 응답을 보내도록 Promise 사용
@@ -112,6 +112,20 @@ router.post('/register', (req, res)=>{
             existEmail:boolEmail
         });
     }).catch();
+});
+
+router.post('/register_submit', (req, res)=>{
+    console.log(req.body.registerSubmit);
+    const {regId, regPw, regNickname, regEmail, regCar}=req.body.registerSubmit;
+    const sql='insert into users (user_id, user_pw, nickname, email, car) values (?, ?, ?, ?, ?)';
+    db.query(sql, [regId, regPw, regNickname, regEmail, regCar], (err, data)=>{
+        if(err){
+            res.status(500).send(err);
+        }
+        else{
+            res.status(201).send({message:'회원가입이 완료되었습니다.'});
+        }
+    });
 });
 
 export default router;

@@ -8,7 +8,7 @@ import QuickMenu from "../components/QuickMenu";
 import Footer from "../components/Footer";
 import Redirect from "../components/Redirect";
 
-import subMainBg from './../assets/sub/model_main.jpg';
+import subMainBg from './../assets/sub/mypage_main.jpg';
 
 import { LoginUserInfoContext } from "../App";
 
@@ -20,8 +20,8 @@ const MyPage=()=>{
         return (
             <>
                 <Header isActive={true} />
-                <SubMain title={'MY PAGE'} explanation={`mypage`} background={subMainBg} addClassName={'Model'} />
-                <Profile paramsName={paramsName} />
+                <SubMain title={'MY PAGE'} explanation={`Profile`} background={subMainBg} addClassName={'Model'} />
+                <Profile loginUserInfo={loginUserInfo} />
                 <QuickMenu />
                 <Footer />
             </>

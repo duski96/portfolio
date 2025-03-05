@@ -67,6 +67,8 @@ router.post('/register', (req, res)=>{
 
     // db.query를 여러번 사용할 경우 각 DB 쿼리가 완료될 때 마다 응답을 보냄
     // Express 서버는 한 요청 당 한 번의 응답만 보낼 수 있으므로 모든 쿼리가 완료된 다음 응답을 보내도록 Promise 사용
+    
+    // ID 중복 검사 Promise
     const regIdChk=()=>{
         return new Promise((resolve, reject)=>{
             const sqlId='select user_id from users where user_id=?';
@@ -79,6 +81,7 @@ router.post('/register', (req, res)=>{
         });
     }
 
+    // 닉네임 중복 검사 Promise
     const regNicknameChk=()=>{
         return new Promise((resolve, reject)=>{
             const sqlNickname='select nickname from users where nickname=?';
@@ -91,6 +94,7 @@ router.post('/register', (req, res)=>{
         });
     }
 
+    // 이메일 중복 검사 Promise
     const regEmailChk=()=>{
         return new Promise((resolve, reject)=>{
             const sqlEmail='select email from users where email=?';
@@ -111,13 +115,19 @@ router.post('/register', (req, res)=>{
             existNickname:boolNickname,
             existEmail:boolEmail
         });
-    }).catch();
+    }).catch((err)=>{
+        res.status(500).send(err);
+    });
 });
 
 router.post('/register_submit', (req, res)=>{
-    console.log(req.body.registerSubmit);
+    // 클라이언트에서 전달받은 input 값
     const {regId, regPw, regNickname, regEmail, regCar}=req.body.registerSubmit;
+    
+    // DB에 input 값을 추가하기 위한 쿼리문
     const sql='insert into users (user_id, user_pw, nickname, email, car) values (?, ?, ?, ?, ?)';
+    
+    // sql문 실행
     db.query(sql, [regId, regPw, regNickname, regEmail, regCar], (err, data)=>{
         if(err){
             res.status(500).send(err);

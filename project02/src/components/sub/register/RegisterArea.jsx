@@ -66,7 +66,7 @@ const RegisterArea=()=>{
 
         // 비밀번호 체크가 되지 않았을 경우 즉시 종료
         if(inputReg.regPw!==inputReg.regPwChk){
-            alert('패스워드를 체크하세요.');
+            alert('패스워드를 확인하세요.');
             return;
         }
 

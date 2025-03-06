@@ -6,11 +6,11 @@ const Redirect=({message})=>{
         <section className='Redirect'>
             <h2 className='fs_lg NotoSansKR'>{message}</h2>
             <div className='button_area'>
-                <button type="button">
-                    <Link to={'/'}>홈으로</Link>
-                </button>
-                <button type="button">
+                <button type="button" className='back'>
                     <Link to={-1}>뒤로가기</Link>
+                </button>
+                <button type="button" className='home'>
+                    <Link to={'/'}>홈으로 가기</Link>
                 </button>
             </div>
         </section>

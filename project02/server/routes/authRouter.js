@@ -111,9 +111,9 @@ router.post('/register', (req, res)=>{
     Promise.all([regIdChk(), regNicknameChk(), regEmailChk()])
     .then(([boolId, boolNickname, boolEmail])=>{
         res.send({
-            existId:boolId,
-            existNickname:boolNickname,
-            existEmail:boolEmail
+            idExist:boolId,
+            nicknameExist:boolNickname,
+            emailExist:boolEmail
         });
     }).catch((err)=>{
         res.status(500).send(err);

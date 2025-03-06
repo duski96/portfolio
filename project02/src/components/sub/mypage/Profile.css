@@ -5,9 +5,15 @@
 .Profile .profile_img{flex-shrink:0; width:200px; height:200px; margin:0 auto var(--space-md) auto; border-radius:50%; overflow:hidden;}
 .Profile .profile_img img{display:block; width:100%; height:100%; object-fit:cover;}
 
-.Profile .info_txt li{margin-bottom:var(--space-md);}
+.Profile .info_txt li{position:relative; margin-bottom:var(--space-md);}
 .Profile .info_txt li:last-child{margin-bottom:0;}
 .Profile .info_txt li span{display:inline-block;}
 .Profile .info_txt input{display:inline-block; width:280px; height:24px; margin-left:var(--space-xsm); border:1px solid #ccc; border-radius:5px; box-sizing:border-box;}
+
+.Profile .pw_chk{position:absolute; left:auto; top:32px; right:0; visibility:hidden;}
+.Profile .pw_chk.true{color:blue; visibility:visible;}
+
 .Profile .info_txt select{margin-left:var(--space-xsm); padding:4px 0; border:1px solid #ccc; border-radius:5px;}
-.Profile button{display:block; width:100%; max-width:280px; height:60px; margin:var(--space-lg) auto 0 auto; color:#fff; border:0; border-radius:5px; background:#004299; cursor:pointer;}
+.Profile .button_area{display:flex; gap:var(--space-sm);}
+.Profile button{display:block; width:100%; height:60px; color:#fff; font-size:var(--font-sm); border:0; border-radius:5px; background:#666; cursor:pointer;}
+.Profile button.save{background:#004299;}

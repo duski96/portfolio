@@ -11,6 +11,7 @@ import Product from './pages/Product';
 import Login from './pages/Login';
 import MyPage from './pages/MyPage';
 import Register from './pages/Register';
+import Redirect from './components/Redirect';
 
 import { mockDataArray } from './util/mock-data';
 
@@ -73,6 +74,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/mypage/:userId" element={<MyPage />} />
               <Route path="/register" element={<Register />} />
+              <Route path="*" element={<Redirect message={'존재하지 않는 페이지입니다.'} />} />
             </Routes>
           </LoginUserInfoContext.Provider>
         </MockDataDispatchContext.Provider>

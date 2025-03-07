@@ -4,10 +4,22 @@ import db from '../config/db.js';
 
 router.post('/profile_update', (req, res)=>{
     const {userId, newPw, newCar}=req.body.updateSubmit;
-    
-    const sql='update users set user_pw=?, car=? where user_id=?';
+    let dataParams=[];
+    let sql;
+    if(newPw && newCar){
+        sql='update users set user_pw=?, car=? where user_id=?';
+        dataParams.push(newPw, newCar, userId);
+    }
+    else if(!newPw){
+        sql='update users set car=? where user_id=?';
+        dataParams.push(newCar, userId);
+    }
+    else if(!newCar){
+        sql='update users set user_pw=? where user_id=?';
+        dataParams.push(newPw, userId);
+    }
 
-    db.query(sql, [newPw, newCar, userId], (err, data)=>{
+    db.query(sql, dataParams, (err, data)=>{
         if(err){
             res.status(500).send(err);
         }

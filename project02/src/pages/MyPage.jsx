@@ -14,14 +14,14 @@ import { LoginUserInfoContext } from "../App";
 
 const MyPage=()=>{
     const paramsName=useParams().userId;
-    const {loginUserInfo}=useContext(LoginUserInfoContext);
+    const {loginUserInfo, setLoginUserInfo}=useContext(LoginUserInfoContext);
 
     if(loginUserInfo.userId===paramsName){
         return (
             <>
                 <Header isActive={true} />
                 <SubMain title={'MY PAGE'} explanation={`Profile`} background={subMainBg} addClassName={'Model'} />
-                <Profile loginUserInfo={loginUserInfo} />
+                <Profile loginUserInfo={loginUserInfo} setLoginUserInfo={setLoginUserInfo} />
                 <QuickMenu />
                 <Footer />
             </>

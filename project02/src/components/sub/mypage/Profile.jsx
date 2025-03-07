@@ -1,10 +1,11 @@
 import './Profile.css';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import profileImg from '../../../assets/sub/profile_default.jpg';
 
-const Profile=({loginUserInfo})=>{
+const Profile=({loginUserInfo, setLoginUserInfo})=>{
     // 로그인한 유저의 정보
     const {userId, nickname, email, car}=loginUserInfo;
 
@@ -33,12 +34,13 @@ const Profile=({loginUserInfo})=>{
         }
     }
 
+
     const onClickUpdate=(e)=>{
         // submit 기능 막기
         e.preventDefault();
 
         // 패스워드 확인이 되지 않았을 경우 즉시 종료
-        if(!pwChk){
+        if(updateProfile.newPw && !pwChk){
             alert('패스워드를 확인하세요.')
             return;
         }
@@ -49,6 +51,11 @@ const Profile=({loginUserInfo})=>{
             alert('프로필이 업데이트되었습니다.');
         }).catch(()=>{
             alert('오류가 발생했습니다.');
+        });
+
+        setLoginUserInfo({
+            ...loginUserInfo,
+            car:updateProfile.newCar,
         });
 
         // 저장 버튼 클릭 후 입력값 초기화
@@ -62,6 +69,8 @@ const Profile=({loginUserInfo})=>{
         setPwChk(false);
     }
 
+    const nav=useNavigate();
+
     return (
         <section className='Profile'>
             <div className='inner_1000 NotoSansKR'>
@@ -69,7 +78,7 @@ const Profile=({loginUserInfo})=>{
                 <p className='fs_sm mb_lg'>회원 정보를 확인하고 일부 정보를 수정할 수 있습니다.</p>
                 <form className='info_wrap'>
                     <div className='profile_img'>
-                        <img src={profileImg} alt="프로필 이미지" />
+                        <img src={profileImg} alt="기본 프로필 이미지" />
                     </div>
                     <ul className='info_txt fs_sm mb_lg'>
                         <li>
@@ -108,7 +117,6 @@ const Profile=({loginUserInfo})=>{
                         <button type="button" onClick={()=>{nav(-1)}}>뒤로가기</button>
                         <button type="submit" className='save' onClick={onClickUpdate}>저장</button>
                     </div>
-                    
                 </form>
             </div>
         </section>

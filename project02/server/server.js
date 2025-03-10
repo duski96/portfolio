@@ -17,8 +17,10 @@ app.use(express.json());
 // 라우터 파일에서 api 처리
 import authRouter from './routes/authRouter.js';
 app.use('/api/auth', authRouter);
-import userRouter from './routes/userRoutes.js';
+import userRouter from './routes/userRouter.js';
 app.use('/api/user', userRouter);
+import boardRouter from './routes/boardRouter.js'
+app.use('/api/board', boardRouter);
 
 const PORT=process.env.VITE_PORT || 4000;
 

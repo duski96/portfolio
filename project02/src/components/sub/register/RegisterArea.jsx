@@ -1,5 +1,5 @@
 import './RegisterArea.css';
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
@@ -8,8 +8,8 @@ import { debounce } from 'lodash';
 
 const RegisterArea=()=>{
     // 회원가입 폼 input, 중복 체크 여부 초기값
-    const initReg=useRef({regId:'', regPw:'', regPwChk:'', regNickname:'', regEmail:'', regCar:''});
-    const initDup=useRef({dupId:false, dupNickname:false, dupEmail:false});
+    const initReg={regId:'', regPw:'', regPwChk:'', regNickname:'', regEmail:'', regCar:''};
+    const initDup={dupId:false, dupNickname:false, dupEmail:false};
 
     // 회원가입 폼 입력, 중복 여부 판별 state
     const [inputReg, setInputReg]=useState(initReg);

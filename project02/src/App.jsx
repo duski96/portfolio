@@ -7,6 +7,8 @@ import Model from './pages/Model';
 import UsedCar from './pages/UsedCar';
 import Service from './pages/Service';
 import Brand from './pages/Brand';
+import LifestyleBoardPage from './pages/LifestyleBoardPage';
+import LifestyleEditorPage from './pages/LifestyleEditorPage';
 import Product from './pages/Product';
 import Login from './pages/Login';
 import MyPage from './pages/MyPage';
@@ -70,6 +72,8 @@ function App() {
               <Route path="/used-car/:subPageName" element={<UsedCar />} />
               <Route path="/service/:subPageName" element={<Service />} />
               <Route path="/brand/:subPageName" element={<Brand />} />
+              <Route path="/brand/:subPageName/:boardName" element={<LifestyleBoardPage />} />
+              <Route path="/brand/:subPageName/:boardName/editor" element={<LifestyleEditorPage />} />
               <Route path="/product/:id" element={<Product />} />
               <Route path="/login" element={<Login />} />
               <Route path="/mypage/:userId" element={<MyPage />} />

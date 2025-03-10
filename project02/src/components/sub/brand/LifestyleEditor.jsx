@@ -46,10 +46,10 @@ const LifestyleEditor=()=>{
     const getDayTime=()=>{
         const year=new Date().getFullYear();
         const month=new Date().getMonth() <= 9 ? `0${new Date().getMonth()+1}` : `${new Date().getMonth()+1}`;
-        const date=new Date().getDate();
+        const date=new Date().getDate() <= 9 ? `0${new Date().getDate()}` : `${new Date().getDate()}`;
         const hours=new Date().getHours() <= 9 ? `0${new Date().getHours()}` : `${new Date().getHours()}`;
-        const minutes=new Date().getMinutes();
-        const seconds=new Date().getSeconds();
+        const minutes=new Date().getMinutes() <= 9 ? `0${new Date().getMinutes()}` : `${new Date().getMinutes()}`;
+        const seconds=new Date().getSeconds() <= 9 ? `0${new Date().getSeconds()}` :  `${new Date().getSeconds()}`;
 
         return `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`;
     }

@@ -13,7 +13,7 @@ const LifestyleBoardPage=()=>{
     const paramsName=useParams().boardName;
 
     return (
-        ['review', 'meeting', 'driving', 'maintanance', 'defect'].includes(paramsName) ?
+        ['review', 'meeting', 'driving', 'maintenance', 'defect'].includes(paramsName) ?
         <>
             <Header isActive={true} />
             <SubMain title={'BRAND'} explanation={'Welcome to Mini Lifestyle'} background={subMainBg} addClassName={'Brand'} />

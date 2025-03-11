@@ -17,6 +17,7 @@
 .Lifestyle .review_list .profile_img{width:70px; height:70px; border-radius:50%; overflow:hidden;}
 .Lifestyle .review_list .profile_img img{width:100%; height:100%; object-fit:cover;}
 .Lifestyle .review_list span.car{color:#666;}
+.Lifestyle .review_list span.rate{color:#FFC70F;}
 
 .Lifestyle .post_area{display:flex; flex-wrap:wrap; gap:var(--space-lg); width:100%;}
 .Lifestyle .post_area .board{width:calc(50% - (var(--space-lg)/2)); box-sizing:border-box;}
@@ -31,8 +32,7 @@
 
 .Lifestyle.LifestyleBoard ul[class*='_list'] [class*='_item']{padding-bottom:var(--space-md); border-bottom:1px solid #ddd;}
 .Lifestyle.LifestyleBoard ul[class*='_list'] [class*='_item']:last-child{padding-bottom:0; border-bottom:0;}
-.Lifestyle.LifestyleBoard button.write{display:block; width:120px; height:48px; margin:var(--space-lg) 0 auto auto; border:0; border-radius:5px; background:#004299; cursor:pointer;}
-.Lifestyle.LifestyleBoard button.write a{color:#fff;}
+.Lifestyle.LifestyleBoard button.write{display:block; width:120px; height:48px; margin:var(--space-lg) 0 auto auto; border:0; border-radius:5px; color:#fff; background:#004299; cursor:pointer;}
 
 /*에디터 페이지 CSS*/
 .Lifestyle.LifestyleEditor .page_title{font-weight:500;}

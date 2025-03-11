@@ -1,25 +1,45 @@
-import { useState, useContext } from "react";
-import { useLocation } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { LoginUserInfoContext } from "../../../App";
 import axios from "axios";
 
 const LifestyleEditor=()=>{
+    // 현재 페이지 경로
+    const loc=useLocation().pathname;
     // useParams를 사용하지 않고 어느 게시판의 에디터인지 구분
-    const loc=useLocation().pathname.split('/');
-    const boardName=loc[loc.length-2];
+    const boardName=loc.split('/')[loc.split('/').length-2];
 
+    // 접속했던 게시판 경로에 따라 다른 제목으로 출력
     let title;
     switch(boardName){
         case 'review' : title='리뷰쓰기'; break;
         case 'meeting' : title='정기 모임'; break;
         case 'driving' : title='드라이빙 코스'; break;
-        case 'maintanance' : title='정비 후기'; break;
+        case 'maintenance' : title='정비 후기'; break;
         case 'defect' : title='결함/리콜'; break;
         default : break;
     }
 
     const {loginUserInfo}=useContext(LoginUserInfoContext);
 
+    const nav=useNavigate();
+
+    // 로그인 하지 않은 유저가 접근할 때
+    useEffect(()=>{
+        if(!loginUserInfo.isLogin){
+            if(confirm('로그인이 필요합니다!')){
+                nav('/login');
+                return;
+            }
+            else{
+                nav('/brand/lifestyle');
+                return;
+            }
+        }
+    });
+
+    // input 기본 값.
+    // 로그인한 유저의 정보와 게시판 이름까지 서버에 전달해 적절한 DB에 저장
     const initInput={
         title:'',
         userId:loginUserInfo.userId,
@@ -28,7 +48,6 @@ const LifestyleEditor=()=>{
         rate:'',
         content:'',
         board:boardName,
-        date:''
     };
 
     const [input, setInput]=useState(initInput);
@@ -41,36 +60,27 @@ const LifestyleEditor=()=>{
         setInput(newInput);
     }
 
+    // 초기화 버튼
     const onClickInit=()=>{setInput(initInput);}
 
-    const getDayTime=()=>{
-        const year=new Date().getFullYear();
-        const month=new Date().getMonth() <= 9 ? `0${new Date().getMonth()+1}` : `${new Date().getMonth()+1}`;
-        const date=new Date().getDate() <= 9 ? `0${new Date().getDate()}` : `${new Date().getDate()}`;
-        const hours=new Date().getHours() <= 9 ? `0${new Date().getHours()}` : `${new Date().getHours()}`;
-        const minutes=new Date().getMinutes() <= 9 ? `0${new Date().getMinutes()}` : `${new Date().getMinutes()}`;
-        const seconds=new Date().getSeconds() <= 9 ? `0${new Date().getSeconds()}` :  `${new Date().getSeconds()}`;
-
-        return `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`;
-    }
-
-    const onClickSubmit=()=>{        
-        input.date=getDayTime();
-
+    const onClickSubmit=()=>{
+        // 리뷰 게시판에서 다루는 데이터가 달라 따로 호출
         if(boardName==='review'){
             axios.get('/api/board/review_submit', {params:input})
             .then(()=>{
-                
+                alert('리뷰 작성이 완료되었습니다.');
+                nav('/brand/lifestyle/review');
             }).catch(()=>{
-                
+                alert('오류가 발생했습니다!');
             });
         }
         else{
             axios.get('/api/board/post_submit', {params:input})
             .then(()=>{
-                
+                alert('글 작성이 완료되었습니다.');
+                nav(`/brand/lifestyle/${boardName}`);
             }).catch(()=>{
-                
+                alert('오류가 발생했습니다!');
             });
         }
     }

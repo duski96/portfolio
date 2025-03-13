@@ -8,6 +8,7 @@ import UsedCar from './pages/UsedCar';
 import Service from './pages/Service';
 import Brand from './pages/Brand';
 import LifestyleBoardPage from './pages/LifestyleBoardPage';
+import LifestyleViewerPage from './pages/lifestyleViewerPage';
 import LifestyleEditorPage from './pages/LifestyleEditorPage';
 import Product from './pages/Product';
 import Login from './pages/Login';
@@ -73,6 +74,7 @@ function App() {
               <Route path="/service/:subPageName" element={<Service />} />
               <Route path="/brand/:subPageName" element={<Brand />} />
               <Route path="/brand/:subPageName/:boardName" element={<LifestyleBoardPage />} />
+              <Route path="/brand/:subPageName/:boardName/:id" element={<LifestyleViewerPage />} />
               <Route path="/brand/:subPageName/:boardName/editor" element={<LifestyleEditorPage />} />
               <Route path="/product/:id" element={<Product />} />
               <Route path="/login" element={<Login />} />

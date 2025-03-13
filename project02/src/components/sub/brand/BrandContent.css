@@ -16,7 +16,7 @@
 
 .Lifestyle .review_list .profile_img{width:70px; height:70px; border-radius:50%; overflow:hidden;}
 .Lifestyle .review_list .profile_img img{width:100%; height:100%; object-fit:cover;}
-.Lifestyle .review_list span.car{color:#666;}
+.Lifestyle .review_list span.car{color:#999;}
 .Lifestyle .review_list span.rate{color:#FFC70F;}
 
 .Lifestyle .post_area{display:flex; flex-wrap:wrap; gap:var(--space-lg); width:100%;}
@@ -24,7 +24,7 @@
 
 .Lifestyle .post_list li.post_item{margin-bottom:var(--space-md);}
 .Lifestyle .post_list li.post_item:last-child{margin-bottom:0;}
-.Lifestyle .post_list .car{color:#666;}
+.Lifestyle .post_list .car{color:#999;}
 
 
 
@@ -46,3 +46,15 @@
 .Lifestyle.LifestyleEditor .button_area{display:flex; gap:var(--space-sm); width:fit-content; margin:var(--space-lg) 0 0 auto;}
 .Lifestyle.LifestyleEditor button{display:block; width:120px; height:48px; border:0; border-radius:5px; color:#fff; background:#666; cursor:pointer;}
 .Lifestyle.LifestyleEditor button.submit{background:#004299;}
+
+/*뷰어 페이지 CSS*/
+.Lifestyle.LifestyleViewer .page_title{font-weight:500;}
+.Lifestyle.LifestyleViewer .write_info{display:flex; justify-content:space-between;}
+.Lifestyle.LifestyleViewer .user_info{display:flex; gap:var(--space-xsm)}
+.Lifestyle.LifestyleViewer .user_info .car{color:#999;}
+.Lifestyle.LifestyleViewer hr{height:1px; border:0; background:#ddd;}
+.Lifestyle.LifestyleViewer .button_area{display:flex; gap:var(--space-sm); width:fit-content; margin:0 0 0 auto;}
+.Lifestyle.LifestyleViewer .button_area button{display:block; width:150px; height:48px; border:0; border-radius:5px; color:#fff; font-size:var(--font-sm); background:#666; cursor:pointer; display:none;}
+.Lifestyle.LifestyleViewer .button_area button.edit{background:#28a745;}
+.Lifestyle.LifestyleViewer .button_area button.delete{background:#FF5555;}
+.Lifestyle.LifestyleViewer .button_area button.visible{display:block;}

@@ -80,7 +80,7 @@ const LifestyleViewer=()=>{
             return;
         }
         else{
-            axios.post('/api/board/delete', {id:curData.id, userId:curData.user_id, board:boardName})
+            axios.get('/api/board/delete', {params:{id:curData.id, userId:curData.user_id, board:boardName}})
             .then(()=>{
                 alert('삭제되었습니다.');
                 nav(`/brand/lifestyle/${boardName}`)
@@ -108,7 +108,7 @@ const LifestyleViewer=()=>{
                 </div>
                 <div className='button_area'>
                     <button type='button' className='visible' onClick={onClickList}>목록으로</button>
-                    <button type='button' className={`edit ${loginUserInfo.userId===curData.user_id ? 'visible': ''}`}>수정</button>
+                    <button type='button' className={`edit ${loginUserInfo.userId===curData.user_id ? 'visible': ''}`} onClick={onClickEdit}>수정</button>
                     <button type='button' className={`delete ${loginUserInfo.userId===curData.user_id ? 'visible': ''}`} onClick={onClickDelete}>삭제</button>
                 </div>
             </div>

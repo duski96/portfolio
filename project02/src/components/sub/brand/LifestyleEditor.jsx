@@ -9,6 +9,9 @@ const LifestyleEditor=()=>{
     // useParams를 사용하지 않고 어느 게시판의 에디터인지 구분
     const boardName=loc.split('/')[loc.split('/').length-2];
 
+    // 유저가 수정 버튼을 눌러서 들어오면 기존 data를 전달받음
+    const linkData=useLocation().state;
+
     // 접속했던 게시판 경로에 따라 다른 제목으로 출력
     let title;
     switch(boardName){
@@ -40,13 +43,15 @@ const LifestyleEditor=()=>{
 
     // input 기본 값.
     // 로그인한 유저의 정보와 게시판 이름까지 서버에 전달해 적절한 DB에 저장
+    // 글 수정이면 제목과 내용에 linkData로 기본값 지정
     const initInput={
-        title:'',
+        id:linkData ? linkData.value.id : undefined,
+        title:linkData ? linkData.value.title : '',
         userId:loginUserInfo.userId,
         nickname:loginUserInfo.nickname,
         car:loginUserInfo.car,
         rate:'',
-        content:'',
+        content:linkData ? linkData.value.content : '',
         board:boardName,
     };
 
@@ -75,13 +80,24 @@ const LifestyleEditor=()=>{
             });
         }
         else{
-            axios.get('/api/board/post_submit', {params:input})
-            .then(()=>{
-                alert('글 작성이 완료되었습니다.');
-                nav(`/brand/lifestyle/${boardName}`);
-            }).catch(()=>{
-                alert('오류가 발생했습니다!');
-            });
+            if(!linkData){
+                axios.get('/api/board/post_submit', {params:input})
+                .then(()=>{
+                    alert('글 작성이 완료되었습니다.');
+                    nav(`/brand/lifestyle/${boardName}`);
+                }).catch(()=>{
+                    alert('오류가 발생했습니다!');
+                });
+            }
+            else{
+                axios.get('/api/board/post_update', {params:input})
+                .then(()=>{
+                    alert('글 수정이 완료되었습니다.');
+                    nav(`/brand/lifestyle/${boardName}`);
+                }).catch(()=>{
+                    alert('오류가 발생했습니다!');
+                });
+            }
         }
     }
 

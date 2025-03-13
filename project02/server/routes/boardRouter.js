@@ -102,12 +102,72 @@ router.get('/post', (req, res)=>{
     });
 });
 
+router.get('/meeting', (req, res)=>{
+    const sql='select * from meeting';
+    db.query(sql, [], (err, data)=>{
+        if(err){
+            res.status(500).send(err);
+        }
+        else if(!data.length){
+            res.status(204).send({message: '조회된 데이터가 없습니다.'});
+        }
+        else{
+            res.status(200).send(data);
+        }
+    });
+});
+
+router.get('/driving', (req, res)=>{
+    const sql='select * from driving';
+    db.query(sql, [], (err, data)=>{
+        if(err){
+            res.status(500).send(err);
+        }
+        else if(!data.length){
+            res.status(204).send({message: '조회된 데이터가 없습니다.'});
+        }
+        else{
+            res.status(200).send(data);
+        }
+    });
+});
+
+router.get('/maintenance', (req, res)=>{
+    const sql='select * from maintenance';
+    db.query(sql, [], (err, data)=>{
+        if(err){
+            res.status(500).send(err);
+        }
+        else if(!data.length){
+            res.status(204).send({message: '조회된 데이터가 없습니다.'});
+        }
+        else{
+            res.status(200).send(data);
+        }
+    });
+});
+
+router.get('/defect', (req, res)=>{
+    const sql='select * from defect';
+    db.query(sql, [], (err, data)=>{
+        if(err){
+            res.status(500).send(err);
+        }
+        else if(!data.length){
+            res.status(204).send({message: '조회된 데이터가 없습니다.'});
+        }
+        else{
+            res.status(200).send(data);
+        }
+    });
+});
+
 router.get('/post_submit', (req, res)=>{
     const {userId, nickname, car, title, content, board}=req.query;
     
-    const sql='insert into ? (user_id, nickname, car, title, content) values (?, ?, ?, ?, ?)';
+    const sql=`insert into ${board} (user_id, nickname, car, title, content) values (?, ?, ?, ?, ?)`;
 
-    db.query(sql, [board, userId, nickname, car, title, content], (err, data)=>{
+    db.query(sql, [userId, nickname, car, title, content], (err, data)=>{
         if(err){
             res.status(500).send(err);
         }
@@ -118,3 +178,19 @@ router.get('/post_submit', (req, res)=>{
 });
 
 export default router;
+
+router.post('/delete', (req, res)=>{
+    const {id, userId, board}=req.body;
+    console.log(req.body);
+
+    const sql=`delete from ${board} where id=? and user_id=?`;
+
+    db.query(sql, [id, userId], (err, data)=>{
+        if(err){
+            res.status(500).send(err);
+        }
+        else{
+            res.status(200).send({message:'삭제가 완료되었습니다.'});
+        }
+    });
+});

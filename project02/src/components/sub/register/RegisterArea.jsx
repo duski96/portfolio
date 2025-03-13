@@ -72,10 +72,10 @@ const RegisterArea=()=>{
 
         axios.post('/api/auth/register_submit', {'registerSubmit':inputReg})
         .then(()=>{
+            // 회원가입이 완료되면 가입 페이지로 다시 이동하지 않음
             nav('/login', {replace:true});
             alert('회원가입이 완료되었습니다. 로그인이 필요합니다.');
         }).catch(()=>{
-            nav('/login', {replace:true});
             alert('오류가 발생했습니다.');
         });
     }

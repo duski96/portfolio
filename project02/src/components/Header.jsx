@@ -1,12 +1,13 @@
 import './Header.css';
 import logo from '../assets/logo.svg';
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link, useLocation } from 'react-router-dom';
 import { LoginUserInfoContext } from '../App';
 
-const Header=({isActive})=>{
-    
+const Header=({isActive})=>{    
+    // 아래 경로를 로그인 페이지에 전달하고 경로 유무에 따라 리다이렉트 설정
+    const locPath=useLocation().pathname;
+
     const [isHover, setIsHover]=useState(false);
 
     const onMouseOver=()=>{
@@ -73,10 +74,10 @@ const Header=({isActive})=>{
                     </ul>
                 </nav>
                 <ul className={`user fs_xsm NotoSansKR ${loginUserInfo.isLogin ? 'not_login' : 'login'}`}>
-                    <li><Link to='/login'>로그인</Link></li>
-                    <li><Link to='/register'>회원가입</Link></li>
+                    <li><Link to={'/login'} state={{from:locPath}}>로그인</Link></li>
+                    <li><Link to={'/register'}>회원가입</Link></li>
                     <li><Link to={`/mypage/${loginUserInfo.userId}`}>내 정보</Link></li>
-                    <li><Link to={'/login'} onClick={onClickLogout}>로그아웃</Link></li>
+                    <li><Link to={'/login'} state={{from:locPath}} onClick={onClickLogout}>로그아웃</Link></li>
                 </ul>
             </div>
         </header>

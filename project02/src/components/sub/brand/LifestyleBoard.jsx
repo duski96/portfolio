@@ -1,12 +1,16 @@
 import './BrandContent.css';
 import { useContext } from 'react';
 import { LoginUserInfoContext } from '../../../App.jsx';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import LifestyleWelcome from './LifestyleWelcome.jsx';
 import LifestyleReview from './LifestyleReview.jsx';
 import LifestylePost from './LifestylePost.jsx';
 
 const LifestyleBoard=()=>{
+    // 현재 경로 유무에 따라 로그인 페이지 이동 후 리다이렉트 경로 설정
+    const locPath=location.pathname;
+
+    // 게시판 이름
     const boardName=useParams().boardName;
     
     const {loginUserInfo}=useContext(LoginUserInfoContext);
@@ -16,7 +20,7 @@ const LifestyleBoard=()=>{
         // 로그인 하지 않으면 글 쓰기 불가
         if(!loginUserInfo.isLogin){
             if(confirm('로그인이 필요합니다!')){
-                nav('/login');
+                nav('/login', {state:{from:locPath}});
             }
             return;
         }

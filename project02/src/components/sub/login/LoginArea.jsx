@@ -1,12 +1,13 @@
 import './LoginArea.css';
 import { useState, useContext } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { LoginUserInfoContext } from '../../../App';
-
 import axios from 'axios';
 
 const LoginArea=()=>{
+    // 이전 페이지 경로가 있는지 확인
+    const prevPath=useLocation().state;
+
     const nav=useNavigate();
 
     // 로그인 input 입력
@@ -33,7 +34,7 @@ const LoginArea=()=>{
                     car:res.data.car,
                     isLogin:true
                 })
-                nav('/', {replace:true});
+                prevPath ? nav(-1) : nav('/', {replace:true});
             }).catch();
         }).catch((res)=>{
             // 로그인 실패 시 fail 값에 따라 알림창 출력

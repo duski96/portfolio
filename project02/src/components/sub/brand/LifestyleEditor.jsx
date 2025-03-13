@@ -31,7 +31,7 @@ const LifestyleEditor=()=>{
     useEffect(()=>{
         if(!loginUserInfo.isLogin){
             if(confirm('로그인이 필요합니다!')){
-                nav('/login');
+                nav('/login', {state:{from:loc}});
                 return;
             }
             else{

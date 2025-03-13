@@ -2,45 +2,9 @@ import profileImg from '../../../assets/sub/profile_default.jpg';
 import axios from 'axios';
 
 let reviewData;
-
 axios.get('/api/board/review').then((res)=>{
     reviewData=res.data;
 }).catch(()=>{});
-
-// const mockReview=[
-//     {
-//         id:0,
-//         userId:'user1',
-//         userNickname:'말랑박쥐',
-//         userCar:'클럽맨',
-//         rate:3,
-//         content:'이 차를 사느니 걸어다니겠습니다.'
-//     },
-//     {
-//         id:1,
-//         userId:'user2',
-//         userNickname:'딱딱구리',
-//         userCar:'5도어',
-//         rate:5,
-//         content:'이정도면 개 혜자임.'
-//     },
-//     {
-//         id:2,
-//         userId:'user3',
-//         userNickname:'콩송편은적폐',
-//         userCar:'컨트리맨',
-//         rate:5,
-//         content:'미니는 역시 돈 보고 타는 차는 아니네요. 이게 배고픈게 없으면 나가 스트라이프 파티 참여하면 얼마를 타고 좋아요.'
-//     },
-//     {
-//         id:3,
-//         userId:'user4',
-//         userNickname:'undeFined',
-//         userCar:'기타',
-//         rate:5,
-//         content:'역시 차는 롤스로이스죠~'
-//     }
-// ];
 
 const LifestyleReview=({visible})=>{
     // review 페이지와 lifestyle 페이지에서 보여질 개수가 다르기 때문에 slice할 인덱스를 지정할 변수

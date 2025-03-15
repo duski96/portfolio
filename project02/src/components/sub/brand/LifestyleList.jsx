@@ -6,7 +6,7 @@ import LifestyleWelcome from './LifestyleWelcome.jsx';
 import LifestyleReview from './LifestyleReview.jsx';
 import LifestylePost from './LifestylePost.jsx';
 
-const LifestyleBoard=()=>{
+const LifestyleList=()=>{
     // 현재 경로 유무에 따라 로그인 페이지 이동 후 리다이렉트 경로 설정
     const locPath=useLocation().pathname;
 
@@ -28,7 +28,7 @@ const LifestyleBoard=()=>{
     }
     
     return (
-        <section className='BrandContent Lifestyle LifestyleBoard NotoSansKR'>
+        <section className='BrandContent Lifestyle LifestyleList NotoSansKR'>
             <div className='inner_1280'>
                 <LifestyleWelcome />
                 {boardName==='review' ? 
@@ -59,4 +59,4 @@ const LifestyleBoard=()=>{
     );
 }
 
-export default LifestyleBoard;
+export default LifestyleList;

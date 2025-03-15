@@ -35,9 +35,9 @@
 
 /*게시판 페이지 CSS*/
 
-.Lifestyle.LifestyleBoard ul[class*='_list'] [class*='_item']{padding-bottom:var(--space-md); border-bottom:1px solid #ddd;}
-.Lifestyle.LifestyleBoard ul[class*='_list'] [class*='_item']:last-child{padding-bottom:0; border-bottom:0;}
-.Lifestyle.LifestyleBoard button.write{display:block; width:120px; height:48px; margin:var(--space-lg) 0 auto auto; border:0; border-radius:5px; color:#fff; background:#004299; cursor:pointer;}
+.Lifestyle.LifestyleList ul[class*='_list'] [class*='_item']{padding-bottom:var(--space-md); border-bottom:1px solid #ddd;}
+.Lifestyle.LifestyleList ul[class*='_list'] [class*='_item']:last-child{padding-bottom:0; border-bottom:0;}
+.Lifestyle.LifestyleList button.write{display:block; width:120px; height:48px; margin:var(--space-lg) 0 auto auto; border:0; border-radius:5px; color:#fff; background:#004299; cursor:pointer;}
 
 /*에디터 페이지 CSS*/
 .Lifestyle.LifestyleEditor .page_title{font-weight:500;}

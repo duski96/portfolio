@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 
 import Header from "../components/Header";
 import SubMain from "../components/sub/SubMain";
-import LifestyleBoard from "../components/sub/brand/LifestyleList";
+import LifestyleList from "../components/sub/brand/LifestyleList";
 import QuickMenu from "../components/QuickMenu";
 import Footer from "../components/Footer";
 import Redirect from "../components/Redirect";
@@ -17,7 +17,7 @@ const LifestyleListPage=()=>{
         <>
             <Header isActive={true} />
             <SubMain title={'BRAND'} explanation={'Welcome to Mini Lifestyle'} background={subMainBg} addClassName={'Brand'} />
-            <LifestyleBoard />
+            <LifestyleList />
             <QuickMenu />
             <Footer />
         </>

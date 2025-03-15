@@ -2,14 +2,14 @@ import { useParams } from "react-router-dom";
 
 import Header from "../components/Header";
 import SubMain from "../components/sub/SubMain";
-import LifestyleBoard from "../components/sub/brand/LifestyleBoard";
+import LifestyleBoard from "../components/sub/brand/LifestyleList";
 import QuickMenu from "../components/QuickMenu";
 import Footer from "../components/Footer";
 import Redirect from "../components/Redirect";
 
 import subMainBg from '../assets/sub/brand_main.jpg';
 
-const LifestyleBoardPage=()=>{
+const LifestyleListPage=()=>{
     const paramsName=useParams().boardName;
 
     return (
@@ -28,4 +28,4 @@ const LifestyleBoardPage=()=>{
     );
 }
 
-export default LifestyleBoardPage;
+export default LifestyleListPage;

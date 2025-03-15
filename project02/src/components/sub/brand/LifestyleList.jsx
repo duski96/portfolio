@@ -8,7 +8,7 @@ import LifestylePost from './LifestylePost.jsx';
 
 const LifestyleBoard=()=>{
     // 현재 경로 유무에 따라 로그인 페이지 이동 후 리다이렉트 경로 설정
-    const locPath=location.pathname;
+    const locPath=useLocation().pathname;
 
     // 게시판 이름
     const boardName=useParams().boardName;

@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import SubMain from "../components/sub/SubMain";
-import LifestyleViewer from "../components/sub/brand/LifestyleViewer";
+import LifestyleViewer from "../components/sub/brand/LifestyleView";
 import QuickMenu from "../components/QuickMenu";
 import Footer from "../components/Footer";
 

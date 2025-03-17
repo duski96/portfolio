@@ -23,6 +23,9 @@ app.use('/api/user', userRouter);
 import boardRouter from './routes/boardRouter.js'
 app.use('/api/board', boardRouter);
 
+import test from './routes/test.js';
+app.use('/api/test', test);
+
 const PORT=process.env.MYSQLPORT || 4000;
 
 app.listen(PORT, ()=>{

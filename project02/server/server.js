@@ -23,7 +23,7 @@ app.use('/api/user', userRouter);
 import boardRouter from './routes/boardRouter.js'
 app.use('/api/board', boardRouter);
 
-const PORT=process.env.PORT || 4000;
+const PORT=process.env.MYSQLPORT || 4000;
 
 app.listen(PORT, ()=>{
     console.log(`Server run : http://localhost:${PORT}/`);

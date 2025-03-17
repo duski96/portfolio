@@ -1,4 +1,4 @@
-import roadsterImg from '../../../assets/sub/model_Roadster.jpg';
+import roadsterImg from '../../../assets/sub/model_roadster.jpg';
 
 const Roadster=()=>{
     return (

@@ -1,3 +1,6 @@
+// __dirname 적용 필요
+import { fileURLToPath } from 'url';
+
 // node.js 환경에서는 import.meta.env 사용 X
 // 추가로 .env 파일 경로 지정
 import dotenv from 'dotenv';
@@ -23,8 +26,19 @@ app.use('/api/user', userRouter);
 import boardRouter from './routes/boardRouter.js'
 app.use('/api/board', boardRouter);
 
-import test from './routes/test.js';
-app.use('/api/test', test);
+
+// api 경로 충돌 방지 필요
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// React 앱을 위한 정적 파일 서빙
+app.use(express.static(path.resolve(__dirname, 'public')));
+
+// 그 외 모든 요청은 리액트 앱의 index.html로 리디렉션
+// 리액트 라우터가 처리
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
 
 const PORT=process.env.MYSQLPORT || 4000;
 

@@ -1,7 +1,8 @@
 // node.js 환경에서는 import.meta.env 사용 X
+// 추가로 .env 파일 경로 지정
 import dotenv from 'dotenv';
 import path from 'path';
-dotenv.config({path:path.resolve(process.cwd(), '../.env')}); //env 파일 경로 지정
+dotenv.config({path:path.resolve(process.cwd(), '../.env')});
 
 // express 모듈 호출
 import express from 'express';
@@ -22,7 +23,7 @@ app.use('/api/user', userRouter);
 import boardRouter from './routes/boardRouter.js'
 app.use('/api/board', boardRouter);
 
-const PORT=process.env.VITE_PORT || 4000;
+const PORT=process.env.PORT || 4000;
 
 app.listen(PORT, ()=>{
     console.log(`Server run : http://localhost:${PORT}/`);

@@ -37,10 +37,11 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 // 그 외 모든 요청은 리액트 앱의 index.html로 리디렉션
 // 리액트 라우터가 처리
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+  res.sendFile(path.resolve(__dirname, 'public', '../index.html'));
 });
 
-const PORT=process.env.MYSQLPORT || 4000;
+// const PORT=process.env.MYSQLPORT || 4000;
+const PORT=4000;
 
 app.listen(PORT, ()=>{
     console.log(`Server run : http://localhost:${PORT}/`);

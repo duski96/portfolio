@@ -27,7 +27,7 @@ const LifestyleReview=({visible})=>{
     }
     else{
         // lifestyle 페이지에선 2개만, 리뷰 페이지에선 모두 출력 
-        visible==='part' ? slIdx=reviewData.length-2 : slIdx;
+        visible==='part' ? slIdx=reviewData.length-2 : slIdx=0;
     }
     
     return (

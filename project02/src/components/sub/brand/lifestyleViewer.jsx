@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams, useLocation, useNavigate, Link } from "react-router-dom";
+import { useParams, useLocation, useNavigate} from "react-router-dom";
 import { LoginUserInfoContext } from "../../../App";
 import Redirect from "../../Redirect";
 import axios from "axios";
@@ -13,9 +13,6 @@ const LifestyleViewer=()=>{
     // 게시판 이름
     const loc=useLocation().pathname;
     const boardName=loc.split('/')[loc.split('/').length-2];
-
-    // 로딩 실패 여부 : 성공 true, 실패 false
-    const [loadSuccess, setLoadSuccess]=useState(true);
    
     // 현재 포스트 아이디
     const curId=useParams().id;
@@ -40,14 +37,10 @@ const LifestyleViewer=()=>{
                 setCurData(loadData);
 
             }).catch((err)=>{
-                setLoadSuccess(false);
+                alert('데이터 로딩에 실패했습니다.');
             });
         }
     }, []);
-
-    if(!loadSuccess){
-        return <Redirect message={'데이터 로딩에 실패했습니다.'} />
-    }
         
     if(!curData){
         return <p>로딩중입니다.</p>

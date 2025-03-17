@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import Redirect from '../../Redirect';
 
 const LifestylePost=({visible, tableName})=>{
     // lifestyle 페이지면 tableName으로,
@@ -11,22 +10,15 @@ const LifestylePost=({visible, tableName})=>{
     // 현재 게시판의 데이터를 저장할 state
     const [boardList, setBoardList]=useState(null);
 
-    // 로딩 실패 여부 : 성공 true, 실패 false
-    const [loadSuccess, setLoadSuccess]=useState(true);
-
     // DB에서 데이터를 불러온 후 다시 렌더링
     useEffect(()=>{
         axios.get(`/api/board/${boardName}`).then((res)=>{
             const loadData=res.data;
             setBoardList(loadData);
         }).catch(()=>{
-            setLoadSuccess(false);
+            alert('데이터 로딩에 실패했습니다.');
         });
     }, []);
-
-    if(!loadSuccess)
-        return <Redirect message={'데이터 로딩에 실패했습니다.'} />
-
 
     let slIdx=0; // 페이지에 따라 출력될 리스트의 개수가 다르기 때문에 slice할 인덱스 지정
 

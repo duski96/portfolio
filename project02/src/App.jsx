@@ -8,7 +8,7 @@ import UsedCar from './pages/UsedCar';
 import Service from './pages/Service';
 import Brand from './pages/Brand';
 import LifestyleListPage from './pages/LifestyleListPage';
-import LifestyleViewerPage from './pages/lifestyleViewerPage';
+import LifestyleViewerPage from './pages/LifestyleViewerPage';
 import LifestyleEditorPage from './pages/LifestyleEditorPage';
 import Product from './pages/Product';
 import Login from './pages/Login';

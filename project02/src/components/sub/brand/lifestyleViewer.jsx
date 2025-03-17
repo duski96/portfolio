@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams, useLocation, useNavigate} from "react-router-dom";
 import { LoginUserInfoContext } from "../../../App";
-import Redirect from "../../Redirect";
 import axios from "axios";
 
 const LifestyleViewer=()=>{

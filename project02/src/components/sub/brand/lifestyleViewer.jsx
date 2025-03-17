@@ -36,14 +36,14 @@ const LifestyleViewer=()=>{
                 const loadData=res.data.filter((item)=>item.id===Number(curId))[0];
                 setCurData(loadData);
 
-            }).catch((err)=>{
-                alert('데이터 로딩에 실패했습니다.');
+            }).catch(()=>{
+                alert('DB 연결에 실패했습니다.');
             });
         }
     }, []);
         
     if(!curData){
-        return <p>로딩중입니다.</p>
+        return <p>해당 글이 존재하지 않습니다.</p>
     }
 
 

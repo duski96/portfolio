@@ -16,7 +16,7 @@ const LifestylePost=({visible, tableName})=>{
             const loadData=res.data;
             setBoardList(loadData);
         }).catch(()=>{
-            alert('데이터 로딩에 실패했습니다.');
+            alert('DB 연결에 실패했습니다.');
         });
     }, []);
 

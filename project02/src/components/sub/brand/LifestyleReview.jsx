@@ -17,7 +17,7 @@ const LifestyleReview=({visible})=>{
         axios.get('/api/board/review').then((res)=>{
             setReviewData(res.data);
         }).catch(()=>{
-            alert('로딩 중 오류가 발생했습니다!');
+            alert('DB 연결에 실패했습니다.');
         });
     }, []);
 

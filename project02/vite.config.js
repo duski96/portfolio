@@ -10,9 +10,8 @@ export default defineConfig(({mode})=>{
     server:{
       proxy:{
         '/api': { // axios라이브러리 등으로 http 요청인데 api로 시작하면
-          target: `https://portfolio-production-790b.up.railway.app:${process.env.EXRESS_PORT}`, // 이쪽 주소로 맵핑하여 백그라운드로 보냄.
+          target: `https://portfolio-production-790b.up.railway.app:${env.VITE_EXRESS_PORT}`, // 이쪽 주소로 맵핑하여 백그라운드로 보냄.
           changeOrigin: true, // cors 에러 방지
-          secure: false
         }
       }
     }

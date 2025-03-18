@@ -14,7 +14,6 @@ const LifestylePost=({visible, tableName})=>{
     useEffect(()=>{
         axios.get(`/api/board/${boardName}`).then((res)=>{
             const loadData=res.data;
-            console.log(loadData);
             setBoardList(loadData);
         }).catch(()=>{
             alert('DB 연결에 실패했습니다.');

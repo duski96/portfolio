@@ -14,6 +14,7 @@ const LifestylePost=({visible, tableName})=>{
     useEffect(()=>{
         axios.get(`/api/board/${boardName}`).then((res)=>{
             const loadData=res.data;
+            console.log(loadData);
             setBoardList(loadData);
         }).catch(()=>{
             alert('DB 연결에 실패했습니다.');
@@ -23,14 +24,12 @@ const LifestylePost=({visible, tableName})=>{
     let slIdx=0; // 페이지에 따라 출력될 리스트의 개수가 다르기 때문에 slice할 인덱스 지정
 
     if(!boardList){
-        console.log('no', boardList);
         return <p>작성된 글이 없습니다.</p>
     }
     else{
         // lifestyle 페이지에서 보여질 리스트
         // 작성된 글이 3개 이하면 모든 글 출력
         visible==='part' ? slIdx=boardList.length-3 : slIdx=0;
-        console.log(boardList);
     }
 
     // boardName : 불러와야 할 게시판 이름,

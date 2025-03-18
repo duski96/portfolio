@@ -40,8 +40,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'public', '../index.html'));
 });
 
-// const PORT=process.env.MYSQLPORT || 4000;
-const PORT=4000;
+const PORT=process.env.EXPRESS_PORT || 8080;
 
 app.listen(PORT, ()=>{
     console.log(`Server run : http://localhost:${PORT}/`);

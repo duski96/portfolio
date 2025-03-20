@@ -20,11 +20,11 @@ router.get('/review', (req, res)=>{
 
 // 리뷰 작성 api
 router.get('/review_submit', (req, res)=>{
-    const {userId, nickname, car, rate, content}=req.query;
+    const {userId, nickname, car, rate, content, createdDate}=req.query;
     
-    const sql='insert into review (user_id, nickname, car, rate, content) values (?, ?, ?, ?, ?)';
+    const sql='insert into review (user_id, nickname, car, rate, content, created_date) values (?, ?, ?, ?, ?, ?)';
 
-    db.query(sql, [userId, nickname, car, Number(rate), content], (err, data)=>{
+    db.query(sql, [userId, nickname, car, Number(rate), content, createdDate], (err, data)=>{
         if(err){
             res.status(500).send(err);
         }
@@ -169,11 +169,11 @@ router.get('/defect', (req, res)=>{
 
 // 글 작성 완료 api
 router.get('/post_submit', (req, res)=>{
-    const {userId, nickname, car, title, content, board}=req.query;
+    const {userId, nickname, car, title, content, createdDate, board}=req.query;
     
-    const sql=`insert into ${board} (user_id, nickname, car, title, content) values (?, ?, ?, ?, ?)`;
+    const sql=`insert into ${board} (user_id, nickname, car, title, content, created_date) values (?, ?, ?, ?, ?, ?)`;
 
-    db.query(sql, [userId, nickname, car, title, content], (err, data)=>{
+    db.query(sql, [userId, nickname, car, title, content, createdDate], (err, data)=>{
         if(err){
             res.status(500).send(err);
         }

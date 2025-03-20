@@ -26,5 +26,5 @@ app.use('/api/board', boardRouter);
 const PORT=process.env.EXPRESS_PORT || 8080;
 
 app.listen(PORT, ()=>{
-    console.log(`Server run : http://localhost:${PORT}/`);
+    console.log(`Server run : PORT ${PORT}`);
 });

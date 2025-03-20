@@ -90,7 +90,7 @@ const LifestyleViewer=()=>{
                     <div className='user_info'>
                         <span className='ninckname'>{curData.nickname}</span> <span className='car'>{curData.car}</span>
                     </div>
-                    <span className='created_date'>작성일자 : {curData.created_date.slice(0, 19).replace('T', ' ')}</span>
+                    <span className='created_date'>작성일자 : {curData.created_date}</span>
                 </div>
                 <hr className='mb_md' />
                 <div className='content mb_xlg'>

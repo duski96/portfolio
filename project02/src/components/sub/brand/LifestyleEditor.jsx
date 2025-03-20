@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { LoginUserInfoContext } from "../../../App";
 import axios from "axios";
+import { getCurrentTime } from "../../../util/get-current-time.js";
 
 const LifestyleEditor=()=>{
     // 현재 페이지 경로
@@ -52,6 +53,7 @@ const LifestyleEditor=()=>{
         car:loginUserInfo.car,
         rate:'',
         content:linkData ? linkData.value.content : '',
+        createdDate:getCurrentTime(),
         board:boardName,
     };
 
@@ -64,11 +66,16 @@ const LifestyleEditor=()=>{
         }
         setInput(newInput);
     }
+    
 
-    // 초기화 버튼
+    // 초기화 버튼 클릭 시 작성중인 내용 모두 삭제
     const onClickInit=()=>{setInput(initInput);}
 
+    // 완료 버튼 클릭시 DB에 저장
     const onClickSubmit=()=>{
+        // 완료 클릭 시점의 시간을 작성 일자로 지정
+        setInput({...input, createdDate:getCurrentTime()});
+
         // 리뷰 게시판에서 다루는 데이터가 달라 따로 호출
         if(boardName==='review'){
             axios.get('/api/board/review_submit', {params:input})

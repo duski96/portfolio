@@ -1,0 +1,20 @@
+.UsedCarContent{padding:var(--space-xlg) 0;}
+.UsedCarContent p{line-height:1.8;}
+
+.Certified h4, .Certified h5{text-align:center;}
+.Certified .all_list{display:flex; flex-wrap:wrap; justify-content:space-between; gap:var(--space-md); box-sizing:border-box;}
+.Certified .all_list > li{width:calc((100% - var(--space-md)*3)/4);}
+.Certified .all_list .info{border:1px solid #333; border-radius:5px; text-align:center; overflow:hidden;}
+.Certified .all_list .info .function{display:flex; justify-content:flex-end; padding:var(--space-sm);}
+.Certified .all_list .info .function button{position:relative; display:flex; justify-content:center; align-items:center; width:32px; height:32px; padding:0; border:1px solid #333; border-radius:50%; font-size:24px; background:none; cursor:pointer;}
+.Certified .all_list .info .function button.active{background:#333;}
+.Certified .all_list .info .function button.active::after{content:"관심 매물에 추가되었습니다."; position:absolute; top:50%; right:var(--space-lg); transform:translateY(-50%); width:185px; font-size:var(--font-xsm); text-align:center;}
+.Certified .all_list .info .function button img{display:block;}
+.Certified .all_list .info img.model{display:block; width:100%;}
+
+.Certified .all_list .info .txt{padding:var(--space-sm);}
+.Certified .all_list .info .txt h4{font-family:"Cormorant";}
+
+.Loyalty h4{font-family:"Cormorant", "Noto Serif KR"; text-align:center;}
+.Loyalty article{margin-bottom:var(--space-xlg);}
+.Loyalty article:last-child{margin-bottom:0;}

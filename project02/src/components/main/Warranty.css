@@ -1,4 +1,4 @@
-.Warranty{background:transparent;}
+.Warranty{background:transparent; word-break:keep-all;}
 .Warranty img.bg{display:block; position:fixed; z-index:-1; top:0; left:0; width:100%; height:100%; object-fit:cover;}
 
 .Warranty .inner_1280{display:flex; justify-content:space-between; align-items:center;}
@@ -8,4 +8,16 @@
 .Warranty ul.warranty li:last-child{margin-bottom:0;}
 .Warranty ul.warranty li img{width:70px;}
 
-.Warranty .txt_area{display:flex; justify-content:center; align-items:center; width:100%; height:100%; color:#fff; text-align:right;}
+.Warranty .txt_area{display:flex; flex-direction:column; justify-content:center; align-items:center; width:100%; height:100%; color:#fff; text-align:right;}
+.Warranty .txt_area a{position:relative; display:block; width:100%; padding-right:calc(var(--space-sm) + 2px); color:#fff; box-sizing:border-box;}
+.Warranty .txt_area p a::after{content:""; position:absolute; top:50%; right:2px; display:block; width:12px; height:12px; border-left:2px solid #fff; border-top:2px solid #fff; transform:translateY(calc(-50% + 2px)) rotate(135deg); transition:0.3s;}
+.Warranty .txt_area p a:hover::after{right:-16px;}
+
+@media screen and (max-width:768px){
+    .Warranty{padding:var(--space-xlg) 0;}
+    .Warranty .inner_1280{flex-wrap:wrap;}
+    .Warranty ul.warranty{position:relative; order:2; margin:0 auto; box-sizing:border-box; background:none;}
+    .Warranty ul.warranty::after{content:""; position:absolute; left:50%; top:0; transform:translateX(-50%); z-index:-1; display:block; width:calc(100dvw - 32px); height:100%; background:rgba(0,0,0,0.5);}
+    .Warranty .txt_area{order:1; justify-content:center; text-align:center; margin-bottom:var(--space-xlg);}
+    .Warranty .txt_area p{width:fit-content; margin:0 auto;}
+}

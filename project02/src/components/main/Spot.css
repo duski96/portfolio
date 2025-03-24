@@ -1,4 +1,4 @@
-.Spot{padding:var(--space-xlg) 0; text-align:center; background:#fff;}
+.Spot{padding:var(--space-xlg) 0; text-align:center; background:#fff; word-break:keep-all}
 .Spot .info{display:flex; justify-content:center;}
 
 .Spot .info .map{position:relative; margin-right:var(--space-xlg);}
@@ -17,3 +17,9 @@
 .Spot .info .list ul li::after{content:""; position:absolute; top:calc(50% - var(--space-xsm)); right:var(--space-sm); display:block; width:10px; height:10px; border-top:2px solid #333; border-right:2px solid #333; transform:translateY(calc(-50% + var(--space-xsm)/2)) rotate(45deg); transition:0.3s;}
 .Spot .info .list ul li:hover::after{right:0;}
 .Spot .info .list ul li:last-child{margin-bottom:0;}
+
+@media screen and (max-width:768px){
+    .Spot .info{flex-wrap:wrap;}
+    .Spot .info .map{width:fit-content; margin:0 auto var(--space-lg) auto;}
+    .Spot .info .list{width:100%; max-width:100%;}
+}

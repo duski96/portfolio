@@ -1,5 +1,5 @@
-.TradeIn{padding:var(--space-xlg) 0; text-align:center; background:url(../../assets/main/trade_in_img01.jpg) no-repeat center center/cover;}
+.TradeIn{padding:var(--space-xlg) 0; text-align:center; background:url(../../assets/main/trade_in_img01.jpg) no-repeat center center/cover; word-break:keep-all;}
 
-.TradeIn .txt_area{padding:var(--space-xlg); border-radius:5px; background:rgba(255,255,255,0.7);}
+.TradeIn .txt_area{padding:var(--space-xlg) var(--space-sm); border-radius:5px; background:rgba(255,255,255,0.7);}
 .TradeIn .txt_area h2{position:relative; margin-bottom:96px;}
 .TradeIn .txt_area h2::after{content:""; position:absolute; left:50%; top:100%; transform:translateX(-50%); display:block; width:1px; height:72px; background:#333;}

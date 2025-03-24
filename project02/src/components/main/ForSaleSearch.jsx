@@ -1,10 +1,8 @@
 import { useState, useRef } from 'react'
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-
 import forSaleSearchImg01 from '../../assets/main/forsale_search_img01.png';
 import forSaleSearchImg02 from '../../assets/main/forsale_search_img02.png';
 import forSaleSearchImg03 from '../../assets/main/forsale_search_img03.png';
@@ -16,8 +14,8 @@ import forSaleSearchImg08 from '../../assets/main/forsale_search_img08.png';
 
 const ForSaleSearch=({onClickSeries, onChangeSelect, onChangeChk, onClickSubmit})=>{
     // 커스텀할 swiper 네비게이션 초기 선언
-    const prevRef = useRef(null);
-    const nextRef = useRef(null);
+    const prevRef=useRef(null);
+    const nextRef=useRef(null);
 
     // 시리즈(모델) 선택은 swiper-slide 클릭 시 별도의 함수 실행
     const seriesSelect=[
@@ -82,9 +80,13 @@ const ForSaleSearch=({onClickSeries, onChangeSelect, onChangeChk, onClickSubmit}
                 <div className='swiper_area mb_md'>
                     <Swiper
                         modules={[Navigation]}
-                        spaceBetween={32}
-                        slidesPerView={4}
-                        navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
+                        spaceBetween={16}
+                        slidesPerView={2}
+                        navigation={{prevEl:prevRef.current, nextEl:nextRef.current}}
+                        breakpoints={{
+                            769:{slidesPerView:3},
+                            1281:{slidesPerView:4, spaceBetween:32}
+                        }}
                     >
                         {seriesSelect.map((item)=>(<SwiperSlide key={item.id} onClick={onClickSeriesHandler}><img src={item.content} name={'series'} alt={item.value} /></SwiperSlide>))}
                     </Swiper>

@@ -1,4 +1,5 @@
 import './Warranty.css';
+import { Link } from 'react-router-dom';
 import warrantyImg01 from '../../assets/main/warranty_img01.jpg';
 import warrantyImg02 from '../../assets/main/warranty_img02.png';
 import warrantyImg03 from '../../assets/main/warranty_img03.png';
@@ -33,7 +34,12 @@ const Warranty=()=>{
                         <p className='fs_md'>편리한 리스 승계</p>
                     </li>
                 </ul>
-                <h3 className='txt_area fs_lg'>MINI 공식 인증 중고차를 <br />믿고 구매할 수 있는 이유입니다.</h3>
+                <div className='txt_area'>
+                    <div>
+                        <h3 className='fs_lg mb_lg'>MINI 공식 인증 중고차를 <br />믿고 구매할 수 있는 이유입니다.</h3>
+                        <p className='fs_md NotoSansKR'><Link to={'/used-car/loyalty'}>LOYALTY PROGRAM 바로가기</Link></p>
+                    </div>
+                </div>
             </div>
         </section>
     );

@@ -22,9 +22,14 @@ const ForSaleList = ({ filteredList }) => {
                         <>
                             <Swiper
                                 modules={[Pagination]}
-                                spaceBetween={32}
-                                slidesPerView={4}
+                                spaceBetween={16}
+                                slidesPerView={1}
                                 pagination={{clickable:true, type:'progressbar'}}
+                                breakpoints={{
+                                    481:{slidesPerView:2},
+                                    769:{slidesPerView:3},
+                                    1281:{slidesPerView:4, spaceBetween:32}
+                                }}
                             >
                                 {filteredList.map((item) => (<SwiperSlide key={item.id}>
                                     <div className='info fs_sm NotoSansKR'>

@@ -10,7 +10,7 @@ import subMainBg from '../assets/sub/used_car_main.jpg';
 const UsedCar=()=>{
     const paramsName=useParams().subPageName;
 
-    const returnExplanationTxt=()=>{
+    const returnExplanation=()=>{
         switch(paramsName){
             case 'certified' : return '인증중고차';
             case 'loyalty' : return 'LOYALTY PROGRAM';
@@ -20,13 +20,13 @@ const UsedCar=()=>{
         }
     }
 
-    const explanationTxt=returnExplanationTxt();
+    const explanation=returnExplanation();
 
     return (
         ['certified', 'loyalty', 'sales', 'desired'].includes(paramsName) ?
         <>
             <Header isActive={true} />
-            <SubMain title={'UsedCar'} explanation={explanationTxt} background={subMainBg} addClassName={'UsedCar'} />
+            <SubMain title={'UsedCar'} explanation={explanation} background={subMainBg} addClassName={'UsedCar'} />
             <UsedCarContent paramsName={paramsName} />
             <QuickMenu />
             <Footer />

@@ -10,21 +10,31 @@ import Redirect from "../components/Redirect";
 import subMainBg from '../assets/sub/brand_main.jpg';
 
 const Brand=()=>{
-    const params=useParams();
-    const paramsName=params.subPageName;
+    const paramsName=useParams().subPageName;
+
+    const returnExplanation=()=>{
+        switch(paramsName){
+            case 'news' : return 'NEWS';
+            case 'inside' : return 'INSIDE MINI';
+            case 'lifestyle' : return 'Welcome to Mini Lifestyle';
+            default : break;
+        }
+    }
+
+    const explanation=returnExplanation();
 
     return (
         ['news', 'inside', 'lifestyle'].includes(paramsName) ?
         <>
             <Header isActive={true} />
-            <SubMain title={'BRAND'} explanation={`${paramsName.toUpperCase()}`} background={subMainBg} addClassName={'Brand'} />
+            <SubMain title={'BRAND'} explanation={explanation} background={subMainBg} addClassName={'Brand'} />
             <BrandContent paramsName={paramsName} />
             <QuickMenu />
             <Footer />
         </>
         :
         <>
-            <Redirect message={`${paramsName} 페이지는 존재하지 않습니다.`} />
+            <Redirect message={'해당 페이지는 존재하지 않습니다.'} />
         </>
     );
 }

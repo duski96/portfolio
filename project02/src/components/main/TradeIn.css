@@ -3,3 +3,8 @@
 .TradeIn .txt_area{padding:var(--space-xlg) var(--space-sm); border-radius:5px; background:rgba(255,255,255,0.7);}
 .TradeIn .txt_area h2{position:relative; margin-bottom:96px;}
 .TradeIn .txt_area h2::after{content:""; position:absolute; left:50%; top:100%; transform:translateX(-50%); display:block; width:1px; height:72px; background:#333;}
+
+@media screen and (max-width:480px){
+    .TradeIn h3{font-size:calc(var(--font-lg)*0.9);}
+    .TradeIn .txt_area h2{line-height:1.1; font-size:calc(var(--font-xlg)*0.9);}
+}

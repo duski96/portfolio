@@ -49,6 +49,8 @@
 }
 
 @media screen and (max-width:480px){
+    .ForSale h3{font-size:calc(var(--font-lg)*0.9);}
+
     .ForSale .search .navigation_btn button{top:0;}
     .ForSale .search .navigation_btn button{width:16px; height:16px;}
     .ForSale .search .navigation_btn button.prev{left:auto; right:28px; }

@@ -21,3 +21,7 @@
     .Warranty .txt_area{order:1; justify-content:center; text-align:center; margin-bottom:var(--space-xlg);}
     .Warranty .txt_area p{width:fit-content; margin:0 auto;}
 }
+
+@media screen and (max-width:480px){
+    .Warranty h3{font-size:calc(var(--font-lg)*0.9);}
+}

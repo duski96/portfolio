@@ -23,3 +23,7 @@
     .Spot .info .map{width:fit-content; margin:0 auto var(--space-lg) auto;}
     .Spot .info .list{width:100%; max-width:100%;}
 }
+
+@media screen and (max-width:480px){
+    .Spot h3{font-size:calc(var(--font-lg)*0.9);}
+}

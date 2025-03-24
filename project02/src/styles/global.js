@@ -38,8 +38,8 @@ const GlobalStyle=createGlobalStyle`
     .inner_1280{width:100%; max-width:1280px; margin:0 auto; box-sizing:border-box;}
     .inner_1000{width:100%; max-width:1000px; margin:0 auto; box-sizing:border-box;}
 
-    .mbr{display:none;}
-    .pbr{display:block;}
+    .mdb{display:none;}
+    .pdb{display:block;}
 
     b{font-weight:600;}
     a{color:#333; text-decoration:none;}
@@ -75,8 +75,8 @@ const GlobalStyle=createGlobalStyle`
     @media screen and (max-width:768px){
         html, body{font-size:17px;}
         
-        .mbr{display:block;}
-        .pbr{display:none;}
+        .mdb{display:block;}
+        .pdb{display:none;}
     }
 `;
 

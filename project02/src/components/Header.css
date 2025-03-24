@@ -1,4 +1,4 @@
-.Header{position:fixed; top:0; z-index:999; width:100%; height:100px; background:rgba(0,0,0,0.5); transition:0.3s; cursor:default;}
+.Header{position:fixed; top:0; z-index:999; width:100vw; height:100px; background:rgba(0,0,0,0.5); transition:0.3s; cursor:default;}
 .Header::after{content:""; position:absolute; top:100%; z-index:-1; display:block; width:100%; height:370px; background:#222; visibility:hidden; opacity:0; transition:0.3s;}
 .Header .inner_1280{position:relative; height:100%;}
 .Header .logo{position:absolute; left:0; top:50%; transform:translateY(-50%); width:120px; cursor:pointer;}
@@ -19,8 +19,33 @@
 .Header ul.user.login li:nth-child(n+3):nth-child(-n+4){display:none;}
 .Header ul.user.not_login li:nth-child(n+1):nth-child(-n+2){display:none;}
 
+.Header .mobile_btn{display:none;}
+
 .Header.isHover{background:#000;}
 .Header.isHover::after{visibility:visible; opacity:1;}
 .Header.isHover nav ul.depth02{display:block;}
 
 .Header.isActive{background:#000;}
+
+@media screen and (max-width:1280px){
+    .Header::after, .Header.isHover::after{display:none;}
+    .Header .logo{left:16px;}
+    
+    .Header nav{position:fixed; top:100px; right:-480px; z-index:99; width:100%; max-width:480px; height:calc(100vh - 100px); padding:var(--space-lg) var(--space-md); background:#333; transition:0.3s; box-sizing:border-box; overflow:scroll; -ms-overflow-style: none;}
+    .Header nav.visible{right:0;}
+    .Header nav::-webkit-scrollbar{display:none;}
+    .Header nav ul.depth01{flex-direction:column; justify-content:flex-start; width:100%;}
+    .Header nav ul.depth01 > li{width:100%; text-align:left;}
+    .Header nav ul.depth02{position:static; transform:none; display:block; padding:var(--space-md) 0 var(--space-lg) 0; text-align:left;}
+    .Header nav ul.depth02 > li{padding-left:var(--space-sm);}
+    
+    .Header ul.user{right:calc(16px + 32px + 16px);}
+
+    .Header .mobile_btn{position:absolute; right:16px; top:50%; transform:translateY(-50%); display:block; width:32px; height:24px; padding:0; border:0; background:none; cursor:pointer;}
+    .Header .mobile_btn span{position:absolute; top:50%; left:0; transform:translateY(-50%); display:block; width:100%; height:2px; font-size:0; background:#fff; transition:0.3s;}
+    .Header .mobile_btn span:first-child{top:0; transform:translateY(2px);}
+    .Header .mobile_btn span:last-child{top:auto; bottom:0; transform:translateY(-2px);}
+    .Header .mobile_btn.active span:first-child{top:50%; transform:translateY(-50%) rotate(45deg);}
+    .Header .mobile_btn.active span:nth-child(2){width:0;}
+    .Header .mobile_btn.active span:last-child{top:50%; transform:translateY(-50%) rotate(-45deg);}
+}

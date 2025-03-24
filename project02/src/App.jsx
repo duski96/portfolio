@@ -80,7 +80,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/mypage/:userId" element={<MyPage />} />
               <Route path="/register" element={<Register />} />
-              {/* <Route path="*" element={<Redirect message={'존재하지 않는 페이지입니다.'} />} /> */}
+              <Route path="*" element={<Redirect message={'해당 페이지는 존재하지 않습니다.'} />} />
             </Routes>
           </LoginUserInfoContext.Provider>
         </MockDataDispatchContext.Provider>

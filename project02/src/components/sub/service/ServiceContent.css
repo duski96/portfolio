@@ -1,8 +1,8 @@
 .Service{padding:var(--space-xlg) 0;}
 
-.Service h4{font-family:"Cormorant", "Noto Serif KR"; text-align:center;}
+.Service h4{font-family:"Cormorant", "Noto Serif KR"; text-align:center; word-break:keep-all;}
 .Service p{line-height:1.8;}
-.Service img{display:block; border-radius:5px;}
+.Service img{display:block; width:100%; border-radius:5px;}
 .Service article{margin-bottom:var(--space-xlg);}
 .Service article:last-child{margin-bottom:0;}
 .Service ol > li{list-style:decimal; list-style-position:inside; margin-bottom:var(--space-md);}

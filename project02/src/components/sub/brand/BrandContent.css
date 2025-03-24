@@ -2,9 +2,9 @@
 .BrandContent{padding:var(--space-xlg) 0;}
 
 /*Lifestyle CSS*/
-.Lifestyle .welcome{position:relative; display:flex; align-items:center; gap:var(--space-sm); height:100px; padding:0 var(--space-sm); color:#fff; border-radius:5px; background:#333;}
+.Lifestyle .welcome{position:relative; display:flex; align-items:center; gap:var(--space-sm); height:100px; padding:0 var(--space-sm); color:#fff; border-radius:5px; background:#333; word-break:keep-all;}
 .Lifestyle .welcome::after{content:"Welcome to Mini Lifestyle"; position:absolute; left:auto; top:50%; right:var(--space-sm); transform:translateY(-50%); font-size:var(--font-lg); font-weight:bold; color:#333; text-shadow:-1px 0 #666, 0 1px #666, 1px 0 #666, 0 -1px #666;}
-.Lifestyle .welcome .profile_img{width:70px; height:70px; border-radius:50%; overflow:hidden;}
+.Lifestyle .welcome .profile_img{flex-shrink:0; width:70px; height:70px; border-radius:50%; overflow:hidden;}
 .Lifestyle .welcome .profile_img img{width:100%; height:100%; object-fit:cover;}
 
 .Lifestyle .board{border:2px solid #ddd; padding:var(--space-md) var(--space-sm); border-radius:5px;}
@@ -31,13 +31,18 @@
 .Lifestyle .post_list li.post_item:last-child{margin-bottom:0;}
 .Lifestyle .post_list .car{color:#999;}
 
+@media screen and (max-width:1024px){
+    .Lifestyle .welcome::after{display:none;}
+    .Lifestyle .post_area .board{width:100%;}
+}
 
 
-/*게시판 페이지 CSS*/
+/*리스트 페이지 CSS*/
 
 .Lifestyle.LifestyleList ul[class*='_list'] [class*='_item']{padding-bottom:var(--space-md); border-bottom:1px solid #ddd;}
 .Lifestyle.LifestyleList ul[class*='_list'] [class*='_item']:last-child{padding-bottom:0; border-bottom:0;}
 .Lifestyle.LifestyleList button.write{display:block; width:120px; height:48px; margin:var(--space-lg) 0 auto auto; border:0; border-radius:5px; color:#fff; background:#004299; cursor:pointer;}
+
 
 /*에디터 페이지 CSS*/
 .Lifestyle.LifestyleEditor .page_title{font-weight:500;}
@@ -63,3 +68,8 @@
 .Lifestyle.LifestyleViewer .button_area button.edit{background:#28a745;}
 .Lifestyle.LifestyleViewer .button_area button.delete{background:#FF5555;}
 .Lifestyle.LifestyleViewer .button_area button.visible{display:block;}
+
+@media screen and (max-width:480px){
+    .Lifestyle.LifestyleViewer .write_info{flex-wrap:wrap;}
+    .Lifestyle.LifestyleViewer .write_info .created_date{width:100%;}
+}

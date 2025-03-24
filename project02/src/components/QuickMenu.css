@@ -1,6 +1,6 @@
 .QuickMenu{position:sticky; bottom:0;}
 .QuickMenu .inner_1600{position:relative; max-width:1600px; margin:0 auto;}
-.QuickMenu ul{position:absolute; left:auto; right:0; bottom:0; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:var(--space-xsm); margin-bottom:var(--space-md); border-radius:5px; overflow:hidden; background:#fff; filter:drop-shadow(2px 2px 5px rgba(0,0,0,0.2));}
+.QuickMenu ul{position:absolute; left:auto; right:0; bottom:0; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:var(--space-xsm); margin-bottom:var(--space-xlg); border-radius:5px; overflow:hidden; background:#fff; filter:drop-shadow(2px 2px 5px rgba(0,0,0,0.2));}
 .QuickMenu ul li{display:flex; flex-direction:column; justify-content:center; align-items:center; padding:var(--space-xsm); box-sizing:border-box;}
 .QuickMenu ul li a{display:flex; flex-direction:column; align-items:center;}
 .QuickMenu ul li:not(:first-child){cursor:pointer;}
@@ -14,5 +14,5 @@
 .QuickMenu ul li:nth-child(4) img{width:13px;}
 
 @media screen and (max-width:1600px){
-    .QuickMenu .inner_1600{padding:0 16px;}
+    .QuickMenu .inner_1600{padding:0 16px; box-sizing:border-box;}
 }

@@ -35,8 +35,8 @@ const GlobalStyle=createGlobalStyle`
         font-style: normal;
     }
 
-    .inner_1280{width:100%; max-width:1280px; margin:0 auto;}
-    .inner_1000{width:100%; max-width:1000px; margin:0 auto;}
+    .inner_1280{width:100%; max-width:1280px; margin:0 auto; box-sizing:border-box;}
+    .inner_1000{width:100%; max-width:1000px; margin:0 auto; box-sizing:border-box;}
 
     .mbr{display:none;}
     .pbr{display:block;}

@@ -8,6 +8,7 @@ const Header=({isActive})=>{
     // 아래 경로를 로그인 페이지에 전달하고 경로 유무에 따라 리다이렉트 설정
     const locPath=useLocation().pathname;
 
+    // PC 버전 Header 에서 사용
     const [isHover, setIsHover]=useState(false);
 
     const onMouseOver=()=>{
@@ -18,6 +19,23 @@ const Header=({isActive})=>{
         setIsHover(false);
     }
 
+    // Mobile 버전 Header 에서 사용
+    const [mobileNavVisible, setMobileNavVisible]=useState('');
+    const [mobileHeaderActive, setMobileHeaderActive]=useState(false);
+
+    const onMobileBtnClick=(e)=>{
+        // 모바일 버튼 클릭 시 active 클래스 추가
+        const btn=e.currentTarget;
+        btn.classList.toggle('active');
+        
+        // 버튼이 클릭 상태이면 nav 보임
+        btn.classList.contains('active') ? setMobileNavVisible('visible') : setMobileNavVisible('');
+
+        // 버튼일 클릭 상태이면 Header 활성화
+        btn.classList.contains('active') ? setMobileHeaderActive(true) : setMobileHeaderActive(false);
+    }
+
+    // 로그인 유저의 정보 사용
     const {loginUserInit, loginUserInfo, setLoginUserInfo}=useContext(LoginUserInfoContext);
 
     // 로그아웃 버튼 클릭 시 세션에서 유저 정보 삭제, 로그인 유저 상태 초기화
@@ -27,10 +45,10 @@ const Header=({isActive})=>{
     }
 
     return (
-        <header className={`Header ${isHover ? 'isHover' : ''} ${isActive ? 'isActive' : ''}`}>
+        <header className={`Header ${isHover ? 'isHover' : ''} ${isActive ? 'isActive' : ''} ${mobileHeaderActive ? 'isActive' : ''}`}>
             <div className="inner_1280">
                 <h1 className='logo'><Link to='/'><img src={logo} alt="logo" /></Link></h1>
-                <nav onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
+                <nav onMouseOver={onMouseOver} onMouseOut={onMouseOut} className={`${mobileNavVisible}`} >
                     <ul className='depth01'>
                         <li>
                             <b>MODEL</b>
@@ -79,6 +97,11 @@ const Header=({isActive})=>{
                     <li><Link to={`/mypage/${loginUserInfo.userId}`}>내 정보</Link></li>
                     <li><Link to={'/login'} state={{from:locPath}} onClick={onClickLogout}>로그아웃</Link></li>
                 </ul>
+                <button className='mobile_btn' onClick={onMobileBtnClick}>
+                    <span>b</span>
+                    <span>t</span>
+                    <span>n</span>
+                </button>
             </div>
         </header>
     );

@@ -2,6 +2,7 @@
 .ProductContent img{display:block; border-radius:5px;}
 .ProductContent ul.info_txt{display:flex; gap:var(--space-sm);}
 .ProductContent ul.info_txt li{line-height:1.6;}
+.ProductContent h4{word-break:keep-all;}
 
 .ProductContent .content_area{display:flex; justify-content:space-between; gap:var(--space-lg);}
 .ProductContent .content_area .articles_area{width:calc((100% - 32px)*0.6);}

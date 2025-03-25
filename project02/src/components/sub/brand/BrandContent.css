@@ -36,6 +36,10 @@
     .Lifestyle .post_area .board{width:100%;}
 }
 
+@media screen and (max-width:480px){
+    .Lifestyle h4{font-size:calc(var(--font-lg) * 0.9);}
+}
+
 
 /*리스트 페이지 CSS*/
 
@@ -71,5 +75,5 @@
 
 @media screen and (max-width:480px){
     .Lifestyle.LifestyleViewer .write_info{flex-wrap:wrap;}
-    .Lifestyle.LifestyleViewer .write_info .created_date{width:100%;}
+    .Lifestyle.LifestyleViewer .write_info .created_date{width:100%; margin-top:var(--space-xsm);}
 }

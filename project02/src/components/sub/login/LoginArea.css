@@ -11,3 +11,12 @@
 .LoginArea .login_box ul.service{display:flex; justify-content:center; gap:var(--space-sm); line-height:1;}
 .LoginArea .login_box ul.service li{position:relative;}
 .LoginArea .login_box ul.service li:not(:last-child)::after{content:""; position:absolute; left:calc(100% + (var(--space-sm)/2)); top:50%; transform:translateY(-50%); display:block; width:1px; height:16px; background:#333;}
+
+
+@media screen and (max-width:768px){
+    .LoginArea{margin-top:72px; height:calc(100vh - 72px);}
+}
+
+@media screen and (max-width:480px){
+    .LoginArea h2{font-size:calc(var(--font-xlg) * 0.9);}
+}

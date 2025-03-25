@@ -1,4 +1,4 @@
-.RegisterArea{margin-top:100px; min-height:100vh; padding:var(--space-xlg) 0; background:url(../../../assets/sub/register_bg.jpg) no-repeat center center/cover;}
+.RegisterArea{margin-top:100px; min-height:100vh; padding:var(--space-xlg) 0; background:url(../../../assets/sub/register_bg.jpg) no-repeat center center/cover; word-break:keep-all;}
 
 .RegisterArea h2{text-align:center;}
 .RegisterArea .welcome{text-align:center; line-height:1.6;}
@@ -17,3 +17,11 @@
 .RegisterArea .button_area{display:flex; gap:var(--space-sm); width:100%; height:48px;}
 .RegisterArea .button_area button{width:50%; font-size:var(--font-sm); border:0; border-radius:5px; background:#666; color:#fff; cursor:pointer;}
 .RegisterArea .button_area button.register{background:#004299;}
+
+@media screen and (max-width:768px){
+    .RegisterArea{margin-top:72px; min-height:calc(100vh - 72px);}
+}
+
+@media screen and (max-width:480px){
+    .RegisterArea h2{font-size:calc(var(--font-lg) * 0.9);}
+}

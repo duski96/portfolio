@@ -12,7 +12,7 @@ const Warranty=()=>{
     });
 
     return (
-        <article className="Warranty NotoSansKR mb_xlg">
+        <article className="WarrantyInfo NotoSansKR mb_xlg">
             <h4 className="fs_md mb_md">
                 <b>중고차 구매, 이제 걱정 없이! <br /><span className="fs_lg">Mini Warranty로 안심하세요.</span></b>
             </h4>

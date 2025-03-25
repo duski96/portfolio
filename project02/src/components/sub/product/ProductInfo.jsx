@@ -20,7 +20,7 @@ import tmpImg06 from '../../../assets/sub/detail_tmp06.jpg';
 
 const ProductInfo=({currentData})=>{
     return (
-        <article className='Info mb_xlg'>
+        <article className='ProductInfo mb_xlg'>
             <h4 className='fs_lg mb_xsm'><b>{currentData.series.toUpperCase()}</b></h4>
             <ul className='fs_sm NotoSansKR info_txt'>
                 <li>연식 : {currentData.year}</li>

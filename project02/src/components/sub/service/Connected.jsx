@@ -9,7 +9,7 @@ const Connected=()=>{
     });
     
     return (
-        <section className='Service Connected NotoSansKR'>
+        <section className='ServiceContent Connected NotoSansKR'>
             <div className='inner_1280'>
                 <article>
                     <h4 className='fs_lg mb_xsm'><b>미니 커넥티드</b></h4>

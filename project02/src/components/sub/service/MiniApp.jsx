@@ -2,7 +2,7 @@ import MiniAppImg01 from '../../../assets/sub/service_app_img01.jpg';
 
 const MiniApp=()=>{
     return (
-        <section className='Service MiniApp NotoSansKR'>
+        <section className='ServiceContent MiniApp NotoSansKR'>
             <div className='inner_1280'>
                 <article>
                     <h4 className='fs_lg mb_xsm'><b>미니 App</b></h4>

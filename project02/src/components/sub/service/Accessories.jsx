@@ -12,7 +12,7 @@ const Accessories=()=>{
     });
 
     return (
-        <section className="Service Accessories NotoSansKR">
+        <section className="ServiceContent Accessories NotoSansKR">
             <div className='inner_1280'>
                 <article>
                     <h4 className='fs_lg mb_lg'><b>미니 차량용 악세서리</b></h4>

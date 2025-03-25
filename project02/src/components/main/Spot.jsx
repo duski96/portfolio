@@ -36,7 +36,7 @@ const Spot=()=>{
                             {clickedSpotList.shop.length}개의 전시장이 있습니다.
                         </p>
                         <ul className='shop_list fs_sm'>
-                            {clickedSpotList.shop.map((item, idx)=>(<li key={idx}>MINI NEXT {item} 전시장</li>))}
+                            {clickedSpotList.shop.map((item, idx)=>(<li key={idx} onClick={()=>{alert('전시장 정보는 준비중입니다.')}}>MINI NEXT {item} 전시장</li>))}
                         </ul>
                     </div>
                 </div>

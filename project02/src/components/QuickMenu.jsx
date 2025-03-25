@@ -1,15 +1,27 @@
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import './QuickMenu.css';
+import { useContext, useCallback, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { debounce } from 'lodash';
 import homeImg from '../assets/common/quick_home.svg';
 import interestImg from '../assets/common/quick_interest.svg';
 import topImg from '../assets/common/quick_top.svg';
 import { MockDataContext } from '../App';
 
 const QuickMenu=()=>{
-    const {interestId}=useContext(MockDataContext)
+    const {interestId}=useContext(MockDataContext);
+
+    // 아래로 스크롤 하면 퀵메뉴 등장
+    // debounce 사용으로 이벤트 동작 횟수 조정
+    const debounceScrollEvent=useCallback(debounce(()=>{
+        const quickMenu=document.querySelector('.QuickMenu');
+
+        scrollY > 50 ? quickMenu.classList.remove('hidden') : quickMenu.classList.add('hidden');
+    }, 100), []);
+    
+    window.addEventListener('scroll', debounceScrollEvent);
+
     return (
-        <section className='QuickMenu'>
+        <section className='QuickMenu hidden'>
             <div className='inner_1600'>
                 <ul className='fs_xsm NotoSansKR'>
                     <li className='title'>

@@ -7,7 +7,7 @@ const Login=()=>{
         <>
             <Header isActive={true} />
             <LoginArea />
-            <Footer />
+            <Footer noQuick={true} />
         </>
     );
 }

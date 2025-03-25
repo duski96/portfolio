@@ -3,7 +3,7 @@
 .Footer .logo img{display:block;}
 
 @media screen and (max-width:1600px){
-    .Footer{padding-bottom:calc(var(--space-md) + 64px);}
+    .Footer:not(.no_quick){padding-bottom:calc(var(--space-md) + 64px);}
 }
 
 @media screen and (max-width:768px){

@@ -7,7 +7,7 @@ const Register=()=>{
         <>
             <Header isActive={true} />
             <RegisterArea />
-            <Footer />
+            <Footer noQuick={true} />
         </>
     );
 }

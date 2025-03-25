@@ -16,6 +16,8 @@ const LifestyleList=()=>{
     const {loginUserInfo}=useContext(LoginUserInfoContext);
     
     const nav=useNavigate();
+    
+    // 글 작성 버튼
     const onClickWrite=()=>{
         // 로그인 하지 않으면 글 쓰기 불가
         if(!loginUserInfo.isLogin){
@@ -51,9 +53,14 @@ const LifestyleList=()=>{
                     <LifestylePost />
                 </>
                 }
-                <button type='button' className='write fs_sm' onClick={onClickWrite}>
-                    {boardName==='review' ? '리뷰쓰기' : '글쓰기'}
-                </button>
+                <div className='btn_area'>
+                    <button type='button' className='board_home fs_sm' onClick={()=>{nav('/brand/lifestyle')}}>
+                        Lifestyle 페이지로
+                    </button>
+                    <button type='button' className='write fs_sm' onClick={onClickWrite}>
+                        {boardName==='review' ? '리뷰쓰기' : '글쓰기'}
+                    </button>
+                </div>
             </div>
         </section>
     );

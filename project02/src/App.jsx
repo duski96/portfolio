@@ -1,5 +1,5 @@
-import { useState, createContext } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { useState, createContext, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Interest from './pages/Interest';
@@ -60,6 +60,12 @@ function App() {
 
   // 로그인 한 유저의 정보를 세션에 저장
   sessionStorage.setItem('loginUserInfo', JSON.stringify(loginUserInfo));
+
+  // 현재 링크의 주소가 바뀌면(== 페이지가 바뀌면) 최상단으로 이동
+  const curPath=useLocation().pathname;
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  }, [curPath])
 
   return (
     <>

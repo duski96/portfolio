@@ -68,7 +68,7 @@ const ForSaleList = ({ filteredList }) => {
                     : (
                         <div className='no_result'>
                             <p className='fs_lg'>
-                                선택한 조건에 맞는 매물이 없습니다!
+                                선택한 조건에 해당하는 매물이 없습니다!
                             </p>
                         </div>
                     )

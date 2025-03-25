@@ -1,4 +1,4 @@
-.InterestList{padding:var(--space-xlg) 0;}
+.InterestList{padding:var(--space-xlg) 0; word-break:keep-all;}
 .InterestList ul.interest_list{min-height:500px;}
 .InterestList ul.interest_list > li{display:flex; justify-content:space-between; align-items:center; gap:var(--space-md); margin-bottom:var(--space-md); padding-bottom:var(--space-md); border-bottom:1px solid #333;}
 .InterestList ul.interest_list > li:last-child{margin-bottom:0; padding-bottom:0; border-bottom:0;}
@@ -18,7 +18,7 @@
 .InterestList .func button:first-child{/*background:#00540D;*/ background:#ccc;}
 .InterestList .func button:last-child{background:#FF5555; cursor:pointer;}
 
-.InterestList .no_result{display:flex; justify-content:center; align-items:center; min-height:500px;}
+.InterestList .no_result{display:flex; justify-content:center; align-items:center; min-height:500px; text-align:center;}
 
 @media screen and (max-width:1024px){
     .InterestList ul.interest_list > li{flex-wrap:wrap;}

@@ -28,7 +28,7 @@ const LifestylePost=({visible, tableName})=>{
     else{
         // lifestyle 페이지에서 보여질 리스트
         // 작성된 글이 3개 이하면 모든 글 출력
-        visible==='part' ? slIdx=boardList.length-3 : slIdx=0;
+        visible==='part' && boardList.length>=3 ? slIdx=boardList.length-3 : slIdx=0;
     }
 
     // boardName : 불러와야 할 게시판 이름,

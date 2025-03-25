@@ -13,8 +13,14 @@ const InterestList=()=>{
     const [interestList, setInterestList]=useState(mockData.filter((item)=>interestId.includes(item.id))) // 관심 매물 리스트
 
     const onClickDelete=(targetId)=>{
-        deleteInterestId(targetId); // interestId 배열에서 해당하는 id 삭제
-        setInterestList(interestList.filter((item)=>item.id!==targetId)); // 과심 매물 리스트 재설정
+        // 확인 시 매물 삭제
+        if(window.confirm('해당 매물을 관심 목록에서 삭제하시겠습니까?')){
+            deleteInterestId(targetId); // interestId 배열에서 해당하는 id 삭제
+            setInterestList(interestList.filter((item)=>item.id!==targetId)); // 관심 매물 리스트 재설정
+        }
+        else{
+            return;
+        }
     }
 
     return (

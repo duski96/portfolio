@@ -69,7 +69,23 @@ const LifestyleEditor=()=>{
     
 
     // 초기화 버튼 클릭 시 작성중인 내용 모두 삭제
-    const onClickInit=()=>{setInput(initInput);}
+    const onClickInit=()=>{
+        if(window.confirm('작성중인 내용을 초기화하시겠습니까?')){
+            setInput(initInput);
+        }
+        else{
+            return;
+        }
+    }
+
+    const onClickCancel=()=>{
+        if(window.confirm('글 작성을 취소하시겠습니까?')){
+            nav(-1);
+        }
+        else{
+            return;
+        }
+    }
 
     // 완료 버튼 클릭시 DB에 저장
     const onClickSubmit=()=>{
@@ -146,6 +162,7 @@ const LifestyleEditor=()=>{
                     </ul>
                     <div className='button_area'>
                         <button type='button' className='fs_sm' onClick={onClickInit}>초기화</button>
+                        <button type='button' className='fs_sm cancel' onClick={onClickCancel}>취소</button>
                         <button type='button' className='fs_sm submit' onClick={onClickSubmit}>완료</button>
                     </div>
                 </form>

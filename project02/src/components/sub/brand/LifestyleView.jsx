@@ -45,24 +45,35 @@ const LifestyleViewer=()=>{
         return <p>해당 글이 존재하지 않습니다.</p>
     }
 
-
+    // 목록으로 버튼
     const onClickList=()=>{
         nav(`/brand/lifestyle/${boardName}`);
     }
 
+    // 수정 버튼
     const onClickEdit=()=>{
+        // 로그인 하지 않으면 함수 종료
         if(!loginUserInfo)
             return;
 
+        // 작성자가 다르면 알림 표시 후 함수 종료
         if(loginUserInfo.userId!==curData.user_id){
             alert('수정 권한이 없습니다.');
             return;
         }
         else{
-            nav(`/brand/lifestyle/${boardName}/editor`, {state:{value:curData}});
+            // 확인 시 글 수정
+            if(window.confirm('작성한 글을 수정하시겠습니까?')){
+                nav(`/brand/lifestyle/${boardName}/editor`, {state:{value:curData}});
+            }
+            else{
+                //취소 시 함수 종료
+                return;
+            }
         }
     }
 
+    // 삭제 버튼
     const onClickDelete=()=>{
         if(!loginUserInfo)
             return;
@@ -72,13 +83,20 @@ const LifestyleViewer=()=>{
             return;
         }
         else{
-            axios.get('/api/board/delete', {params:{id:curData.id, userId:curData.user_id, board:boardName}})
-            .then(()=>{
-                alert('삭제되었습니다.');
-                nav(`/brand/lifestyle/${boardName}`)
-            }).catch(()=>{
-                alert('삭제할 수 없습니다.')
-            });
+            // 확인 시 글 삭제
+            if(window.confirm('작성한 글을 삭제 하시겠습니까?')){
+                axios.get('/api/board/delete', {params:{id:curData.id, userId:curData.user_id, board:boardName}})
+                .then(()=>{
+                    alert('삭제되었습니다.');
+                    nav(`/brand/lifestyle/${boardName}`)
+                }).catch(()=>{
+                    alert('삭제할 수 없습니다.')
+                });
+            }
+            else{
+                //취소 시 함수 종료
+                return;
+            }
         }
     }
 

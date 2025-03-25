@@ -5,3 +5,7 @@
 @media screen and (max-width:1600px){
     .Footer{padding-bottom:calc(var(--space-md) + 64px);}
 }
+
+@media screen and (max-width:768px){
+    .Footer .logo{width:130px;}
+}

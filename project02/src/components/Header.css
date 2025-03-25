@@ -21,11 +21,11 @@
 
 .Header .mobile_btn{display:none;}
 
-.Header.isHover{background:#000;}
+.Header.isHover{background:#111;}
 .Header.isHover::after{visibility:visible; opacity:1;}
 .Header.isHover nav ul.depth02{display:block;}
 
-.Header.isActive{background:#000;}
+.Header.isActive{background:#111;}
 
 @media screen and (max-width:1280px){
     .Header::after, .Header.isHover::after{display:none;}
@@ -48,4 +48,10 @@
     .Header .mobile_btn.active span:first-child{top:50%; transform:translateY(-50%) rotate(45deg);}
     .Header .mobile_btn.active span:nth-child(2){width:0;}
     .Header .mobile_btn.active span:last-child{top:50%; transform:translateY(-50%) rotate(-45deg);}
+}
+
+@media screen and (max-width:768px){
+    .Header{height:72px;}
+    .Header .logo{width:96px;}
+    .Header nav{top:72px; height:calc(100vh - 72px); padding:var(--space-md);}
 }

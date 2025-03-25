@@ -27,7 +27,7 @@ const InterestList=()=>{
                             <div className='info'>
                                 <img src={getMiniImage(item.id)} alt='매물' />
                                 <ul className='fs_sm NotoSansKR'>
-                                    <li className='mb_md'><h4 className='fs_lg'><b>{item.series.toUpperCase()}</b></h4></li>
+                                    <li className='mb_sm'><h4 className='fs_lg'><b>{item.series.toUpperCase()}</b></h4></li>
                                     <li>연식 : {item.year}</li>
                                     <li>주행거리 : {item.mileage}</li>
                                     <li>연료 : {replaceFuelTxt(item.fuel)}</li>

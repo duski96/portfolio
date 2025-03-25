@@ -1,6 +1,6 @@
 import './Header.css';
 import logo from '../assets/logo.svg';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { LoginUserInfoContext } from '../App';
 
@@ -34,6 +34,21 @@ const Header=({isActive})=>{
         // 버튼일 클릭 상태이면 Header 활성화
         btn.classList.contains('active') ? setMobileHeaderActive(true) : setMobileHeaderActive(false);
     }
+
+    // 메뉴 클릭 시 모바일 버튼 클릭 상태 초기화, nav 표시 초기화
+    useEffect(()=>{
+        // 메뉴 리스트
+        const menus=document.querySelectorAll('.depth02 li a');
+        // 메뉴 클릭 이벤트 감지
+        window.addEventListener('click', ()=>{
+            for(const item of menus){
+                item.addEventListener('click', ()=>{
+                    setMobileNavVisible('');
+                    document.querySelector('.mobile_btn').classList.remove('active');
+                });
+            }
+        });
+    }, []);
 
     // 로그인 유저의 정보 사용
     const {loginUserInit, loginUserInfo, setLoginUserInfo}=useContext(LoginUserInfoContext);

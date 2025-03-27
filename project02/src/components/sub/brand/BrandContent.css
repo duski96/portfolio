@@ -11,6 +11,7 @@
 .Lifestyle .board_title{display:flex; justify-content:space-between; align-items:center; line-height:1; font-weight:500;}
 .Lifestyle .board_title button{line-height:1; border:0; background:0; cursor:pointer;}
 
+.Lifestyle .review_list .review_item{display:flex;}
 .Lifestyle .review_list .review_item .review_info{display:flex; gap:var(--space-sm);}
 .Lifestyle .review_list .review_item:last-child{margin-bottom:0;}
 
@@ -21,8 +22,8 @@
 .Lifestyle .review_list p.content{white-space:pre-line;}
 
 .Lifestyle .review_list .button_area{display:none; justify-content:flex-end; align-items:center; width:100%; min-width:128px;}
-.Lifestyle .review_list .button_area.visible{display:flex;}
-.Lifestyle .review_list .button_area button{width:120px; height:48px; margin-top:var(--space-md); border:0; border-radius:5px; color:#fff; background:#FF5555;}
+.Lifestyle .review_list .button_area.visible{display:flex; align-items:center; margin-left:var(--space-sm);}
+.Lifestyle .review_list .button_area button{width:120px; height:48px; border:0; border-radius:5px; color:#fff; background:#FF5555;}
 
 
 .Lifestyle .post_area{display:flex; flex-wrap:wrap; gap:var(--space-lg); width:100%;}
@@ -35,6 +36,12 @@
 @media screen and (max-width:1024px){
     .Lifestyle .welcome::after{display:none;}
     .Lifestyle .post_area .board{width:100%;}
+}
+
+@media screen and (max-width:768px){
+    .Lifestyle .review_list .review_item{display:block;}
+    .Lifestyle .review_list .button_area.visible{margin-left:0;}
+    .Lifestyle .review_list .button_area button{margin-top:var(--space-md);}
 }
 
 @media screen and (max-width:480px){

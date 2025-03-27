@@ -12,7 +12,7 @@
 .Lifestyle .board_title button{line-height:1; border:0; background:0; cursor:pointer;}
 
 .Lifestyle .review_list .review_item{display:flex;}
-.Lifestyle .review_list .review_item .review_info{display:flex; gap:var(--space-sm);}
+.Lifestyle .review_list .review_item .review_info{display:flex; gap:var(--space-sm); width:100%;}
 .Lifestyle .review_list .review_item:last-child{margin-bottom:0;}
 
 .Lifestyle .review_list .profile_img{flex-shrink:0; width:70px; height:70px; border-radius:50%; overflow:hidden;}
@@ -21,7 +21,7 @@
 .Lifestyle .review_list span.rate{color:#FFC70F;}
 .Lifestyle .review_list p.content{white-space:pre-line;}
 
-.Lifestyle .review_list .button_area{display:none; justify-content:flex-end; align-items:center; width:100%; min-width:128px;}
+.Lifestyle .review_list .button_area{display:none; justify-content:flex-end; align-items:center; width:128px;}
 .Lifestyle .review_list .button_area.visible{display:flex; align-items:center; margin-left:var(--space-sm);}
 .Lifestyle .review_list .button_area button{width:120px; height:48px; border:0; border-radius:5px; color:#fff; background:#FF5555;}
 
@@ -40,7 +40,7 @@
 
 @media screen and (max-width:768px){
     .Lifestyle .review_list .review_item{display:block;}
-    .Lifestyle .review_list .button_area.visible{margin-left:0;}
+    .Lifestyle .review_list .button_area.visible{width:100%; margin-left:0;}
     .Lifestyle .review_list .button_area button{margin-top:var(--space-md);}
 }
 

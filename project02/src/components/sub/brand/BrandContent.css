@@ -18,6 +18,7 @@
 .Lifestyle .review_list .profile_img img{width:100%; height:100%; object-fit:cover;}
 .Lifestyle .review_list span.car{color:#999;}
 .Lifestyle .review_list span.rate{color:#FFC70F;}
+.Lifestyle .review_list p.content{white-space:pre-line;}
 
 .Lifestyle .review_list .button_area{display:none; justify-content:flex-end; align-items:center; width:100%; min-width:128px;}
 .Lifestyle .review_list .button_area.visible{display:flex;}

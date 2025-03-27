@@ -1,8 +1,35 @@
-# React + Vite
+# MINI USER CAR NEXT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MINI 중고차 사이트를 참고해 진행한 React 프로젝트입니다. 
 
-Currently, two official plugins are available:
+디자인부터 DB 연동까지 모두 혼자서 진행한 1인 프로젝트로, 웹 개발의 전반적인 과정을 습득하고자 진행한 프로젝트입니다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Development period
+
+2025.01.20 ~ 지속적으로 업데이트 중입니다.
+
+
+## Used Skills
+
+Frontend : HTML5, CSS3, Javascript, React
+
+Backend : Node.js(Exppress), MySQL
+
+
+## Deploy
+
+Frontend : Vercel
+
+Backend : Railway
+
+
+## Advanced Feature
+
+**매물 검색 :** 메인 페이지에 구현된 기능으로 검색 조건을 설정 후 검색 버튼을 누르면 매물이 출력됩니다. MockData를 활용해 구현했으며, 최초 렌더링 시에는 기본적으로 모든 매물이 출력됩니다.
+
+**찜하기(관심매물 등록) :** 메인 페이지와 인증중고차 페이지에서 사용할 수 있는 기능으로, 매물 우측 상단의 하트 버튼을 누르면 해당 매물이 관심 목록에 추가됩니다.
+
+**회원가입 :** axios를 활용한 비동기 방식으로 사용자의 입력을 감지해 중복 여부를 판별합니다.
+
+**게시판(MINI LIFESTYLE) :** 로그인 시 리뷰 작성 및 게시판 글 작성이 가능하며, 추후 이미지 업로드 등의 기능이 추가될 예정입니다.

@@ -14,14 +14,16 @@ MINI 중고차 사이트를 참고해 진행한 React 프로젝트입니다.
 
 Frontend : HTML5, CSS3, Javascript, React
 
-Backend : Node.js(Exppress), MySQL
+Backend : Node.js, MySQL
+
+Config : Vite
 
 
 ## Deploy
 
-Frontend : Vercel
+Frontend (React) : Vercel
 
-Backend : Railway
+Backend (Server & DBMS) : Railway
 
 
 ## Advanced Feature

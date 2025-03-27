@@ -80,6 +80,7 @@
 .Lifestyle.LifestyleViewer .user_info{display:flex; gap:var(--space-xsm)}
 .Lifestyle.LifestyleViewer .user_info .car{color:#999;}
 .Lifestyle.LifestyleViewer hr{height:1px; border:0; background:#ddd;}
+.Lifestyle.LifestyleViewer .content p{white-space:pre-line;}
 .Lifestyle.LifestyleViewer .button_area{display:flex; gap:var(--space-sm); width:fit-content; margin:0 0 0 auto;}
 .Lifestyle.LifestyleViewer .button_area button{display:block; width:150px; height:48px; border:0; border-radius:5px; color:#fff; font-size:var(--font-sm); background:#666; cursor:pointer; display:none;}
 .Lifestyle.LifestyleViewer .button_area button.edit{background:#28a745;}

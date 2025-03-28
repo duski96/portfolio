@@ -6,6 +6,8 @@ MINI 중고차 사이트를 참고해 진행한 React 프로젝트입니다.
 
 디자인부터 DB 연동까지 모두 혼자서 진행한 1인 프로젝트로, 웹 개발의 전반적인 과정을 습득하고자 진행한 프로젝트입니다.
 
+Link : https://mini-used-car.vercel.app/
+
 
 ## Development period
 

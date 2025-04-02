@@ -1,0 +1,15 @@
+:root{
+    --space-xlg:4rem;
+    --space-lg:3rem;
+    --space-md:2rem;
+    --space-sm:1rem;
+    --space-xsm:0.5rem;
+
+    --font-xlg:4rem;
+    --font-lg:2rem;
+    --font-md:1.125rem;
+    --font-sm:1rem;
+    --font-xsm:0.875rem;
+}
+
+.inner_1000{width:100%; max-width:1000px; margin:0 auto; padding:0 16px}

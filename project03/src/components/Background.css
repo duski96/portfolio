@@ -1,0 +1,1 @@
+.Background{position:fixed; left:50%; top:50%; transform:translate(-50%, -50%); z-index:-1; width:100%; height:100vh; background:url('../assets/background_horizontal.jpg') no-repeat center center/cover;}

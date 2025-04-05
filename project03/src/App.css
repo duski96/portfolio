@@ -13,3 +13,15 @@
 }
 
 .inner_1000{width:100%; max-width:1000px; margin:0 auto; padding:0 16px}
+
+.mb_xsm{margin-bottom:var(--space-xsm);}
+.mb_sm{margin-bottom:var(--space-sm);}
+.mb_md{margin-bottom:var(--space-md);}
+.mb_lg{margin-bottom:var(--space-lg);}
+.mb_xlg{margin-bottom:var(--space-xlg);}
+
+.fs_xsm{font-size:var(--font-xsm);}
+.fs_sm{font-size:var(--font-sm);}
+.fs_md{font-size:var(--font-md);}
+.fs_lg{font-size:var(--font-lg);}
+.fs_xlg{font-size:var(--font-xlg);}

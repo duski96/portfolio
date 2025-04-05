@@ -1,13 +1,13 @@
 import Background from '../components/Background';
-import CurrentWeather from '../components/info/CurrentWeather';
-import UpcommingWeather from '../components/info/UpcommingWeather';
+import FuncArea from '../components/info/FuncArea';
+import InfoBox from '../components/info/InfoBox';
 
 const Info=()=>{
     return (
         <>
             <Background />
-            <CurrentWeather />
-            <UpcommingWeather />
+            <FuncArea />
+            <InfoBox />
         </>
     );
 }

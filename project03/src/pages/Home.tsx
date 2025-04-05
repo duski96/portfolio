@@ -1,13 +1,13 @@
 import Background from '../components/Background';
 import Intro from '../components/main/Intro';
-import Func from '../components/main/Func';
+import SearchArea from '../components/main/SearchArea';
 
 const Home=()=>{
     return (
         <>
             <Background />
             <Intro />
-            <Func />
+            <SearchArea />
         </>
     );
 }

@@ -1,12 +1,10 @@
-import FcstTemp from "./FcstTemp";
+import FcstList from "./FcstList";
 
 const UpcommingWeather=()=>{
     return (
-        <section className='Info UpcommingWeather'>
-            <div className='inner_1000'>
-                <FcstTemp />
-            </div>
-        </section>
+        <article className='Info UpcommingWeather'>
+            <FcstList />
+        </article>
     );
 }
 

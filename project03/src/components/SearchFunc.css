@@ -1,0 +1,23 @@
+.SearchFunc .box{height:50px; border-radius:30px; background:#fff; transition:0.3s;}
+
+.SearchFunc .search_bar{position:sticky; top:0; display:flex; justify-content:space-between; align-items:center; gap:var(--space-sm); width:100%; padding:var(--space-xsm) var(--space-sm); border:2px solid #eee; border-radius:30px; background:#fff; transition:0.3s;}
+.SearchFunc .search_bar input{flex-shrink:2; width:100%; font-size:var(--font-md); border:0; background:none; outline:none;}
+.SearchFunc .search_bar .button_area{display:flex; align-items:center; flex-shrink:0; width:fit-content;}
+.SearchFunc .search_bar button{padding:0; border:none; background:none; cursor:pointer;}
+.SearchFunc .search_bar button img{width:32px;}
+.SearchFunc .search_bar button.cancel{width:0; height:24px; transition:0.3s;}
+
+.SearchFunc ul.beach_list{position:relative; width:100%; margin:0; padding:0 var(--space-sm); font-size:var(--font-md);}
+.SearchFunc ul.beach_list > li{margin-bottom:var(--space-xsm); cursor:pointer;}
+.SearchFunc ul.beach_list > li:last-child{margin-bottom:var(--space-sm);}
+
+
+/* 검색 버튼 클릭 시 */
+.SearchFunc .box.active{height:calc(var(--auto-height) + var(--space-sm)*2); margin-bottom:var(--space-xlg);}
+.SearchFunc .box.active .search_bar{z-index:2; margin-bottom:var(--space-sm); border-bottom-left-radius:0; border-bottom-right-radius:0;}
+.SearchFunc .box.active .search_bar::after{width:calc(100% - var(--space-sm) * 2);}
+
+.SearchFunc .box.active button.cancel{width:24px; margin-left:var(--space-sm);}
+
+.add_overflow_hidden{overflow:hidden!important;}
+.remove_border_radius{border-radius:0!important;}

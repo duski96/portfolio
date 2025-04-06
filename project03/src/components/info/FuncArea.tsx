@@ -12,8 +12,11 @@ const FuncArea=()=>{
         nav(-1);
     }
 
+    const time=new Date().getHours();
+    const isNight=time<6 || time>=18;
+
     return (
-        <section className='FuncArea'>
+        <section className={`FuncArea isNight_${isNight}`}>
             <div className='inner_1000'>
                 <div className='func_wrap'>
                     <div className='button_wrap'>

@@ -1,12 +1,15 @@
 import './Intro.css';
 
 const Intro=()=>{
+    const time=new Date().getHours();
+    const isNight=time<6 || time>=18;
+
     return (
-        <section className='Intro'>
+        <section className={`Intro isNight_${isNight}`}>
             <div className='inner_1000'>
                 <div className='box'>
                     <h2>바다의 오늘</h2>
-                    <h3>해수욕장 실시간 컨디션 스포일러</h3>
+                    <h3>해수욕장 실시간 기상 정보</h3>
                     <p>
                         지금 바다는 어떤 모습일까요? <br />
                         파도, 바람, 기온은 물론 해수욕장을 떠나는 날씨까지 실시간 정보로 확인해보세요. <br />

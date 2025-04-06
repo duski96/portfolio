@@ -7,14 +7,16 @@ const { kakao }=window;
 const Map=()=>{
     const param=Number(useParams().id);
 
+    // 위도, 경도
     const latitude=beachInfo.filter(item=>item.id===param)[0].latitude;
     const longitude=beachInfo.filter(item=>item.id===param)[0].longitude
 
+    // url이 바뀌면 다시 렌더링
     useEffect(()=>{
         const mapContainer = document.getElementById('map'), // 지도를 표시할 div 
         mapOption = { 
             center: new kakao.maps.LatLng(latitude, longitude), // 지도의 중심좌표
-            level: 3 // 지도의 확대 레벨
+            level: 5 // 지도의 확대 레벨
         };
     
         const map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -29,13 +31,16 @@ const Map=()=>{
     
         // 마커가 지도 위에 표시되도록 설정합니다
         marker.setMap(map);
-    }, []);
+    }, [param]);
     
-
     return (
         <article className='Map'>
-            <p className='fs_md mb_sm'><b>날씨 예보는 아래 위치를 기준으로 제공됩니다.</b></p>
+            <p className='txt mb_sm'>날씨 예보는 아래 위치를 기준으로 제공됩니다.</p>  
             <div id="map"></div>
+            <ul className="coordinate fs_md">
+                <li>위도 : {latitude}</li>
+                <li>경도 : {longitude}</li>
+            </ul>
         </article>
     );
 }

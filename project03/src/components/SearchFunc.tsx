@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import './SearchFunc.css';
 import searchIcon from '../assets/search_icon.png';
 import cancelIcon from '../assets/cancel_icon.png';
@@ -16,20 +17,30 @@ export type BeachInfoType={
 }
 
 const SearchFunc=()=>{
+    // 반응형을 위한 화면 너비 지정
+    const [winWidth, setWindWidth]=useState(window.innerWidth);
+
+    window.addEventListener('resize', ()=>{
+        setWindWidth(window.innerWidth);
+    })
+
+    // 메인, 서브 판별 (두 페이지 동작 방식이 다름)
+    const isMain=useParams().id ? false : true;
+
     // 검색 및 리스트 출력 기능을 하는 영역
     const funcBox=document.querySelector('.SearchFunc .box') as Element;
 
     // 검색창 입력 상태 관리
-    const [inputSearch, setInputSearch]=useState("");
+    const [inputSearch, setInputSearch]=useState('');
     
     const onChangeInput=(e: React.ChangeEvent<HTMLInputElement>)=>{
         setInputSearch(e.target.value);    
     }
 
-    // 검색 버튼 동작
-    const onClickButton=()=>{
-        if(!inputSearch.split(' ').join('')){
-            funcBox.classList.remove('active');
+    // 검색 동작 함수
+    const runSearchFunc=()=>{
+        if(inputSearch.split(' ').join('')===''){
+            //funcBox.classList.remove('active');
             alert('검색어는 최소 한 글자 이상 포함되어야 합니다.');
             return;
         }
@@ -53,6 +64,31 @@ const SearchFunc=()=>{
         // 클릭 시 Func 영역의 box 높이 변경 클래스 추가
         funcBox.classList.add('active');
     }
+
+    // 모바일의 검색창 활성화 상태 관리
+    const [moSearchBarActive, setMoSearchBarActive]=useState(false);
+
+    // 검색 버튼 동작
+    const onClickButton=()=>{
+        if(winWidth > 480){
+            // 모바일 이외의 기기에서는 검색 버튼 클릭 시 바로 검색 실행
+            runSearchFunc();
+        }
+        else if(winWidth<=480 && isMain){
+            // 모바일 메인페이지도 동일하게 실행
+            runSearchFunc();
+        }
+        else{
+            if(!moSearchBarActive){
+                // 모바일 서브페이지에서는 검색 버튼 클릭 시 검색창 활성화 먼저 진행
+                setMoSearchBarActive(true);
+                funcBox.classList.add('stretch');
+            }
+            else{
+                runSearchFunc();
+            }
+        }
+    }
     
     // input 창에서 엔터 키 입력 시 검색 버튼 누른것과 동일
     const onKeyDownEnter=(e: React.KeyboardEvent<HTMLInputElement>)=>{
@@ -69,6 +105,11 @@ const SearchFunc=()=>{
         setInputSearch("");
         setFilteredList([]);
         funcBox.classList.remove('active');
+        
+        if(winWidth < 480){
+            setMoSearchBarActive(false);
+            funcBox.classList.remove('stretch')
+        }
     }
 
     // 검색 목록이 길 경우 검색창을 최상단에 고정
@@ -99,7 +140,7 @@ const SearchFunc=()=>{
     }, [filteredList]);
 
     return (
-        <article className='SearchFunc'>
+        <article className={`SearchFunc mo_${moSearchBarActive}`}>
             <div className='box'>
                 <div className='search_bar'>
                     <input value={inputSearch} onChange={onChangeInput} onKeyDown={onKeyDownEnter} placeholder='해수욕장 이름을 입력하세요.' />

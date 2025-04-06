@@ -1,3 +1,4 @@
+.SearchFunc{scrollbar-width:none;}
 .SearchFunc .box{height:50px; border-radius:30px; background:#fff; transition:0.3s;}
 
 .SearchFunc .search_bar{position:sticky; top:0; display:flex; justify-content:space-between; align-items:center; gap:var(--space-sm); width:100%; padding:var(--space-xsm) var(--space-sm); border:2px solid #eee; border-radius:30px; background:#fff; transition:0.3s;}

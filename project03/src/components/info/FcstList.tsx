@@ -34,7 +34,7 @@ const FcstList=()=>{
         <ul className='fcst_list fs_md'>
             {weatherInfo.T1H.map((item, idx)=>(
                 <li key={idx}>
-                    <p>{getTime(idx)}</p>
+                    <p className='time'>{getTime(idx)}</p>
                     <div className='weather'>
                         <img src={getWeatherIcon(weatherInfo.PTY[idx], weatherInfo.SKY[idx], currentHour+idx)} alt="날씨 아이콘" />
                         <ul>

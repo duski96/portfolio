@@ -3,14 +3,16 @@ import { BeachInfoType } from "./SearchFunc";
 
 type Props={
     filteredList: BeachInfoType[];
+    onClickCancel: ()=>void;
 }
 
-const List=({filteredList}: Props)=>{
+const List=({filteredList, onClickCancel}: Props)=>{
     const nav=useNavigate();
 
     // 검색 리스트 클릭
     const onClickList=(idNum: number)=>{
         nav(`/info/${idNum}`);
+        onClickCancel();
     }
 
     return (

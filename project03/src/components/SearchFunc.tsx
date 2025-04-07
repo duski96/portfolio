@@ -108,7 +108,7 @@ const SearchFunc=()=>{
         
         if(winWidth < 480){
             setMoSearchBarActive(false);
-            funcBox.classList.remove('stretch')
+            funcBox.classList.remove('stretch');
         }
     }
 
@@ -149,7 +149,7 @@ const SearchFunc=()=>{
                         <button onClick={onClickCancel} className='cancel'><img src={cancelIcon} alt="취소 아이콘" /></button>
                     </div>
                 </div>
-                <List filteredList={filteredList} />
+                <List filteredList={filteredList} onClickCancel={onClickCancel} />
             </div>
         </article>
     );

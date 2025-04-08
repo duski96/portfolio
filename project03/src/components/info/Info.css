@@ -34,6 +34,26 @@
 .InfoBox .Map .txt{font-size:1.25rem; font-weight:500;}
 .InfoBox .Map .coordinate{display:flex; gap:var(--space-sm); margin:var(--space-sm) 0 0 0;}
 
+.ScrollIcon{position:fixed; bottom:calc(var(--space-sm)*3 + 8px); left:calc((100vw - 1000px)/2 - 16px); text-align:center; transition:0.3s;}
+.ScrollIcon .arrow{position:relative;}
+.ScrollIcon .txt{writing-mode:vertical-lr;}
+.ScrollIcon .arrow b{position:absolute; left:50%; transform:translateX(-50%); animation:scroll_arrow ease-in-out 1s infinite;}
+
+@keyframes scroll_arrow {
+    0% {top:0;}
+    30% {top:var(--space-sm)}
+    40% {top:0}
+    60% {top:var(--space-sm)}
+    70% {top:0}
+    100% {top:0;}
+}
+
+.ScrollIcon.isNight_true{color:#fff;}
+.ScrollIcon.hidden{visibility:hidden; opacity:0;}
+
+@media screen and (max-width:1024px){
+    .ScrollIcon{display:none;}
+}
 
 
 @media screen and (max-width:768px){

@@ -10,11 +10,7 @@ const baseDate=`${year}${month}${date}`;
 // api의 base_time에 여유를 두기 위해 1시간 빼기
 // 단 0시는 그대로 반영
 const hour=`0${new Date().getHours()-1 < 0 ? 0 : new Date().getHours()-1}`.slice(-2);
-console.log(hour);
 const baseTime=`${hour}00`;
-
-const test=new Date().getDate()-1;
-console.log(test);
 
 // param은 url의 파라미터를 받아와야 하므로 따로 전달받음
 // 초단기예보 api

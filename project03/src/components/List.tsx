@@ -7,11 +7,13 @@ type Props={
 }
 
 const List=({filteredList, onClickCancel}: Props)=>{
+    const prevState={state:{prev:true}};
+
     const nav=useNavigate();
 
     // 검색 리스트 클릭
     const onClickList=(idNum: number)=>{
-        nav(`/info/${idNum}`);
+        nav(`/info/${idNum}`, prevState);
         onClickCancel();
     }
 

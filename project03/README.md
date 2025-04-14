@@ -1,54 +1,35 @@
-# React + TypeScript + Vite
+# 바다의 오늘
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Image](https://github.com/user-attachments/assets/14c6faf2-9906-4b29-bf9c-007247c071b5)
 
-Currently, two official plugins are available:
+해변의 기상 API 정보를 활용해 검색한 해변의 날씨 예보 페이지를 만든 React 프로젝트입니다. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+공공 API 활용 방법과 TypeScript 사용에 익숙해지기 위해 진행한 프로젝트입니다.
 
-## Expanding the ESLint configuration
+Link : https://mini-used-car.vercel.app/
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Development period
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+2025.04.01 ~ 2025.04.06
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Used Skills
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Frontend : HTML5, CSS3, JavaScript, TypeScript, React, JSON
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Config : Vite
+
+## Deploy
+
+Frontend (React) : Vercel
+
+## Advanced Feature
+
+### 메인 페이지
+
+  * **해변 검색 :** 메인 페이지에 구현된 기능으로 입력한 단어를 포함한 해변 리스트가 출력됩니다. 띄어쓰기가 검색 결과에 영향을 주지 않으며, 입력값이 공백일 경우 검색이 허용되지 않습니다.
+
+### INFO 페이지
+
+  * **뒤로가기 버튼 :** 메인 페이지를 거치지 않고 URL을 입력해 접속했을 경우 홈 버튼과 같은 기능을 하도록 설정했습니다.
+
+  * **아이콘 :** 접속 시간에 따라 낮에는 해가 포함된 이미지, 밤에는 달이 포함된 이미지가 표시됩니다.

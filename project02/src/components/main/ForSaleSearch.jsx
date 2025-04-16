@@ -29,18 +29,8 @@ const ForSaleSearch=({onClickSeries, onChangeSelect, onChangeChk, onClickSubmit}
         {id:7, value:'roadster', content:forSaleSearchImg08}
     ];
 
-    let slImg=document.querySelectorAll('.search .swiper-slide img');
-    
-    const slImgInit=()=>{
-        slImg.forEach((v)=>{
-            v.classList.remove('selected');
-        });
-    }
-
     const onClickSeriesHandler=(e)=>{
-        slImgInit();
-        e.target.classList.add('selected');
-        onClickSeries(e); // 검색 조건 업데이트
+        onClickSeries(e); // 모델 선택
     }
 
     // 연식은 현재 연도를 기준으로 10년 전 까지 선택 가능
@@ -62,21 +52,15 @@ const ForSaleSearch=({onClickSeries, onChangeSelect, onChangeChk, onClickSubmit}
         onChangeChk(e); // 검색 조건 업데이트
     }
 
-    // 
+    // 검색 버튼
     const onClickSubmitHandler=(e)=>{
-        slImgInit(); // swiper slide 체크 해제
-
-        let selects=document.querySelectorAll('select');
-        selects.forEach((v)=>{
-            v.value=v.children[0].innerText; // select box 초기화
-        });
-        onClickSubmit(e); // 검색 조건에 따른 필터링 진행 후 검색 조건 초기화
+        onClickSubmit(e); // 검색 조건에 따른 필터링 진행
         setIsChked(false); // checkbox 초기화
     }
 
     return (
         <>
-            <div className='search mb_lg'>
+            <div className='search mb_sm'>
                 <div className='swiper_area mb_md'>
                     <Swiper
                         modules={[Navigation]}
@@ -98,13 +82,13 @@ const ForSaleSearch=({onClickSeries, onChangeSelect, onChangeChk, onClickSubmit}
                 <ul className='select_area'>
                     <li>
                         <select name={'year'} onChange={onChangeSelectHandler}>
-                            <option>연식</option>
+                            <option value="">연식</option>
                             {yearSelect.map((item)=>(<option key={item.id} value={item.value}>{item.content}</option>))}
                         </select>
                     </li>
                     <li>
                         <select name={'price'} onChange={onChangeSelectHandler}>
-                            <option>가격</option>
+                            <option value="">가격</option>
                             <option value="2000">2,000만원 이하</option>
                             <option value="4000">4,000만원 이하</option>
                             <option value="6000">6,000만원 이하</option>
@@ -113,7 +97,7 @@ const ForSaleSearch=({onClickSeries, onChangeSelect, onChangeChk, onClickSubmit}
                     </li>
                     <li>
                         <select name={'mileage'} onChange={onChangeSelectHandler}>
-                            <option>주행거리</option>
+                            <option value="">주행거리</option>
                             <option value="1000">1,000km 이하</option>
                             <option value="5000">5,000km 이하</option>
                             <option value="10000">10,000km 이하</option>
@@ -126,7 +110,7 @@ const ForSaleSearch=({onClickSeries, onChangeSelect, onChangeChk, onClickSubmit}
                     </li>
                     <li>
                         <select name='fuel' onChange={onChangeSelectHandler}>
-                            <option>연료</option>
+                            <option value="">연료</option>
                             <option value="gasoline">가솔린</option>
                             <option value="disel">디젤</option>
                             <option value="electric">전기</option>
@@ -136,7 +120,7 @@ const ForSaleSearch=({onClickSeries, onChangeSelect, onChangeChk, onClickSubmit}
                     </li>                        
                     <li>
                         <select name={'spot'} onChange={onChangeSelectHandler}>
-                            <option>지역</option>
+                            <option value="">지역</option>
                             <option value="spot01">서울</option>
                             <option value="spot02">경기/인천</option>
                             <option value="spot03">충청/대전</option>

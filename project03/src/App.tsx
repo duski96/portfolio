@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useContext } from 'react'
+import { useState, createContext, useContext } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Info from './pages/Info';
@@ -22,8 +22,8 @@ type WeatherInfoContextType={
 }
 
 // 검색 후 선택 목록과 기상 API를 Context로 만들어 사용
-const WeatherInfoContext=React.createContext<WeatherInfoContextType | null>(null);
-const LoadedDataContext=React.createContext<LoadedDataContextType | null>(null);
+const WeatherInfoContext=createContext<WeatherInfoContextType | null>(null);
+const LoadedDataContext=createContext<LoadedDataContextType | null>(null);
 
 // useContext로 호출할 경우 null 타입을 반환할 수 있기 때문에 custom Hook을 만들어 올바른 타입으로 반환
 export function useLoadedDataContext(){

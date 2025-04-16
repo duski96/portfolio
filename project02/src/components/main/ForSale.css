@@ -24,6 +24,13 @@
 .ForSale .search ul.select_area li:last-child > div{flex-shrink:0;}
 .ForSale .search ul.select_area li:last-child button{flex-shrink:2; width:100%; height:35px; border:0; border-radius:5px; background:#FFA500; cursor:pointer;}
 
+.ForSale .condition{display:flex; justify-content:space-between; align-items:center; padding:var(--space-sm); min-height:36px; border:1px solid #ddd; border-radius:5px;}
+.ForSale .condition button{margin:0; padding:var(--space-xsm); border:1px solid #ddd; border-radius:5px; background:#eee; cursor:pointer;}
+.ForSale .condition ul.condition_list{display:flex; flex-wrap:wrap; gap:var(--space-sm); font-size:var(--font-xsm);}
+.ForSale .condition ul.condition_list li{padding:var(--space-xsm) var(--space-sm); border-radius:30px; color:#fff; background:#333;}
+.ForSale .condition ul.condition_list li span{display:inline-block; margin-left:2px; cursor:pointer;}
+
+
 .ForSale .filtered_list .no_result{display:flex; justify-content:center; align-items:center; width:100%; height:500px; text-align:center; background:#fff;}
 .ForSale .filtered_list .info{border:1px solid #333; border-radius:5px; text-align:center; overflow:hidden;}
 .ForSale .filtered_list .info .function{display:flex; justify-content:flex-end; padding:var(--space-sm);}

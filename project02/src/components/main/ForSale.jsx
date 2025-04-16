@@ -1,8 +1,9 @@
 import './ForSale.css';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { MockDataContext } from '../../App';
 
 import ForSaleSearch from './ForSaleSearch';
+import ForSaleCondition from './ForSaleCondition';
 import ForSaleList from './ForSaleList';
 
 const initCondition={
@@ -12,7 +13,7 @@ const initCondition={
     mileage:null,
     fuel:null,
     spot:null,
-    nextPlus:null
+    nextPlus:false
 }
 
 const ForSale=()=>{
@@ -30,8 +31,20 @@ const ForSale=()=>{
         });
     }
 
+    // 시리즈 선택 및 취소시 동작
+    useEffect(()=>{
+        let slImg=document.querySelectorAll('.search .swiper-slide img');
+        for(const item of slImg){
+            item.alt===condition.series ? item.classList.add('selected') : item.classList.remove('selected');
+        }
+    }, [condition.series]);
+
     // 셀렉트 박스 클릭 시 검색 조건 업데이트
     const onChangeSelect=(e)=>{
+        e.target.value==='' ? setCondition({
+            ...condition,
+            [e.target.name]:null
+        }) :
         setCondition({
             ...condition,
             [e.target.name]:e.target.value
@@ -42,7 +55,7 @@ const ForSale=()=>{
     const onChangeChk=(e)=>{
         setCondition({
             ...condition,
-            [e.target.name]:!e.target[e.target.name]
+            [e.target.name]:!condition[e.target.name]
         });
     }
 
@@ -80,9 +93,6 @@ const ForSale=()=>{
             }
         });
 
-        // 검색 조건 초기화
-        setCondition(initCondition);
-
         setFilteredList(filteredData);
     }
 
@@ -91,6 +101,7 @@ const ForSale=()=>{
             <div className='inner_1280'>
                 <h3 className='fs_lg mb_lg'>나에게 꼭 맞는 MINI를 찾아보세요.</h3>
                 <ForSaleSearch onClickSeries={onClickSeries} onChangeSelect={onChangeSelect} onChangeChk={onChangeChk} onClickSubmit={onClickSubmit} />
+                <ForSaleCondition condition={condition} setCondition={setCondition} />
                 <ForSaleList filteredList={filteredList}/>
             </div>
         </section>

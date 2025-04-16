@@ -3,8 +3,7 @@ import { MockDataContext, MockDataDispatchContext } from '../../App';
 import './InterestList.css';
 
 import { getMiniImage } from '../../util/get-mini-image.js';
-import { replaceFuelTxt } from '../../util/replace-fuel-txt.js';
-import { replaceSpotTxt } from '../../util/replace-spot-txt.js';
+import { replaceFuelTxt, replaceSpotTxt } from '../../util/replace-txt.js';
 
 const InterestList=()=>{
     const {mockData, interestId}=useContext(MockDataContext);

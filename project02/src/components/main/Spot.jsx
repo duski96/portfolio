@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './Spot.css';
 import mapImg from '../../assets/main/spot_img01.png';
 
-import {replaceSpotTxt} from '../../util/replace-spot-txt.js';
+import {replaceSpotTxt} from '../../util/replace-txt.js';
 
 const spotList=[
     {id:0, spot:'spot01', shop:['양재', '가양', '성동']},

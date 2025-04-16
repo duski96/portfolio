@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
@@ -6,8 +6,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { MockDataContext, MockDataDispatchContext } from '../../App';
 import { getMiniImage } from '../../util/get-mini-image.js';
-import { replaceFuelTxt } from '../../util/replace-fuel-txt.js';
-import { replaceSpotTxt } from '../../util/replace-spot-txt.js';
+import { replaceFuelTxt, replaceSpotTxt } from '../../util/replace-txt.js';
 import heart from './../../assets/main/forsale_heart.png';
 
 const ForSaleList = ({ filteredList }) => {

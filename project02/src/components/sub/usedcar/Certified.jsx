@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { MockDataContext, MockDataDispatchContext } from '../../../App';
 import heart from '../../../assets/main/forsale_heart.png';
 import { getMiniImage } from '../../../util/get-mini-image';
-import { replaceFuelTxt } from '../../../util/replace-fuel-txt';
-import { replaceSpotTxt } from '../../../util/replace-spot-txt';
+import { replaceFuelTxt, replaceSpotTxt } from '../../../util/replace-txt';
 
 const Certified=()=>{
     // 전체 매물 불러옴

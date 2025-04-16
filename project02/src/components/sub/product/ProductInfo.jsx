@@ -8,8 +8,7 @@ import Fancybox from './Fancybox.jsx';
 import { Link } from 'react-router-dom';
 
 import { getMiniImage } from '../../../util/get-mini-image.js';
-import { replaceFuelTxt } from '../../../util/replace-fuel-txt.js';
-import { replaceSpotTxt } from '../../../util/replace-spot-txt.js';
+import { replaceFuelTxt, replaceSpotTxt, replaceModelTxt } from '../../../util/replace-txt.js';
 
 import tmpImg01 from '../../../assets/sub/detail_tmp01.jpg';
 import tmpImg02 from '../../../assets/sub/detail_tmp02.jpg';
@@ -82,7 +81,7 @@ const ProductInfo=({currentData})=>{
             </Fancybox>
             <p className='go_to fs_sm NotoSansKR'>
                 <Link to={`/model/${currentData.series}`}> 
-                    {currentData.series.toUpperCase()} 모델 알아보기
+                    {replaceModelTxt(currentData.series)} 모델 알아보기
                 </Link>    
             </p>
         </article>

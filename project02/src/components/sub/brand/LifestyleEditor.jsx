@@ -24,23 +24,21 @@ const LifestyleEditor=()=>{
         default : break;
     }
 
-    const {loginUserInfo}=useContext(LoginUserInfoContext);
+    const {loginUserInit, loginUserInfo, setLoginUserInfo}=useContext(LoginUserInfoContext);
 
     const nav=useNavigate();
 
     // 로그인 하지 않은 유저가 접근할 때
-    useEffect(()=>{
-        if(!loginUserInfo.isLogin){
-            if(confirm('로그인이 필요합니다!')){
-                nav('/login', {state:{from:loc}});
-                return;
-            }
-            else{
-                nav('/brand/lifestyle');
-                return;
-            }
+    if(!loginUserInfo.isLogin){
+        if(confirm('로그인이 필요합니다!')){
+            nav('/login', {state:{from:loc}});
+            return;
         }
-    });
+        else{
+            nav('/brand/lifestyle');
+            return;
+        }
+    }
 
     // input 기본 값.
     // 로그인한 유저의 정보와 게시판 이름까지 서버에 전달해 적절한 DB에 저장
@@ -124,8 +122,27 @@ const LifestyleEditor=()=>{
         }
     }
 
+    // 섹션 hidden 여부 확인
+    const [isHidden, setIsHidden]=useState(true);
+
+    // jwt 토큰 유효성 검사 실행
+    axios.get('api/auth/verify', {withCredentials:true}).then((res)=>{
+        if(!res){
+            alert('토큰이 유효하지 않습니다. 다시 로그인해주세요.');
+            sessionStorage.removeItem('loginUserInfo');
+            setLoginUserInfo(loginUserInit);
+            nav('/login', {replace:true});
+        }
+        else{
+            setIsHidden(false);
+        }
+    }).catch(()=>{
+        alert('서버와 통신할 수 없습니다.');
+        nav('/', {replace:true});
+    });
+
     return (
-        <section className='BrandContent Lifestyle LifestyleEditor NotoSansKR'>
+        <section className={`BrandContent Lifestyle LifestyleEditor NotoSansKR hidden_${isHidden}`}>
             <div className='inner_1280'>
                 <h4 className='page_title fs_lg mb_lg'>{`${title}`}</h4>
                 <form>

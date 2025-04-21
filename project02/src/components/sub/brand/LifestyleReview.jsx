@@ -1,10 +1,14 @@
 import profileImg from '../../../assets/sub/profile_default.jpg';
 import { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { LoginUserInfoContext } from '../../../App';
 import axios from 'axios';
 
 const LifestyleReview=({visible})=>{
-    const {loginUserInfo}=useContext(LoginUserInfoContext);
+    const nav=useNavigate();
+
+    // 로그인 유저 Context
+    const {loginUserInit, loginUserInfo, setLoginUserInfo}=useContext(LoginUserInfoContext);
 
     // 리뷰 데이터를 저장할 state
     const [reviewData, setReviewData]=useState();
@@ -40,16 +44,29 @@ const LifestyleReview=({visible})=>{
     const onClickDelete=(e)=>{
         // 삭제 전 최종 확인
         if(window.confirm('리뷰를 삭제하시겠습니까?')){
-            // 확인 시 게시판 삭제 api 호출
-            axios.get('/api/board/delete', {params:{id:e.target.dataset.itemId, userId:e.target.dataset.userId, board:'review'}});
+            axios.get('/api/auth/verify', {withCredentials:true}).then((res)=>{
+                if(!res){
+                    alert('토큰이 유효하지 않습니다. 다시 로그인해주세요.');
+                    sessionStorage.removeItem('loginUserInfo');
+                    setLoginUserInfo(loginUserInit);
+                    nav('/login', {replace:true});
+                }
+                else{
+                    // 확인 시 게시판 삭제 api 호출
+                    axios.get('/api/board/delete', {params:{id:e.target.dataset.itemId, userId:e.target.dataset.userId, board:'review'}});
 
-            // 삭제 알림
-            alert('리뷰가 삭제되었습니다.');
+                    // 삭제 알림
+                    alert('리뷰가 삭제되었습니다.');
 
-            // 삭제 후 리뷰 리스트 다시 렌더링. 비동기 호출 방지를 위해 리스트 삭제 후 1초 후 실행
-            setTimeout(()=>{
-                ListLoading();
-            }, 1000);
+                    // 삭제 후 리뷰 리스트 다시 렌더링. 비동기 호출 방지를 위해 리스트 삭제 후 1초 후 실행
+                    setTimeout(()=>{
+                        ListLoading();
+                    }, 1000);
+                }
+            }).catch(()=>{
+                alert('서버와 통신할 수 없습니다.');
+                return;
+            });
         }
         else{
             // 취소 시 클릭 이벤트 종료

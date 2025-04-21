@@ -1,13 +1,19 @@
 import './Profile.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { LoginUserInfoContext } from '../../../App';
 
 import profileImg from '../../../assets/sub/profile_default.jpg';
 
-const Profile=({loginUserInfo, setLoginUserInfo})=>{
+const Profile=()=>{
+    // 로그인 유저 Context 사용
+    const {loginUserInit, loginUserInfo, setLoginUserInfo}=useContext(LoginUserInfoContext);
+
     // 로그인한 유저의 정보
     const {userId, nickname, email, car}=loginUserInfo;
+
+    const nav=useNavigate();
 
     // 업데이트할 정보의 state
     const [updateProfile, setUpdateProfile]=useState({
@@ -69,10 +75,27 @@ const Profile=({loginUserInfo, setLoginUserInfo})=>{
         setPwChk(false);
     }
 
-    const nav=useNavigate();
+    // 섹션 hidden 여부 확인
+    const [isHidden, setIsHidden]=useState(true);
+
+    // 개인 정보가 담긴 페이지이므로 jwt 토큰 유효성 검사 실행
+    axios.get('api/auth/verify', {withCredentials:true}).then((res)=>{
+        if(!res){
+            alert('토큰이 유효하지 않습니다. 다시 로그인해주세요.');
+            sessionStorage.removeItem('loginUserInfo');
+            setLoginUserInfo(loginUserInit);
+            nav('/login', {replace:true});
+        }
+        else{
+            setIsHidden(false);
+        }
+    }).catch(()=>{
+        alert('서버와 통신할 수 없습니다.');
+        nav('/', {replace:true});
+    });
 
     return (
-        <section className='Profile'>
+        <section className={`Profile hidden_${isHidden}`}>
             <div className='inner_1000 NotoSansKR'>
                 <h4 className='fs_lg mb_sm'><b>회원정보</b></h4>
                 <p className='fs_sm mb_lg'>회원 정보를 확인하고 일부 정보를 수정할 수 있습니다.</p>

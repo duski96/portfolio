@@ -5,7 +5,7 @@ import axios from "axios";
 
 const LifestyleViewer=()=>{
     // 로그인 여부 확인 후 수정 및 삭제 가능
-    const {loginUserInfo}=useContext(LoginUserInfoContext);
+    const {loginUserInit, loginUserInfo, setLoginUserInfo}=useContext(LoginUserInfoContext);
     
     const nav=useNavigate();
 
@@ -52,52 +52,78 @@ const LifestyleViewer=()=>{
 
     // 수정 버튼
     const onClickEdit=()=>{
-        // 로그인 하지 않으면 함수 종료
-        if(!loginUserInfo)
-            return;
-
-        // 작성자가 다르면 알림 표시 후 함수 종료
-        if(loginUserInfo.userId!==curData.user_id){
-            alert('수정 권한이 없습니다.');
-            return;
-        }
-        else{
-            // 확인 시 글 수정
-            if(window.confirm('작성한 글을 수정하시겠습니까?')){
-                nav(`/brand/lifestyle/${boardName}/editor`, {state:{value:curData}});
+        axios.get('/api/auth/verify', {withCredentials:true}).then((res)=>{
+            if(!res){
+                alert('토큰이 유효하지 않습니다. 다시 로그인해주세요.');
+                sessionStorage.removeItem('loginUserInfo');
+                setLoginUserInfo(loginUserInit);
+                nav('/login', {replace:true});
             }
             else{
-                //취소 시 함수 종료
-                return;
+                // 로그인 하지 않으면 함수 종료
+                if(!loginUserInfo)
+                    return;
+
+                // 작성자가 다르면 알림 표시 후 함수 종료
+                if(loginUserInfo.userId!==curData.user_id){
+                    alert('수정 권한이 없습니다.');
+                    return;
+                }
+                else{
+                    // 확인 시 글 수정
+                    if(window.confirm('작성한 글을 수정하시겠습니까?')){
+                        nav(`/brand/lifestyle/${boardName}/editor`, {state:{value:curData}});
+                    }
+                    else{
+                        //취소 시 함수 종료
+                        return;
+                    }
+                }
             }
-        }
+        }).catch(()=>{
+            alert('서버와 통신할 수 없습니다.');
+            return;
+        });
     }
 
     // 삭제 버튼
     const onClickDelete=()=>{
-        if(!loginUserInfo)
-            return;
-
-        if(loginUserInfo.userId!==curData.user_id){
-            alert('삭제 권한이 없습니다.');
-            return;
-        }
-        else{
-            // 확인 시 글 삭제
-            if(window.confirm('작성한 글을 삭제 하시겠습니까?')){
-                axios.get('/api/board/delete', {params:{id:curData.id, userId:curData.user_id, board:boardName}})
-                .then(()=>{
-                    alert('삭제되었습니다.');
-                    nav(`/brand/lifestyle/${boardName}`)
-                }).catch(()=>{
-                    alert('삭제할 수 없습니다.')
-                });
+        axios.get('/api/auth/verify', {withCredentials:true}).then((res)=>{
+            if(!res){
+                alert('토큰이 유효하지 않습니다. 다시 로그인해주세요.');
+                sessionStorage.removeItem('loginUserInfo');
+                setLoginUserInfo(loginUserInit);
+                nav('/login', {replace:true});
             }
             else{
-                //취소 시 함수 종료
-                return;
+                if(!loginUserInfo)
+                    return;
+        
+                if(loginUserInfo.userId!==curData.user_id){
+                    alert('삭제 권한이 없습니다.');
+                    return;
+                }
+                else{
+                    // 확인 시 글 삭제
+                    if(window.confirm('작성한 글을 삭제 하시겠습니까?')){
+                        axios.get('/api/board/delete', {params:{id:curData.id, userId:curData.user_id, board:boardName}})
+                        .then(()=>{
+                            alert('삭제되었습니다.');
+                            nav(`/brand/lifestyle/${boardName}`)
+                        }).catch(()=>{
+                            alert('삭제할 수 없습니다.')
+                        });
+                    }
+                    else{
+                        //취소 시 함수 종료
+                        return;
+                    }
+                }
             }
-        }
+        }).catch(()=>{
+            alert('서버와 통신할 수 없습니다.');
+            return;
+        });
     }
 
     return(

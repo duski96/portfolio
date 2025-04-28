@@ -46,13 +46,18 @@ const LoginArea=()=>{
         });
     }
 
+    const onKeyDown=(e)=>{
+        if(e.keyCode===13)
+            onClickLogin();
+    }
+
     return (
         <section className="LoginArea NotoSansKR">
             <div className="inner_1280">
                 <div className='login_box'>
                     <h2 className='fs_xlg mb_xlg'><b>Login</b></h2>
-                    <input type="text" placeholder='ID' value={inputId} onChange={onChangeId}/>
-                    <input type="password" placeholder='PW' value={inputPw} onChange={onChangePw}/>
+                    <input type="text" placeholder='ID' value={inputId} onChange={onChangeId} />
+                    <input type="password" placeholder='PW' value={inputPw} onChange={onChangePw} onKeyDown={onKeyDown} />
                     <button type="button" className='fs_md mb_sm' onClick={onClickLogin}>로그인</button>
                     <ul className='service'>
                         <li><b><Link to='/register'>회원가입</Link></b></li>

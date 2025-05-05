@@ -1,4 +1,4 @@
-# MINI USER CAR NEXT
+# MINI USED CAR NEXT
 
 ![Image](https://github.com/user-attachments/assets/99309a4d-1ce3-4c88-b841-6c33b254a56b)
 

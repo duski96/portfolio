@@ -33,3 +33,8 @@ Frontend (React) : Vercel
   * **뒤로가기 버튼 :** 메인 페이지를 거치지 않고 URL을 입력해 접속했을 경우 홈 버튼과 같은 기능을 하도록 설정했습니다.
 
   * **아이콘 :** 접속 시간에 따라 낮에는 해가 포함된 이미지, 밤에는 달이 포함된 이미지가 표시됩니다.
+
+
+## Architecture
+
+![Image](https://github.com/user-attachments/assets/5106c960-905c-482c-9e83-a4f26879338b)

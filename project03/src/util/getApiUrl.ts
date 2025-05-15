@@ -1,15 +1,16 @@
 // 숫자를 파라미터로 받는 함수 타입 지정
 type getApiUrlType=(value: number)=>string;
 
-// api url에 사용할 변수 생성
-const year=new Date().getFullYear().toString();
-const month=`0${new Date().getMonth()+1}`.slice(-2);
-const date=`0${new Date().getDate()}`.slice(-2);
-const baseDate=`${year}${month}${date}`;
+// baseTime이 0000일 경우 오류가 발생하므로 시간 보정 필요 (1시간 전 데이터 활용)
+const curTime=new Date();
+const oneHourAgo=new Date(curTime.getTime()-60*60*1000);
 
-// api의 base_time에 여유를 두기 위해 1시간 빼기
-// 단 0시는 그대로 반영
-const hour=`0${new Date().getHours()-1 < 0 ? 0 : new Date().getHours()-1}`.slice(-2);
+// api url에 사용할 변수 생성
+const year=oneHourAgo.getFullYear().toString();
+const month=`0${oneHourAgo.getMonth()+1}`.slice(-2);
+const date=`0${oneHourAgo.getDate()}`.slice(-2);
+const baseDate=`${year}${month}${date}`;
+const hour=`0${oneHourAgo.getHours()}`.slice(-2);
 const baseTime=`${hour}00`;
 
 // param은 url의 파라미터를 받아와야 하므로 따로 전달받음
@@ -22,7 +23,7 @@ export const getUltraSrtFcstApiUrl: getApiUrlType=(param)=>{
 
 // 파고, 수온 조회 api에 사용할 변수 생성
 const minute=`0${new Date().getMinutes()}`.slice(-2);
-const searchTime=`${year}${month}${date}${hour}${minute}`
+const searchTime=`${year}${month}${date}${hour}${minute}`;
 
 // 파고 조회 api
 export const getWhBuoyApiUrl: getApiUrlType=(param)=>{

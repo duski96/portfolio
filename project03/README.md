@@ -6,7 +6,7 @@
 
 공공 API 활용 방법과 TypeScript 사용에 익숙해지기 위해 진행한 프로젝트입니다.
 
-Link : https://mini-used-car.vercel.app/
+Link : https://beach-weather-forecast.vercel.app/
 
 ## Development period
 

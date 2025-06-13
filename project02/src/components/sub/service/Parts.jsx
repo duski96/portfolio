@@ -10,7 +10,7 @@ const Parts=()=>{
     });
 
     return (
-        <section className='Service Parts NotoSansKR'>
+        <section className='ServiceContent Parts NotoSansKR'>
             <div className='inner_1280'>
                 <article>
                     <h4 className='fs_lg mb_xsm'><b>미니 파츠</b></h4>

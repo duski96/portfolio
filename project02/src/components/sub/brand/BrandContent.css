@@ -32,6 +32,9 @@
 .Lifestyle .post_list li.post_item{margin-bottom:var(--space-md);}
 .Lifestyle .post_list li.post_item:last-child{margin-bottom:0;}
 .Lifestyle .post_list .car{color:#999;}
+.Lifestyle .post_list li.post_item .write_info{display:flex; justify-content:space-between;}
+.Lifestyle .post_list li.post_item .write_info .user_info{display:flex; gap:var(--space-xsm);}
+.Lifestyle .post_list li.post_item .write_info .date{color:#999;}
 
 @media screen and (max-width:1024px){
     .Lifestyle .welcome::after{display:none;}

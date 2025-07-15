@@ -83,8 +83,9 @@ const LifestyleReview=({visible})=>{
                             <img src={profileImg} />
                         </div>
                         <ul className='info'>
-                            <li><span className='ninckname'>{item.nickname}</span> <span className='car'>{item.car}</span></li>
+                            <li className='mb_xsm'><span className='ninckname'>{item.nickname}</span> <span className='car'>{item.car}</span></li>
                             <li className='mb_xsm'><span className='rate'>{'★'.repeat(item.rate)}</span></li>
+                            <li><p className='date mb_sm'>{item.created_date}</p></li>
                             <li><p className='content'>{item.content}</p></li>
                         </ul>
                     </div>

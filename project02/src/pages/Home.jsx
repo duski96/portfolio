@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Main from '../components/main/Main';
 import Warranty from '../components/main/Warranty';
 import ForSale from '../components/main/ForSale';
-import TradeIn from '../components/main/TradeIn';
+import Community from '../components/main/Community';
 import Spot from '../components/main/Spot';
 import QuickMenu from '../components/QuickMenu';
 import Footer from '../components/Footer';
@@ -35,7 +35,7 @@ const Home=()=>{
             <Main />
             <Warranty />
             <ForSale />
-            <TradeIn />
+            <Community />
             <Spot />
             <QuickMenu />
             <Footer />

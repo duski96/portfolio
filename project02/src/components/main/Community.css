@@ -1,0 +1,14 @@
+.Community{padding:var(--space-xlg) 0; text-align:center; background:url(../../assets/main/community_img01.jpg) no-repeat center bottom/cover; word-break:keep-all;}
+
+.Community .txt_area{padding:var(--space-xlg) var(--space-sm); border-radius:5px; background:rgba(255,255,255,0.7);}
+.Community .txt_area h2{position:relative; margin-bottom:96px;}
+.Community .txt_area h2::after{content:""; position:absolute; left:50%; top:100%; transform:translateX(-50%); display:block; width:1px; height:72px; background:#333;}
+
+.Community p.arrow a{position:relative; display:block; width:fit-content; margin:0 auto; padding-right:calc(var(--space-sm) + 2px); font-weight:500; box-sizing:border-box;}
+.Community p.arrow a::after{content:""; position:absolute; top:50%; right:2px; display:block; width:12px; height:12px; border-left:2px solid #333; border-top:2px solid #333; transform:translateY(calc(-50%)) rotate(135deg); transition:0.3s;}
+.Community p.arrow a:hover::after{right:-16px;}
+
+@media screen and (max-width:480px){
+    .Community h3{font-size:calc(var(--font-lg)*0.9);}
+    .Community .txt_area h2{line-height:1.1; font-size:calc(var(--font-xlg)*0.9);}
+}
